@@ -1,6 +1,6 @@
-import Inicio from './src/pages/Inicio';
+import StackRoutes from "./src/routes/Stack.routes"
 
 export default function App() {
   return ( 
-   <Inicio />
+   <StackRoutes />
   )};
