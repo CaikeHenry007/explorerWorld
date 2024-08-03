@@ -65,6 +65,8 @@ export default function ModalLogin({closeLogin, visibleLogin, fazerLogin}) {
             <Text style={{fontFamily: "Bebas", fontSize: 30, padding: 3 }}>Login</Text>
             
           </TouchableOpacity>
+
+         
         </View>
         </View>
         </ImageBackground>
