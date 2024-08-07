@@ -4,7 +4,7 @@
     "slug": "explorerWorld",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./src/images/logobranco.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./src/images/logobranco.png",
@@ -16,12 +16,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/adaptive-icon.png",
-        "backgroundColor": "#ff00ff"
+        "foregroundImage": "./src/images/logobranco.png",
+        "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./src/assets/favicon.png"
+      "favicon": "./src/images/logobranco.png"
     },
     "plugins": [
       "expo-font"

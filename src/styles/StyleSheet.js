@@ -73,7 +73,6 @@ btntxt:{
   textAlign:'center',
   fontFamily: "Bebas", 
   fontSize: 25,
-
 },
 });
 export default styles;

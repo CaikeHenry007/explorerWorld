@@ -10,6 +10,7 @@ import AmericaSul from "../pages/AmericaSul";
 import Asia from "../pages/Asia";
 import Europa from "../pages/Europa";
 import Oceania from "../pages/Oceania";
+import EuaTeste from "../pages/EuaTeste";
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +61,11 @@ export default function StackRoutes() {
         <Stack.Screen
           name="Oceania"
           component={Oceania}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="EuaTeste"
+          component={EuaTeste}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
