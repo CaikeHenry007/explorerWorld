@@ -13,8 +13,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 
 import { LinearGradient } from "expo-linear-gradient";
-import {  useFonts } from "expo-font";
-
+import { useFonts } from "expo-font";
 
 const imagens = [
   {
@@ -57,8 +56,6 @@ const LARGURA_CONTAINER = width * 0.7;
 const ESPACO_CONTAINER = (width - LARGURA_CONTAINER) / 2;
 const ESPACO = 10;
 const ALTURA_BACKDROP = height * 0.95;
-
-
 
 function Backdrop({ scrollX }) {
   return (
@@ -112,12 +109,12 @@ export default function Home() {
   const navigation = useNavigation();
 
   const [font] = useFonts({
-    "Pacifico": require("../fonts/Pacifico-Regular.ttf"),
-    "Bebas": require("../fonts/Bebas.ttf"),
-    "Noto": require("../fonts/NotoSherif.ttf"),
-    "BonaNova": require("../fonts/BonaNovaItalic.ttf"),
-    "BonaNovaBold": require ("../fonts/BonaNovaBold.ttf")
-  })
+    Pacifico: require("../fonts/Pacifico-Regular.ttf"),
+    Bebas: require("../fonts/Bebas.ttf"),
+    Noto: require("../fonts/NotoSherif.ttf"),
+    BonaNova: require("../fonts/BonaNovaItalic.ttf"),
+    BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
+  });
   if (!font) {
     return null;
   }
@@ -168,7 +165,9 @@ export default function Home() {
                   }}
                 >
                   <Image source={item.source} style={styles.posterImage} />
-                  <Text style={{ fontSize: 22, fontFamily: "BonaNovaBold",   }}>{item.title}</Text>
+                  <Text style={{ fontSize: 22, fontFamily: "BonaNovaBold" }}>
+                    {item.title}
+                  </Text>
                 </Animated.View>
               </Pressable>
             </View>
