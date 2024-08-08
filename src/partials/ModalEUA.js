@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   Modal,
   FlatList,
+  Image,
+  Pressable,
 } from "react-native";
 import styles from "../styles/StyleSheet";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -57,7 +59,7 @@ export default function EuaModal({ visibleEua, closeEua }) {
                 </TouchableOpacity>
               </View>
               <View style={{}}>
-                <Text style={{ fontSize: 35, color: "#000000" }}>
+                <Text style={{ fontSize: 35, color: "#ffffff" }}>
                   Estados Unidos
                 </Text>
               </View>
@@ -72,26 +74,6 @@ export default function EuaModal({ visibleEua, closeEua }) {
               />
             </ImageBackground>
           </View>
-          <FlatList
-            data={places}
-            style={{ width: "100%", height: "50%" }}
-            horizontal={true}
-            keyExtractor={(item) => item}
-            renderItem={({ item }) => {
-              return (
-                <View
-                  style={{ height: "5900%", width: "60%", borderRadius: 20 }}
-                >
-                  <ImageBackground
-                    source={item.source}
-                    style={{ width: "100%", height: "100%" }}
-                  >
-                    <Text>{item.Text}</Text>
-                  </ImageBackground>
-                </View>
-              );
-            }}
-          />
         </View>
       </Modal>
     </View>

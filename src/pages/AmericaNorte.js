@@ -6,7 +6,7 @@ import {
   Image,
   FlatList,
 } from "react-native";
-import styles from "../styles/StyleSheet";
+import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
@@ -54,30 +54,14 @@ export default function AmericaNorte() {
   ];
 
   return (
-    <View style={{ flex: 1, alignItems: "center", backgroundColor: "#D5DADB" }}>
-      <View
-        style={{ height: "50%", width: "100%", backgroundColor: "#D5DADB" }}
-      >
+    <View style={stylesContinente.container}>
+      <View style={stylesContinente.topView}>
         <Image
           source={require("../images/americadonorte2.jpg")}
-          style={{
-            width: "100%",
-            height: "100%",
-            position: "absolute",
-            borderBottomLeftRadius: 40,
-            borderBottomRightRadius: 40,
-          }}
+          style={stylesContinente.topImage}
         />
 
-        <TouchableOpacity
-          style={{
-            backgroundColor: "black",
-            borderRadius: 20,
-            height: "10%",
-            width: "10%",
-          }}
-          onPress={() => navigation.navigate("Home")}
-        >
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons
             name="arrow-left-thick"
             size={35}
@@ -90,17 +74,7 @@ export default function AmericaNorte() {
           closeEua={() => setVisibleEua(false)}
         />
 
-        <Text
-          style={{
-            fontFamily: "BonaNovaBold",
-            textAlign: "center",
-            fontSize: 35,
-            margin: 20,
-            color: "white",
-          }}
-        >
-          America do Norte
-        </Text>
+        <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>
       </View>
 
       <FlatList
@@ -108,94 +82,35 @@ export default function AmericaNorte() {
         keyExtractor={(item) => item}
         renderItem={({ item }) => {
           return (
-            <View style={{ alignItems: "center" }}>
+            <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={() => setVisibleEua(true)}>
-                <View
-                  style={{
-                    backgroundColor: "white",
-                    height: 150,
-                    width: "95%",
-                    borderRadius: 20,
-                    margin: 18,
-                    flexDirection: "row",
-                  }}
-                >
+                <View style={stylesContinente.card}>
                   <Image
                     source={item.source}
-                    style={{
-                      width: "30%",
-                      height: "100%",
-                      borderRadius: 20,
-                    }}
+                    style={stylesContinente.imagePais}
                   />
-                  <View
-                    style={{
-                      flexDirection: "column",
-                      alignItems: "center",
-                      width: "70%",
-                      height: "100%",
-                    }}
-                  >
-                    <Text style={{ fontFamily: "BonaNovaBold", fontSize: 17 }}>
+                  <View style={stylesContinente.viewAlinhamento}>
+                    <Text style={stylesContinente.tituloPais}>
                       {item.title}
                     </Text>
-                    <Text style={{ fontFamily: "BonaNova", fontSize: 15 }}>
+                    <Text style={stylesContinente.subtituloPais}>
                       {item.subtitle}
                     </Text>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        height: "50%",
-                        width: "95%",
-                        alignItems: "flex-end",
-                      }}
-                    >
-                      <View
-                        style={{
-                          width: "45%",
-                          height: "40%",
-                          backgroundColor: "#5A7577",
-                          borderRadius: 20,
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexDirection: "row",
-                        }}
-                      >
+                    <View style={stylesContinente.viewIcones}>
+                      <View style={stylesContinente.icones}>
                         <MaterialCommunityIcons
                           name="account-group"
                           size={25}
                           color={"white"}
                         />
-                        <View style={{ width: "10%" }}></View>
-                        <Text
-                          style={{
-                            fontFamily: "Bebas",
-                            fontSize: 18,
-                            color: "#ffffff",
-                          }}
-                        >
+                        <View style={stylesContinente.espaco}></View>
+                        <Text style={stylesContinente.textosIcones}>
                           {item.populacao}
                         </Text>
                       </View>
-                      <View style={{ width: "10%" }}></View>
-                      <View
-                        style={{
-                          width: "45%",
-                          height: "40%",
-                          backgroundColor: "#5A7577",
-                          borderRadius: 20,
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexDirection: "row",
-                        }}
-                      >
-                        <Text
-                          style={{
-                            fontFamily: "Bebas",
-                            fontSize: 18,
-                            color: "#ffffff",
-                          }}
-                        >
+                      <View style={stylesContinente.espaco}></View>
+                      <View style={stylesContinente.icones}>
+                        <Text style={stylesContinente.textosIcones}>
                           {item.tamanho}
                         </Text>
                       </View>

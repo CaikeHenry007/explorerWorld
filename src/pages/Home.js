@@ -16,6 +16,8 @@ import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 
+import stylesHome from "../styles/StyleHome";
+
 const imagens = [
   {
     source: require("../images/americadonorte.jpg"),
@@ -51,26 +53,13 @@ const imagens = [
 ];
 
 const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
 
 const LARGURA_CONTAINER = width * 0.7;
 const ESPACO_CONTAINER = (width - LARGURA_CONTAINER) / 2;
-const ESPACO = 10;
-const ALTURA_BACKDROP = height * 0.95;
 
 function Backdrop({ scrollX }) {
   return (
-    <View
-      style={[
-        {
-          position: "absolute",
-          height: ALTURA_BACKDROP,
-          top: 0,
-          width: width,
-        },
-        StyleSheet.absoluteFillObject,
-      ]}
-    >
+    <View style={[StyleSheet.absoluteFillObject, stylesHome.containerBackdrop]}>
       {imagens.map((imagem, index) => {
         const inputRange = [
           (index - 1) * LARGURA_CONTAINER,
@@ -82,12 +71,14 @@ function Backdrop({ scrollX }) {
           inputRange,
           outputRange: [0, 1, 0],
         });
+
         return (
           <Animated.Image
             key={index}
             source={imagem.source}
             style={[
-              { width: width, height: ALTURA_BACKDROP, opacity },
+              { opacity },
+              stylesHome.imagemAnimada,
               StyleSheet.absoluteFillObject,
             ]}
           />
@@ -95,12 +86,7 @@ function Backdrop({ scrollX }) {
       })}
       <LinearGradient
         colors={["#00000000", "#5A7577"]}
-        style={{
-          width,
-          height: ALTURA_BACKDROP,
-          position: "absolute",
-          bottom: 0,
-        }}
+        style={stylesHome.gradiente}
       />
     </View>
   );
@@ -122,7 +108,7 @@ export default function Home() {
 
   const scrollX = React.useRef(new Animated.Value(0)).current;
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={stylesHome.container}>
       <StatusBar hidden />
       <Backdrop scrollX={scrollX} />
       <Animated.FlatList
@@ -138,7 +124,7 @@ export default function Home() {
           paddingHorizontal: ESPACO_CONTAINER,
         }}
         snapToInterval={LARGURA_CONTAINER}
-        decelerationRate={0}
+        decelerationRate={1}
         scrollEventThrottle={16}
         data={imagens}
         keyExtractor={(item) => item}
@@ -154,21 +140,18 @@ export default function Home() {
             outputRange: [0, -50, 0],
           });
           return (
-            <View style={{ width: LARGURA_CONTAINER }}>
+            <View style={stylesHome.containerFlatList}>
               <Pressable onPress={() => navigation.navigate(item.rota)}>
                 <Animated.View
-                  style={{
-                    marginHorizontal: ESPACO,
-                    padding: ESPACO,
-                    backgroundColor: "#fff",
-                    alignItems: "center",
-                    transform: [{ translateY: scrollY }],
-                  }}
+                  style={[
+                    {
+                      transform: [{ translateY: scrollY }],
+                    },
+                    stylesHome.moldura,
+                  ]}
                 >
-                  <Image source={item.source} style={styles.posterImage} />
-                  <Text style={{ fontSize: 22, fontFamily: "BonaNovaBold" }}>
-                    {item.title}
-                  </Text>
+                  <Image source={item.source} style={stylesHome.posterImage} />
+                  <Text style={stylesHome.texto}>{item.title}</Text>
                 </Animated.View>
               </Pressable>
             </View>
@@ -178,18 +161,3 @@ export default function Home() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#5A7577",
-    justifyContent: "center",
-  },
-  posterImage: {
-    width: "100%",
-    height: LARGURA_CONTAINER * 1.2,
-    resizeMode: "cover",
-    margin: 0,
-    marginBottom: 10,
-  },
-});
