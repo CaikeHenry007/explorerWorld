@@ -31,25 +31,39 @@ export default function Africa() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
-      title: "Estados Unidos",
-      subtitle: "4º Maior país do mundo",
-      populacao: "341 Mi",
-      tamanho: "9.834.000 km²",
+      source: require("../images/Africa/guine.jpg"),
+      title: "Guiné",
+      subtitle: "77º Maior país do mundo",
+      populacao: "13 Mi",
+      tamanho: "36.120 km²",
     },
     {
-      source: require("../images/canada.jpg"),
-      title: "Canadá",
-      subtitle: "2º Maior país do mundo",
-      populacao: "39 Mi",
-      tamanho: "9,985,000 km²",
+      source: require("../images/Africa/egito.jpg"),
+      title: "Egito",
+      subtitle: "29º Maior país do mundo",
+      populacao: "111 Mi",
+      tamanho: "1.002.000 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
-      title: "México",
-      subtitle: "14º Maior país do mundo",
-      populacao: "136 Mi",
-      tamanho: "1.973.000 km²",
+      source: require("../images/Africa/nigeria.jpg"),
+      title: "Nigéria",
+      subtitle: "31º Maior país do mundo",
+      populacao: "229 Mi",
+      tamanho: "923.768 km²",
+    },
+    {
+      source: require("../images/Africa/angola.jpg"),
+      title: "Angola",
+      subtitle: "22º Maior país do mundo",
+      populacao: "37 Mi",
+      tamanho: "1.247.000 km²",
+    },
+    {
+      source: require("../images/Africa/africadosul.jpg"),
+      title: "África do Sul",
+      subtitle: "24º Maior país do mundo",
+      populacao: "61 Mi",
+      tamanho: "1.220.000 km²",
     },
   ];
 
@@ -57,7 +71,7 @@ export default function Africa() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/africa.jpg")}
+          source={require("../images/Africa/africa.jpg")}
           style={stylesContinente.topImage}
         />
 

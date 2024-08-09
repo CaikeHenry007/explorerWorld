@@ -31,25 +31,39 @@ export default function Asia() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
-      title: "Estados Unidos",
-      subtitle: "4º Maior país do mundo",
-      populacao: "341 Mi",
-      tamanho: "9.834.000 km²",
+      source: require("../images/Asia/maldivas.jpg"),
+      title: "Maldivas",
+      subtitle: "187º Maior país do mundo",
+      populacao: "581 217",
+      tamanho: "298 km²",
     },
     {
-      source: require("../images/canada.jpg"),
-      title: "Canadá",
-      subtitle: "2º Maior país do mundo",
-      populacao: "39 Mi",
-      tamanho: "9,985,000 km²",
+      source: require("../images/Asia/emirados.jpg"),
+      title: "Emirados Árabes Unidos",
+      subtitle: "114º Maior país do mundo",
+      populacao: "10 716 757",
+      tamanho: "83 600 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
-      title: "México",
-      subtitle: "14º Maior país do mundo",
-      populacao: "136 Mi",
-      tamanho: "1.973.000 km²",
+      source: require("../images/Asia/tailandia.jpg"),
+      title: "Tailândia",
+      subtitle: "50º Maior país do mundo",
+      populacao: "70 931 793",
+      tamanho: "513 120 km²",
+    },
+    {
+      source: require("../images/Asia/china.jpg"),
+      title: "China",
+      subtitle: "3º Maior país do mundo",
+      populacao: "1.425 Mi",
+      tamanho: "9 596 961 km²",
+    },
+    {
+      source: require("../images/Asia/japao.jpg"),
+      title: "Japão",
+      subtitle: "62º Maior país do mundo",
+      populacao: "125 980 581",
+      tamanho: "377 975 km²",
     },
   ];
 
@@ -57,7 +71,7 @@ export default function Asia() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/asia.jpg")}
+          source={require("../images/Asia/asia.jpg")}
           style={stylesContinente.topImage}
         />
 

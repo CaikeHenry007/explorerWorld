@@ -31,25 +31,39 @@ export default function AmericaCentro() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
-      title: "Estados Unidos",
-      subtitle: "4º Maior país do mundo",
-      populacao: "341 Mi",
-      tamanho: "9.834.000 km²",
+      source: require("../images/imagesAmericaCentro/panamá.jpg"),
+      title: "Panamá",
+      subtitle: "3º maior país da América Central",
+      populacao: " 4,4 Mi",
+      tamanho: " 75.417km²",
     },
     {
-      source: require("../images/canada.jpg"),
-      title: "Canadá",
-      subtitle: "2º Maior país do mundo",
-      populacao: "39 Mi",
-      tamanho: "9,985,000 km²",
+      source: require("../images/imagesAmericaCentro/costarica.jpg"),
+      title: "Costa Rica",
+      subtitle: "4º maior país da América Central",
+      populacao: "5,2 Mi",
+      tamanho: "51.100 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
-      title: "México",
-      subtitle: "14º Maior país do mundo",
-      populacao: "136 Mi",
-      tamanho: "1.973.000 km²",
+      source: require("../images/imagesAmericaCentro/nicaragua.jpg"),
+      title: "Nicarágua",
+      subtitle: "maior país da América Central",
+      populacao: "6,9 Mi",
+      tamanho: "130.373 km²",
+    },
+    {
+      source: require("../images/imagesAmericaCentro/honduras.jpg"),
+      title: "Honduras",
+      subtitle: "2º maior país da América Central",
+      populacao: "10 Mi",
+      tamanho: "112.492 km²",
+    },
+    {
+      source: require("../images/imagesAmericaCentro/elsalvador2.jpg"),
+      title: "El Salvador",
+      subtitle: "5º maior país da América Central",
+      populacao: "6,5 Mi",
+      tamanho: "21.041 km²",
     },
   ];
 
@@ -57,7 +71,7 @@ export default function AmericaCentro() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/americacentral.jpg")}
+          source={require("../images/imagesAmericaCentro/americacentral.jpg")}
           style={stylesContinente.topImage}
         />
 

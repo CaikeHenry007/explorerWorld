@@ -2,80 +2,77 @@ import {
   Text,
   View,
   ImageBackground,
-  Dimensions,
   TouchableOpacity,
   Modal,
-  FlatList,
-  Image,
   Pressable,
+  FlatList,
+  Image
 } from "react-native";
-import styles from "../styles/StyleSheet";
+import stylesPaises from "../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from "expo-linear-gradient";
-
-const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
-
-const ALTURA_GRADIENTE = height * 0.4;
 
 export default function EuaModal({ visibleEua, closeEua }) {
   const navigation = useNavigation();
 
   const places = [
     {
-      source: require("../images/estatualiberdade.jpg"),
+      source: require("../images/imagesAmericaNorte/estatualiberdade.jpg"),
       title: "Estátua da Liberdade",
     },
     {
-      source: require("../images/timessquare.jpg"),
+      source: require("../images/imagesAmericaNorte/timessquare.jpg"),
       title: "Times Square",
     },
     {
-      source: require("../images/goldengate.jpg"),
+      source: require("../images/imagesAmericaNorte/goldengate.jpg"),
       title: "Golden Gate",
     },
   ];
+
   return (
-    <View>
-      <Modal transparent={true} animationType="fade" visible={visibleEua}>
-        <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
-          <View
-            style={{ height: "50%", backgroundColor: "#F4CFBA", width: "100%" }}
-          >
-            <ImageBackground
-              source={require("../images/estadosunidos.jpg")}
-              style={{ height: "100%", width: "100%", alignItems: "center" }}
-            >
-              <View
-                style={{ width: "100%", alignItems: "stretch", margin: "1%" }}
-              >
-                <TouchableOpacity onPress={closeEua}>
-                  <MaterialCommunityIcons
-                    name="arrow-left-thick"
-                    size={35}
-                    color={"white"}
-                  />
-                </TouchableOpacity>
+    <Modal transparent={true} animationType="fade" visible={visibleEua}>
+      <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
+        <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40 }}>
+
+          <ImageBackground source={require("../images/imagesAmericaNorte/americadonorte.jpg")}
+            style={{ height: "100%", borderBottomEndRadius: 40, flexDirection: "column" }}
+            resizeMode="cover" >
+            <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
+
+              <Pressable onPress={closeEua} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <MaterialCommunityIcons
+                  name="arrow-left"
+                  size={35}
+                  color="white" />
+              </Pressable>
+              <View style={{ alignItems: "center", height: "100%", width: "80%", justifyContent: "center" }} >
+                <Image source={require("../images/logobranco.png")}
+                  style={{ width: "50%", height: "100%" }} />
               </View>
-              <View style={{}}>
-                <Text style={{ fontSize: 35, color: "#ffffff" }}>
-                  Estados Unidos
-                </Text>
-              </View>
-              <LinearGradient
-                colors={["#00000000", "#F4CFBA"]}
-                style={{
-                  width,
-                  height: ALTURA_GRADIENTE,
-                  position: "absolute",
-                  bottom: 0,
-                }}
-              />
-            </ImageBackground>
-          </View>
+            </View>
+            <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end" }}>
+              <Text style={{ color: "#ffffff", fontSize: 25 }} >Estados Unidos</Text>
+            </View>
+          </ImageBackground>
         </View>
-      </Modal>
-    </View>
+        <View style={{ width: "100%", height: "55%", alignItems: "center", justifyContent: "center" }} >
+          <FlatList
+            data={places}
+            horizontal={true}
+            keyExtractor={(item) => item}
+            renderItem={({ item }) => {
+              return (
+                <View style={{ width: "70%", height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end" }}>
+                  <Image source={item.source}
+                    style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
+                  <Text style={{ fontSize: 20, color: "white" }}>{item.title}</Text>
+                </View>
+              )
+            }} />
+
+        </View>
+      </View>
+    </Modal>
   );
 }

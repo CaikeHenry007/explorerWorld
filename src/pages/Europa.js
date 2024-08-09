@@ -31,25 +31,39 @@ export default function Europa() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
-      title: "Estados Unidos",
-      subtitle: "4º Maior país do mundo",
-      populacao: "341 Mi",
-      tamanho: "9.834.000 km²",
+      source: require("../images/Europa/grecia.jpg"),
+      title: "Grécia",
+      subtitle: "95º Maior país do mundo",
+      populacao: "10 256 001",
+      tamanho: "9131 990 km²",
     },
     {
-      source: require("../images/canada.jpg"),
-      title: "Canadá",
-      subtitle: "2º Maior país do mundo",
-      populacao: "39 Mi",
-      tamanho: "9,985,000 km²",
+      source: require("../images/Europa/frança.jpg"),
+      title: "França",
+      subtitle: "48º Maior país do mundo",
+      populacao: "68,4 Mi",
+      tamanho: "551 500 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
-      title: "México",
-      subtitle: "14º Maior país do mundo",
-      populacao: "136 Mi",
-      tamanho: "1.973.000 km²",
+      source: require("../images/Europa/italia.jpg"),
+      title: "Itália",
+      subtitle: "71º Maior país do mundo",
+      populacao: "60 703 666",
+      tamanho: "301 338 km²",
+    },
+    {
+      source: require("../images/Europa/inglaterra.jpg"),
+      title: "Inglaterra",
+      subtitle: "106º Maior país do mundo",
+      populacao: "69 689 583",
+      tamanho: "130 395 km²",
+    },
+    {
+      source: require("../images/Europa/amsterdã.jpg"),
+      title: "Holanda",
+     subtitle: "132º Maior país do mundo",
+      populacao: "17,9 Mi",
+      tamanho: "41 850 km²",
     },
   ];
 
@@ -57,7 +71,7 @@ export default function Europa() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/europa.jpg")}
+          source={require("../images/Europa/europa.jpg")}
           style={stylesContinente.topImage}
         />
 

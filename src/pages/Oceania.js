@@ -31,25 +31,39 @@ export default function Oceania() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
-      title: "Estados Unidos",
-      subtitle: "4º Maior país do mundo",
-      populacao: "341 Mi",
-      tamanho: "9.834.000 km²",
+      source: require("../images/Oceania/australia.jpg"),
+      title: "Austrália",
+      subtitle: "6º Maior país do mundo",
+      populacao: "27 Mi",
+      tamanho: "7.741.000 km²",
     },
     {
-      source: require("../images/canada.jpg"),
-      title: "Canadá",
-      subtitle: "2º Maior país do mundo",
-      populacao: "39 Mi",
-      tamanho: "9,985,000 km²",
+      source: require("../images/Oceania/novazelandia.jpg"),
+      title: "Nova Zêlandia",
+      subtitle: "75º Maior país do mundo",
+      populacao: "5 Mi",
+      tamanho: "268.021 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
-      title: "México",
-      subtitle: "14º Maior país do mundo",
-      populacao: "136 Mi",
-      tamanho: "1.973.000 km²",
+      source: require("../images/Oceania/papuanovaguine.jpg"),
+      title: "Papua-Nova Guiné",
+      subtitle: "54º Maior país do mundo",
+      populacao: "9 Mi",
+      tamanho: "462.840 km²",
+    },
+    {
+      source: require("../images/Oceania/fiji.jpg"),
+      title: "Fiji",
+      subtitle: "152º Maior país do mundo",
+      populacao: "900 Mil",
+      tamanho: "18.274 km²",
+    },
+    {
+      source: require("../images/Oceania/ilhasalomao.jpg"),
+      title: "Ilhas Salomão",
+      subtitle: "123º Maior país do mundo",
+      populacao: "700 Mil", 
+      tamanho: "28.896 km²",
     },
   ];
 
@@ -57,7 +71,7 @@ export default function Oceania() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/oceania.jpg")}
+          source={require("../images/Oceania/oceania.jpg")}
           style={stylesContinente.topImage}
         />
 

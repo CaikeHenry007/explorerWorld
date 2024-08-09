@@ -12,7 +12,6 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
-
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 
@@ -20,33 +19,33 @@ import stylesHome from "../styles/StyleHome";
 
 const imagens = [
   {
-    source: require("../images/americadonorte.jpg"),
+    source: require("../images/imagesAmericaNorte/americadonorte.jpg"),
     title: "América do Norte",
     rota: "AmericaNorte",
   },
   {
-    source: require("../images/americadosul.jpg"),
+    source: require("../images/imagesAmericaSul/americadosul.jpg"),
     title: "América do Sul",
     rota: "AmericaSul",
   },
   {
-    source: require("../images/americacentral.jpg"),
+    source: require("../images/imagesAmericaCentro/americacentral.jpg"),
     title: "América Central",
     rota: "AmericaCentro",
   },
   {
-    source: require("../images/africa.jpg"),
+    source: require("../images/Africa/africa.jpg"),
     title: "África",
     rota: "Africa",
   },
   {
-    source: require("../images/europa.jpg"),
+    source: require("../images/Europa/europa.jpg"),
     title: "Europa",
     rota: "Europa",
   },
-  { source: require("../images/asia.jpg"), title: "Ásia", rota: "Asia" },
+  { source: require("../images/Asia/asia.jpg"), title: "Ásia", rota: "Asia" },
   {
-    source: require("../images/oceania.jpg"),
+    source: require("../images/Oceania/oceania.jpg"),
     title: "Oceania",
     rota: "Oceania",
   },

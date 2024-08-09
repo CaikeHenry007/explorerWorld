@@ -31,21 +31,21 @@ export default function AmericaNorte() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
+      source: require("../images/imagesAmericaNorte/estadosunidos.jpg"),
       title: "Estados Unidos",
       subtitle: "4º Maior país do mundo",
       populacao: "341 Mi",
       tamanho: "9.834.000 km²",
     },
     {
-      source: require("../images/canada.jpg"),
+      source: require("../images/imagesAmericaNorte/canada.jpg"),
       title: "Canadá",
       subtitle: "2º Maior país do mundo",
       populacao: "39 Mi",
       tamanho: "9,985,000 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
+      source: require("../images/imagesAmericaNorte/mexico.jpg"),
       title: "México",
       subtitle: "14º Maior país do mundo",
       populacao: "136 Mi",
@@ -57,7 +57,7 @@ export default function AmericaNorte() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/americadonorte2.jpg")}
+          source={require("../images/imagesAmericaNorte/americadonorte2.jpg")}
           style={stylesContinente.topImage}
         />
 

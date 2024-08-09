@@ -31,25 +31,39 @@ export default function AmericaSul() {
 
   const data = [
     {
-      source: require("../images/estadosunidos.jpg"),
-      title: "Estados Unidos",
-      subtitle: "4º Maior país do mundo",
-      populacao: "341 Mi",
-      tamanho: "9.834.000 km²",
+      source: require("../images/imagesAmericaSul/brasil.jpg"),
+      title: "Brasil",
+      subtitle: "5º maior país do mundo ",
+      populacao: "203 Mi",
+      tamanho: "8.515.767 km²",
     },
     {
-      source: require("../images/canada.jpg"),
-      title: "Canadá",
-      subtitle: "2º Maior país do mundo",
-      populacao: "39 Mi",
-      tamanho: "9,985,000 km²",
+      source: require("../images/imagesAmericaSul/argentina.jpg"),
+      title: "Argentina",
+      subtitle: "8º Maior país do mundo",
+      populacao: "46 Mi",
+      tamanho: "2.780.400 km²",
     },
     {
-      source: require("../images/mexico.jpg"),
-      title: "México",
-      subtitle: "14º Maior país do mundo",
-      populacao: "136 Mi",
-      tamanho: "1.973.000 km²",
+      source: require("../images/imagesAmericaSul/chilejpg.jpg"),
+      title: "Chile",
+      subtitle: "38º Maior país do mundo",
+      populacao: "19 Mi",
+      tamanho: "756.102 km²",
+    },
+    {
+      source: require("../images/imagesAmericaSul/bolivia.jpg"),
+      title: "Bolívia",
+      subtitle: "27º Maior país do mundo",
+      populacao: "12 Mi",
+      tamanho: "1.098.581 km²",
+    },
+    {
+      source: require("../images/imagesAmericaSul/venezuela.jpg"),
+      title: "Venezuela",
+      subtitle: "33º Maior país do mundo",
+      populacao: "28 Mi",
+      tamanho: "916.445 km² km²",
     },
   ];
 
@@ -57,7 +71,7 @@ export default function AmericaSul() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/americadosul.jpg")}
+          source={require("../images/imagesAmericaSul/americadosul.jpg")}
           style={stylesContinente.topImage}
         />
 
