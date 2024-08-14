@@ -56,14 +56,14 @@ export default function EuaModal({ visibleEua, closeEua }) {
             </View>
           </ImageBackground>
         </View>
-        <View style={{ width: "100%", height: "55%", alignItems: "center", justifyContent: "center" }} >
+        <View style={{ width: "100%", height: "55%", alignItems: "center", justifyContent: "center", padding: 1, }} >
           <FlatList
             data={places}
             horizontal={true}
             keyExtractor={(item) => item}
             renderItem={({ item }) => {
               return (
-                <View style={{ width: "70%", height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end" }}>
+                <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
                   <Image source={item.source}
                     style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
                   <Text style={{ fontSize: 20, color: "white" }}>{item.title}</Text>

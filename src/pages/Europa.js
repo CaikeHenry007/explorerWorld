@@ -12,11 +12,12 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import EuaModal from "../partials/ModalEUA";
+import GreciaModal from "../partials/ModalGrecia";
 
 export default function Europa() {
   const navigation = useNavigation();
 
-  const [visibleEua, setVisibleEua] = useState(false);
+  const [visibleGrecia, setVisibleGrecia] = useState(false);
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -83,9 +84,9 @@ export default function Europa() {
           />
         </TouchableOpacity>
 
-        <EuaModal
-          visibleEua={visibleEua}
-          closeEua={() => setVisibleEua(false)}
+        <GreciaModal
+          visibleGrecia={visibleGrecia}
+          closeGrecia={() => setVisibleGrecia(false)}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>Europa</Text>
@@ -97,7 +98,7 @@ export default function Europa() {
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>
-              <Pressable onPress={() => setVisibleEua(true)}>
+              <Pressable onPress={() => setVisibleGrecia(true)}>
                 <View style={stylesContinente.card}>
                   <Image
                     source={item.source}
@@ -132,6 +133,9 @@ export default function Europa() {
                   </View>
                 </View>
               </Pressable>
+
+
+              
             </View>
           );
         }}

@@ -105,6 +105,7 @@ export default function Home() {
     return null;
   }
 
+
   const scrollX = React.useRef(new Animated.Value(0)).current;
   return (
     <SafeAreaView style={stylesHome.container}>

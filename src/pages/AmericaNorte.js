@@ -12,44 +12,53 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import EuaModal from "../partials/ModalEUA";
+import CanadaModal from "../partials/ModalCanada";
 
 export default function AmericaNorte() {
   const navigation = useNavigation();
 
   const [visibleEua, setVisibleEua] = useState(false);
+  const [visibleCanada, setVisibleCanada] = useState(false);
 
-  const [font] = useFonts({
+  const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
     Bebas: require("../fonts/Bebas.ttf"),
     Noto: require("../fonts/NotoSherif.ttf"),
     BonaNova: require("../fonts/BonaNovaItalic.ttf"),
     BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
   });
-  if (!font) {
+
+  if (!fontLoaded) {
     return null;
   }
 
   const data = [
     {
+      id: "1",
       source: require("../images/imagesAmericaNorte/estadosunidos.jpg"),
       title: "Estados Unidos",
       subtitle: "4º Maior país do mundo",
       populacao: "341 Mi",
       tamanho: "9.834.000 km²",
+      route: () => setVisibleEua(true),
     },
     {
+      id: "2",
       source: require("../images/imagesAmericaNorte/canada.jpg"),
       title: "Canadá",
       subtitle: "2º Maior país do mundo",
       populacao: "39 Mi",
       tamanho: "9,985,000 km²",
+      route: () => setVisibleCanada(true),
     },
     {
+      id: "3",
       source: require("../images/imagesAmericaNorte/mexico.jpg"),
       title: "México",
       subtitle: "14º Maior país do mundo",
       populacao: "136 Mi",
       tamanho: "1.973.000 km²",
+      route: null,
     },
   ];
 
@@ -74,16 +83,21 @@ export default function AmericaNorte() {
           closeEua={() => setVisibleEua(false)}
         />
 
+        <CanadaModal
+          visibleCanada={visibleCanada}
+          closeCanada={() => setVisibleCanada(false)}
+        />
+
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>
       </View>
 
       <FlatList
         data={data}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>
-              <Pressable onPress={() => setVisibleEua(true)}>
+              <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
                   <Image
                     source={item.source}
