@@ -93,19 +93,21 @@ function Backdrop({ scrollX }) {
 
 export default function Home() {
 
-  const [font] = useFonts({
+  const [fontLoaded] = useFonts({
     Pacifico: require("./src/fonts/Pacifico-Regular.ttf"),
     Bebas: require("./src/fonts/Bebas.ttf"),
     Noto: require("./src/fonts/NotoSherif.ttf"),
     BonaNova: require("./src/fonts/BonaNovaItalic.ttf"),
     BonaNovaBold: require("./src/fonts/BonaNovaBold.ttf"),
   });
-  if (!font) {
+
+  const scrollX = React.useRef(new Animated.Value(0)).current;
+
+  // Certifique-se de que todos os hooks foram chamados antes de qualquer retorno condicional
+  if (!fontLoaded) {
     return null;
   }
 
-
-  const scrollX = React.useRef(new Animated.Value(0)).current;
   return (
     <SafeAreaView style={stylesHome.container}>
       <StatusBar hidden />
@@ -126,7 +128,7 @@ export default function Home() {
         decelerationRate={1}
         scrollEventThrottle={16}
         data={imagens}
-        keyExtractor={(item) => item}
+        keyExtractor={(item, index) => index.toString()} // Corrigido o keyExtractor
         renderItem={({ item, index }) => {
           const inputRange = [
             (index - 1) * LARGURA_CONTAINER,
@@ -158,3 +160,4 @@ export default function Home() {
     </SafeAreaView>
   );
 }
+
