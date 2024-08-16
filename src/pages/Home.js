@@ -8,10 +8,8 @@ import {
   Dimensions,
   SafeAreaView,
   Animated,
-  Pressable,
 } from "react-native";
 
-import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 
@@ -43,7 +41,9 @@ const imagens = [
     title: "Europa",
     rota: "Europa",
   },
-  { source: require("../images/Asia/asia.jpg"), title: "Ásia", rota: "Asia" },
+  { source: require("../images/Asia/asia.jpg"), 
+    title: "Ásia", 
+    rota: "Asia" },
   {
     source: require("../images/Oceania/oceania.jpg"),
     title: "Oceania",
@@ -92,21 +92,22 @@ function Backdrop({ scrollX }) {
 }
 
 export default function Home() {
-  const navigation = useNavigation();
 
-  const [font] = useFonts({
+  const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
     Bebas: require("../fonts/Bebas.ttf"),
     Noto: require("../fonts/NotoSherif.ttf"),
     BonaNova: require("../fonts/BonaNovaItalic.ttf"),
     BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
   });
-  if (!font) {
+
+  const scrollX = React.useRef(new Animated.Value(0)).current;
+
+  // Certifique-se de que todos os hooks foram chamados antes de qualquer retorno condicional
+  if (!fontLoaded) {
     return null;
   }
 
-
-  const scrollX = React.useRef(new Animated.Value(0)).current;
   return (
     <SafeAreaView style={stylesHome.container}>
       <StatusBar hidden />
@@ -127,7 +128,7 @@ export default function Home() {
         decelerationRate={1}
         scrollEventThrottle={16}
         data={imagens}
-        keyExtractor={(item) => item}
+        keyExtractor={(item, index) => index.toString()} // Corrigido o keyExtractor
         renderItem={({ item, index }) => {
           const inputRange = [
             (index - 1) * LARGURA_CONTAINER,
@@ -141,7 +142,6 @@ export default function Home() {
           });
           return (
             <View style={stylesHome.containerFlatList}>
-              <Pressable onPress={() => navigation.navigate(item.rota)}>
                 <Animated.View
                   style={[
                     {
@@ -153,7 +153,6 @@ export default function Home() {
                   <Image source={item.source} style={stylesHome.posterImage} />
                   <Text style={stylesHome.texto}>{item.title}</Text>
                 </Animated.View>
-              </Pressable>
             </View>
           );
         }}
@@ -161,3 +160,4 @@ export default function Home() {
     </SafeAreaView>
   );
 }
+
