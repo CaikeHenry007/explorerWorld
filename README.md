@@ -25,7 +25,7 @@ npx create-expo-app nomedoseuApp
 <br>
 
 ```
-npx create-expo-app nomedoseuApp
+yarn create expo-app nomedoseuApp
 ```
 <br>
 
