@@ -2,17 +2,15 @@
 
 Nós somos um grupo de estudantes cursando Desenvolvimento de Sistemas. E estamos fazendo um projeto único muito interessante.
 
+## Project Owner: Kamile S. Camargo;
 
-Project Owner: Kamile S. Camargo;
--
-Developer: Caike H. F. Felipe;
--
-Developer: Caroline A. O. Santos;
--
-Developer: Cauã N. Moro;
--
-Developer: Davi N. de Toledo;
--
+## Developer: Caike H. F. Felipe;
+
+## Developer: Caroline A. O. Santos;
+
+## Developer: Cauã N. Moro;
+
+## Developer: Davi N. de Toledo;
 
 <br>
 <h1><b>Códigos utilizados e pacotes instalados para o aplicativo</b></h1>
@@ -74,3 +72,10 @@ npm install expo-linear-gradient
 
 <br>
 
+<b>Instale o Banco de Dados.<b>
+
+```
+npm install firebase
+```
+
+<br>

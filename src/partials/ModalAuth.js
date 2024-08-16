@@ -1,90 +1,83 @@
 import {
-    Text,
-    View,
-    Modal,
-    TouchableOpacity,
-    TextInput,
-    ImageBackground,
-  } from "react-native";
-  import styles from "../styles/StyleSheet.js";
-  import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-  
-  export default function ModalAuth({
-    visibleAuth,
-    email,
-    setEmail,
-    senha,
-    setSenha,
-    isLogin,
-    setIsLogin,
-    handleAuthentication,
-  }) {
-    return (
-      <View>
-        <Modal transparent={true} animationType="fade" visible={visibleAuth}>
-          <ImageBackground
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-            blurRadius={7}
-            resizeMode="cover"
-            source={require("../images/Home.jpg")}
-          >
-            <View style={styles.modalcadastro}>
-              <View style={styles.modalcadastro2}>
-                <View style={{ height: "5%" }}></View>
-                <Text style={styles.cadastrotitulo}>
-                  {isLogin ? "Login" : "Cadastro"}
-                </Text>
-                <View>
-                  <View
-                    style={{
-                      height: 90,
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexDirection: "row",
-                    }}
-                  >
-                    <MaterialCommunityIcons
-                      name="email"
-                      size={20}
-                      color={"#c0c0c0"}
-                    />
-                    <TextInput
-                      style={styles.Caixa}
-                      value={email}
-                      onChangeText={setEmail}
-                      placeholder="Email"
-                      autoCapitalize="none"
-                    />
-                  </View>
-  
-                  <View
-                    style={{
-                      height: 90,
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexDirection: "row",
-                    }}
-                  >
-                    <MaterialCommunityIcons
-                      name="lock"
-                      size={20}
-                      color={"#c0c0c0"}
-                    />
-                    <TextInput
-                      style={styles.Caixa}
-                      value={senha}
-                      onChangeText={setSenha}
-                      placeholder="Senha"
-                      secureTextEntry
-                    />
-                  </View>
+  Text,
+  View,
+  Modal,
+  TouchableOpacity,
+  TextInput,
+  ImageBackground,
+} from "react-native";
+import { useFonts } from "expo-font";
+import styles from "../styles/StyleSheet.js";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { Image } from "react-native";
+
+export default function ModalAuth({
+  visibleAuth,
+  email,
+  setEmail,
+  senha,
+  setSenha,
+  isLogin,
+  setIsLogin,
+  handleAuthentication,
+}) {
+  const [font] = useFonts({
+    Pacifico: require("../fonts/Pacifico-Regular.ttf"),
+    Bebas: require("../fonts/Bebas.ttf"),
+  });
+  if (!font) {
+    return null;
+  }
+  return (
+    <View>
+      <Modal transparent={true} animationType="fade" visible={visibleAuth}>
+        <ImageBackground
+          style={styles.imagemfundo}
+          blurRadius={7}
+          resizeMode="cover"
+          source={require("../images/Home.jpg")}
+        >
+          <Image
+            source={require("../images/logobranco.png")}
+            style={styles.logo}
+          />
+          <View style={styles.modalcadastro}>
+            <View style={styles.modalcadastro2}>
+              <View style={styles.espaco}></View>
+              <Text style={styles.cadastrotitulo}>
+                {isLogin ? "Login" : "Cadastro"}
+              </Text>
+              <View style={styles.form}>
+                <View style={styles.viewcaixa}>
+                  <MaterialCommunityIcons
+                    name="email"
+                    size={20}
+                    color={"#c0c0c0"}
+                  />
+                  <TextInput
+                    style={styles.Caixa}
+                    value={email}
+                    onChangeText={setEmail}
+                    placeholder="Email"
+                    autoCapitalize="none"
+                  />
                 </View>
-  
-                <View style={{ alignItems: "center" }}>
+
+                <View style={styles.viewcaixa}>
+                  <MaterialCommunityIcons
+                    name="lock"
+                    size={20}
+                    color={"#c0c0c0"}
+                  />
+                  <TextInput
+                    style={styles.Caixa}
+                    value={senha}
+                    onChangeText={setSenha}
+                    placeholder="Senha"
+                    secureTextEntry
+                  />
+                </View>
+                <View style={styles.viewbotoes}>
                   <TouchableOpacity
                     style={styles.btncadastro}
                     onPress={handleAuthentication}
@@ -93,14 +86,10 @@ import {
                       {isLogin ? "Login" : "Cadastre-se"}
                     </Text>
                   </TouchableOpacity>
-  
+
                   <Text
                     onPress={() => setIsLogin(!isLogin)}
-                    style={{
-                      borderBlockColor: "white",
-                      color: "white",
-                      borderBottomWidth: 1,
-                    }}
+                    style={styles.texto}
                   >
                     {isLogin
                       ? "Ainda não tem conta? Cadastre-se"
@@ -109,9 +98,9 @@ import {
                 </View>
               </View>
             </View>
-          </ImageBackground>
-        </Modal>
-      </View>
-    );
-  }
-  
+          </View>
+        </ImageBackground>
+      </Modal>
+    </View>
+  );
+}

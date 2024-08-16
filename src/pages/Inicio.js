@@ -1,34 +1,88 @@
-import { View, ImageBackground, Text, Image, TouchableOpacity } from 'react-native';
-import styles from "../styles/StyleSheet";
-import { useFonts } from 'expo-font';
-import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState, useEffect } from "react";
+import { View, Text, ImageBackground, Image, Button } from "react-native";
+import { initializeApp } from "@firebase/app";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "@firebase/auth";
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 
-import ModalCadastro from '../partials/ModalCadastro';
-import ModalLogin from '../partials/ModalLogin';
+import ModalAuth from "../partials/ModalAuth";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA51Q_cRKLbEJR2yohL_EQ_9eITyJNsbc0",
+  authDomain: "explorer-word-827f9.firebaseapp.com",
+  projectId: "explorer-word-827f9",
+  storageBucket: "explorer-word-827f9.appspot.com",
+  messagingSenderId: "768160576189",
+  appId: "1:768160576189:web:7b8e36f0ac872da07dfdd4",
+  measurementId: "G-XW8Q60N51C",
+};
+
+const app = initializeApp(firebaseConfig);
 
 export default function Inicio() {
-  const navigation = useNavigation();
+  const navigation = useNavigation(); // Hook de navegação
 
-  const [visibleLogin, setVisibleLogin] = useState(false);
-  const [visibleCadastro, setVisibleCadastro] = useState(false);
-  
-  const [font] = useFonts({
-    "Pacifico": require("../fonts/Pacifico-Regular.ttf"),
-    "Bebas": require("../fonts/Bebas.ttf")
-  })
-  if (!font) {
-    return null;
-  }
- 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState(null); // Track user authentication state
+  const [isLogin, setIsLogin] = useState(true);
+
+  const auth = getAuth(app);
+
+  // Verifica a autenticação do usuário
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
+
+  const handleAuthentication = async () => {
+    try {
+      if (user) {
+        // Se o usuário já está autenticado, faz logout
+        console.log("Usuário desconectado com sucesso!");
+        await signOut(auth);
+      } else {
+        // Faz login ou cadastro
+        if (isLogin) {
+          // Login
+          await signInWithEmailAndPassword(auth, email, password);
+          console.log("Usuário conectado com sucesso!");
+        } else {
+          // Cadastro
+          await createUserWithEmailAndPassword(auth, email, password);
+          console.log("Usuário cadastrado com sucesso!");
+        }
+      }
+    } catch (error) {
+      alert("Erro na autenticação!");
+    }
+  };
+
+  // Redireciona para a Home se o usuário estiver autenticado
+  useEffect(() => {
+    if (user) {
+      navigation.navigate("Home", { handleAuthentication });
+    }
+  }, [user, navigation]);
+
   return (
-    <View style={{
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center"
-    }}>
-      <StatusBar backgroundColor='#000000' color="#fff" />
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <StatusBar backgroundColor="#000000" color="#fff" />
       <ImageBackground
         style={{
           flex: 1,
@@ -37,52 +91,30 @@ export default function Inicio() {
           alignItems: "center",
         }}
         resizeMode="cover"
-        source={require("../images/Home.jpg")}>
-
-        <View style={{ alignItems: 'center', height: "100%", width: "100%" }}
-        >
+        source={require("../images/Home.jpg")}
+      >
+        <View style={{ alignItems: "center", height: "100%", width: "100%" }}>
           <Image
-            style={{ alignItems: "flex-end", height: 700, width: 700,  }}
-            source={require("../images/EXPLORAR.png")}></Image>
-
-        
-          <TouchableOpacity style={{
-            backgroundColor: "#5A7577",
-            borderRadius: 20,
-            height: 50,
-            width: "50%"
-          }}
-            onPress={() => setVisibleLogin(true)}>
-
-            <Text style={{ color: "white", textAlign: 'center', fontSize: 25, padding: 8, fontFamily: "Bebas"}}>Login</Text>
-
-          </TouchableOpacity>
-          <TouchableOpacity style=
-            {{
-              backgroundColor: "#5A7577",
-              borderRadius: 20,
-              height: 50,
-              width: "50%",
-              margin: 10
-            }}
-            onPress={() => setVisibleCadastro(true)}>
-            <Text style={{ color: "white", textAlign: 'center', fontSize: 25, fontFamily: "Bebas", padding: 8,  }}>Cadastro</Text>
-          </TouchableOpacity>
-          
+            style={{ alignItems: "flex-end", height: 700, width: 700 }}
+            source={require("../images/EXPLORAR.png")}
+          />
+          {user ? (
+            // Exibe uma mensagem simples para indicar que o usuário está logado
+            <Text>logado!</Text>
+          ) : (
+            // Exibe o formulário de autenticação se o usuário não estiver autenticado
+            <ModalAuth
+              email={email}
+              setEmail={setEmail}
+              senha={password}
+              setSenha={setPassword}
+              isLogin={isLogin}
+              setIsLogin={setIsLogin}
+              handleAuthentication={handleAuthentication}
+            />
+          )}
         </View>
-
-        <ModalLogin 
-          visibleLogin={visibleLogin} 
-          fazerLogin={() => navigation.navigate("Home")} 
-          closeLogin={() => setVisibleLogin(false)} 
-        />
-
-        <ModalCadastro visibleCadastro={visibleCadastro} 
-        fazerCadastro={() => navigation.navigate("Home")} 
-        closeCadastro={() => setVisibleCadastro(false)} />
-
       </ImageBackground>
     </View>
   );
 }
-

@@ -8,15 +8,18 @@ import {
   Dimensions,
   SafeAreaView,
   Animated,
-  Pressable
+  Pressable,
+  Button,
 } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 
 import stylesHome from "../styles/StyleHome";
+import { TouchableOpacity } from "react-native";
 
 const imagens = [
   {
@@ -44,9 +47,7 @@ const imagens = [
     title: "Europa",
     rota: "Europa",
   },
-  { source: require("../images/Asia/asia.jpg"), 
-    title: "Ásia", 
-    rota: "Asia" },
+  { source: require("../images/Asia/asia.jpg"), title: "Ásia", rota: "Asia" },
   {
     source: require("../images/Oceania/oceania.jpg"),
     title: "Oceania",
@@ -94,8 +95,9 @@ function Backdrop({ scrollX }) {
   );
 }
 
-export default function Home() {
+export default function Home({ route }) {
   const navigation = useNavigation();
+  const { handleAuthentication } = route.params;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -116,6 +118,28 @@ export default function Home() {
     <SafeAreaView style={stylesHome.container}>
       <StatusBar hidden />
       <Backdrop scrollX={scrollX} />
+      <View
+        style={{
+          width: "100%",
+          alignItems: "flex-end",
+          height: "8%",
+          padding: "2%",
+        }}
+      >
+        <TouchableOpacity
+          onPress={handleAuthentication}
+          style={{
+            backgroundColor: "#ffffff",
+            borderRadius: 100,
+            height: "100%",
+            width: "12%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <MaterialCommunityIcons name="logout" size={35} color={"#5A7577"} />
+        </TouchableOpacity>
+      </View>
       <Animated.FlatList
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -146,7 +170,7 @@ export default function Home() {
           });
           return (
             <View style={stylesHome.containerFlatList}>
-              <Pressable onPress={() => navigation.navigate(item.rota)} >
+              <Pressable onPress={() => navigation.navigate(item.rota)}>
                 <Animated.View
                   style={[
                     {
@@ -158,7 +182,7 @@ export default function Home() {
                   <Image source={item.source} style={stylesHome.posterImage} />
                   <Text style={stylesHome.texto}>{item.title}</Text>
                 </Animated.View>
-                </Pressable>
+              </Pressable>
             </View>
           );
         }}
@@ -166,4 +190,3 @@ export default function Home() {
     </SafeAreaView>
   );
 }
-

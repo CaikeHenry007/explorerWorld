@@ -6,47 +6,65 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  texto: {
-    backgroundColor: "red",
+
+  imagemfundo: {
     flex: 1,
+    justifyContent: "center",
     alignItems: "center",
+  },
+
+  logo: {
+    height: "20%",
+    width: "70%",
+  },
+
+  espaco: {
+    height: "10%",
+  },
+
+  form: {
+    height: "65%",
+  },
+
+  viewcaixa: {
+    height: "35%",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+
+  viewbotoes: {
+    alignItems: "center",
+    height: "30%",
     justifyContent: "center",
   },
 
-  //Login
+  texto: {
+    borderBlockColor: "white",
+    color: "white",
+    borderBottomWidth: 1,
+    borderBottomColor: "white",
+    margin: "2%",
+  },
+
   Caixa: {
     borderColor: "white",
-    borderBottomWidth: 1,
-    height: 50,
+    borderBottomWidth: 2,
+    height: "30%",
     width: "70%",
-    justifyContent: "center",
-    alignItems: "center",
+    margin: "5%",
     color: "white",
   },
-  txtLogin: {
-    fontSize: 50,
-    color: "white",
-    fontFamily: "Bebas",
-    textAlign: "center",
-    padding: 45,
-  },
-  botaoFechar: {
-    backgroundColor: "#F4CFBA",
-    width: "50%",
-    alignItems: "center",
-    height: 40,
-    borderRadius: 10,
-    textAlign: "center",
-  },
-  //Cadastro
+
   modalcadastro: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    bottom: "5%",
   },
   modalcadastro2: {
-    width: 350,
-    height: "75%",
+    width: "95%",
+    height: "90%",
     backgroundColor: "#5A7577",
     borderRadius: 20,
   },
@@ -64,14 +82,14 @@ const styles = StyleSheet.create({
     height: 40,
     width: "20%",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 15,
     height: "30%",
-    width: "30%",
+    width: "40%",
   },
   btntxt: {
     textAlign: "center",
     fontFamily: "Bebas",
-    fontSize: 25,
+    fontSize: 20,
   },
 });
 
