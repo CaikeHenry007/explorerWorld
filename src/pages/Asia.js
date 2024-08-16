@@ -12,11 +12,19 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import EuaModal from "../partials/ModalEUA";
+import MaldivasModal from "../partials/ModalMaldivas";
+import EmiradosModal from "../partials/ModalEmirados";
+import ChinaModal from "../partials/ModalChina";
+import JapaoModal from "../partials/ModalJapao";
 
 export default function Asia() {
   const navigation = useNavigation();
 
-  const [visibleEua, setVisibleEua] = useState(false);
+  const [visibleMaldivas, setVisibleMaldivas] = useState(false);
+  const [visibleEmirados, setVisibleEmirados] = useState(false);
+  const [visibleTailandia, setVisibleTailandia] = useState(false);
+  const [visibleChina, setVisibleChina] = useState(false);
+  const [visibleJapao, setVisibleJapao] = useState(false);
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -36,6 +44,7 @@ export default function Asia() {
       subtitle: "187º Maior país do mundo",
       populacao: "581 217",
       tamanho: "298 km²",
+      route: () => setVisibleMaldivas(true),
     },
     {
       source: require("../images/Asia/emirados.jpg"),
@@ -43,6 +52,7 @@ export default function Asia() {
       subtitle: "114º Maior país do mundo",
       populacao: "10 716 757",
       tamanho: "83 600 km²",
+      route: () => setVisibleEmirados(true),
     },
     {
       source: require("../images/Asia/tailandia.jpg"),
@@ -50,6 +60,7 @@ export default function Asia() {
       subtitle: "50º Maior país do mundo",
       populacao: "70 931 793",
       tamanho: "513 120 km²",
+      route: () => setVisibleTailandia(true),
     },
     {
       source: require("../images/Asia/china.jpg"),
@@ -57,6 +68,7 @@ export default function Asia() {
       subtitle: "3º Maior país do mundo",
       populacao: "1.425 Mi",
       tamanho: "9 596 961 km²",
+      route: () => setVisibleChina(true),
     },
     {
       source: require("../images/Asia/japao.jpg"),
@@ -64,6 +76,7 @@ export default function Asia() {
       subtitle: "62º Maior país do mundo",
       populacao: "125 980 581",
       tamanho: "377 975 km²",
+      route: () => setVisibleJapao(true),
     },
   ];
 
@@ -77,16 +90,29 @@ export default function Asia() {
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons
-            name="arrow-left-thick"
+            name="arrow-left"
             size={35}
             color={"white"}
           />
         </TouchableOpacity>
 
-        <EuaModal
-          visibleEua={visibleEua}
-          closeEua={() => setVisibleEua(false)}
+        <MaldivasModal
+          visibleMaldivas={visibleMaldivas}
+          closeMaldivas={() => setVisibleMaldivas(false)}
         />
+        <EmiradosModal
+          visibleEmirados={visibleEmirados}
+          closeEmirados={() => setVisibleEmirados(false)}
+        />
+        <ChinaModal
+          visibleChina={visibleChina}
+          closeChina={() => setVisibleChina(false)}
+        />
+        <JapaoModal
+          visibleJapao={visibleJapao}
+          closeJapao={() => setVisibleJapao(false)}
+        />
+
 
         <Text style={stylesContinente.tituloPrincipal}>Asia</Text>
       </View>
@@ -97,7 +123,7 @@ export default function Asia() {
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>
-              <Pressable onPress={() => setVisibleEua(true)}>
+              <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
                   <Image
                     source={item.source}

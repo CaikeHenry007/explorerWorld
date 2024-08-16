@@ -12,47 +12,53 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function EuaModal({ visibleEua, closeEua }) {
+  export default function CanadaModal({ visibleCanada, closeCanada }) {
     const navigation = useNavigation();
   
     const places = [
       {
-        source: require("../images/imagesAmericaNorte/estatualiberdade.jpg"),
-        title: "Estátua da Liberdade",
+        source: require("../images/imagesAmericaNorte/torontocanada.jpg"),
+        title: "Toronto",
+      }, 
+      {
+        source: require("../images/imagesAmericaNorte/torrecanada.jpg"),
+        title: "Torre CN",
       },
       {
-        source: require("../images/imagesAmericaNorte/timessquare.jpg"),
-        title: "Times Square",
+        source: require("../images/imagesAmericaNorte/cataratacanada.jpg"),
+        title: "Cataratas do Niágara",
       },
       {
-        source: require("../images/imagesAmericaNorte/goldengate.jpg"),
-        title: "Golden Gate",
+        source: require("../images/imagesAmericaNorte/parliamentcanada.jpg"),
+        title: "Parliament Hill,  ",
       },
+       
+
     ];
   
     return (
-      <Modal transparent={true} animationType="fade" visible={visibleEua}>
+      <Modal transparent={true} animationType="fade" visible={visibleCanada}>
         <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
-          <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40 }}>
+          <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40,  }}>
   
-            <ImageBackground source={require("../images/imagesAmericaNorte/americadonorte.jpg")}
+            <ImageBackground source={require("../images/imagesAmericaNorte/canada.jpg")}
               style={{ height: "100%", borderBottomEndRadius: 40, flexDirection: "column" }}
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeEua} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={closeCanada} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}
                     color="white" />
                 </Pressable>
                 <View style={{ alignItems: "center", height: "100%", width: "80%", justifyContent: "center" }} >
-                  <Image source={require("../images/logobranco.png")}
+                  <Image source={require("../images/logoEscura.png")}
                     style={{ width: "50%", height: "100%" }} />
                 </View>
               </View>
               <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end" }}>
-                <Text style={{ color: "#ffffff", fontSize: 25 }} >Estados Unidos</Text>
+                <Text style={stylesPaises.TitlePaises} >Canadá</Text>
               </View>
             </ImageBackground>
           </View>
@@ -66,7 +72,7 @@ import {
                   <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
                     <Image source={item.source}
                       style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
-                    <Text style={{ fontSize: 20, color: "white" }}>{item.title}</Text>
+                    <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>
                   </View>
                 )
               }} />

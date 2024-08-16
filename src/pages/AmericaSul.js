@@ -11,21 +11,32 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import EuaModal from "../partials/ModalEUA";
+import BrasilModal from "../partials/ModalBrasil";
+import ArgentinaModal from "../partials/ModalArgentina";
+import ChileModal from "../partials/ModalChile";
+
 
 export default function AmericaSul() {
   const navigation = useNavigation();
 
-  const [visibleEua, setVisibleEua] = useState(false);
+  const [visibleBrasil, setVisibleBrasil] = useState(false);
+  const [visibleArgentina, setVisibleArgentina] = useState(false);
+  const [visibleChile, setVisibleChile]= useState(false);
+  const [visibleBolivia, setVisibleBolivia]= useState(false);
 
-  const [font] = useFonts({
+  const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
     Bebas: require("../fonts/Bebas.ttf"),
     Noto: require("../fonts/NotoSherif.ttf"),
     BonaNova: require("../fonts/BonaNovaItalic.ttf"),
     BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
+    Lilita: require("../fonts/LilitaOne.ttf"),
+    Display: require("../fonts/DisplayExtraBoldItalic.ttf"),
+    DisplayBold: require("../fonts/DisplayBoldItalic.ttf"),
+    DisplayItalic: require("../fonts/DisplayItalic.ttf")
   });
-  if (!font) {
+
+  if (!fontLoaded) {
     return null;
   }
 
@@ -36,6 +47,7 @@ export default function AmericaSul() {
       subtitle: "5º maior país do mundo ",
       populacao: "203 Mi",
       tamanho: "8.515.767 km²",
+      route: () => setVisibleBrasil(true),
     },
     {
       source: require("../images/imagesAmericaSul/argentina.jpg"),
@@ -43,6 +55,7 @@ export default function AmericaSul() {
       subtitle: "8º Maior país do mundo",
       populacao: "46 Mi",
       tamanho: "2.780.400 km²",
+      route: () => setVisibleArgentina(true),
     },
     {
       source: require("../images/imagesAmericaSul/chilejpg.jpg"),
@@ -50,6 +63,7 @@ export default function AmericaSul() {
       subtitle: "38º Maior país do mundo",
       populacao: "19 Mi",
       tamanho: "756.102 km²",
+      route:() => setVisibleChile(true)
     },
     {
       source: require("../images/imagesAmericaSul/bolivia.jpg"),
@@ -57,6 +71,7 @@ export default function AmericaSul() {
       subtitle: "27º Maior país do mundo",
       populacao: "12 Mi",
       tamanho: "1.098.581 km²",
+      route:() => setVisibleBolivia(true)
     },
     {
       source: require("../images/imagesAmericaSul/venezuela.jpg"),
@@ -77,27 +92,40 @@ export default function AmericaSul() {
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons
-            name="arrow-left-thick"
+            name="arrow-left"
             size={35}
             color={"white"}
           />
         </TouchableOpacity>
 
-        <EuaModal
-          visibleEua={visibleEua}
-          closeEua={() => setVisibleEua(false)}
-        />
+          <BrasilModal
+          visibleBrasil={visibleBrasil}
+          closeBrasil={() => setVisibleBrasil(false)}
+          />
+
+          <ArgentinaModal 
+          visibleArgentina={visibleArgentina}
+          closeArgentina={()=> setVisibleArgentina(false)}
+          />
+          <ChileModal 
+          visibleChile={visibleChile}
+          closeChile={()=> setVisibleChile(false)}
+          />
+          <BoliviaModal 
+          visibleBolivia={visibleBolivia}
+          closeBolivia={()=> setVisibleBolivia(false)}
+          />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Sul</Text>
       </View>
 
       <FlatList
         data={data}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>
-              <Pressable onPress={() => setVisibleEua(true)}>
+              <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
                   <Image
                     source={item.source}

@@ -13,12 +13,14 @@ import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import EuaModal from "../partials/ModalEUA";
 import CanadaModal from "../partials/ModalCanada";
+import MexicoModal from "../partials/ModalMexico";
 
 export default function AmericaNorte() {
   const navigation = useNavigation();
 
   const [visibleEua, setVisibleEua] = useState(false);
   const [visibleCanada, setVisibleCanada] = useState(false);
+  const [visibleMexico, setVisibleMexico] = useState(false);
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -58,7 +60,7 @@ export default function AmericaNorte() {
       subtitle: "14º Maior país do mundo",
       populacao: "136 Mi",
       tamanho: "1.973.000 km²",
-      route: null,
+      route: () => setVisibleMexico(true),
     },
   ];
 
@@ -72,7 +74,7 @@ export default function AmericaNorte() {
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons
-            name="arrow-left-thick"
+            name="arrow-left"
             size={35}
             color={"white"}
           />
@@ -86,6 +88,13 @@ export default function AmericaNorte() {
         <CanadaModal
           visibleCanada={visibleCanada}
           closeCanada={() => setVisibleCanada(false)}
+        />
+        <MexicoModal
+        visibleMexico={visibleMexico}
+        closeMexico={() => setVisibleMexico(false)}
+          
+        
+        
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>

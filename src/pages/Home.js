@@ -8,10 +8,13 @@ import {
   Dimensions,
   SafeAreaView,
   Animated,
+  Pressable
 } from "react-native";
 
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
+
+import { useNavigation } from '@react-navigation/native';
 
 import stylesHome from "../styles/StyleHome";
 
@@ -92,6 +95,7 @@ function Backdrop({ scrollX }) {
 }
 
 export default function Home() {
+  const navigation = useNavigation();
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -142,6 +146,7 @@ export default function Home() {
           });
           return (
             <View style={stylesHome.containerFlatList}>
+              <Pressable onPress={() => navigation.navigate(item.rota)} >
                 <Animated.View
                   style={[
                     {
@@ -153,6 +158,7 @@ export default function Home() {
                   <Image source={item.source} style={stylesHome.posterImage} />
                   <Text style={stylesHome.texto}>{item.title}</Text>
                 </Animated.View>
+                </Pressable>
             </View>
           );
         }}

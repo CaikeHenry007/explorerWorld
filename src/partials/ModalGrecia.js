@@ -17,16 +17,20 @@ import {
   
     const places = [
       {
-        source: require("../images/imagesAmericaNorte/estatualiberdade.jpg"),
-        title: "Estátua da Liberdade",
+        source: require("../images/Europa/meteora.jpg"),
+        title: "metéora",
       },
       {
-        source: require("../images/imagesAmericaNorte/timessquare.jpg"),
-        title: "Times Square",
+        source: require("../images/Europa/navagio.jpg"),
+        title: "Navagio",
       },
       {
-        source: require("../images/imagesAmericaNorte/goldengate.jpg"),
-        title: "Golden Gate",
+        source: require("../images/Europa/santorini.jpg"),
+        title: "Santorini",
+      },
+      {
+        source: require("../images/Europa/acropole.jpg"),
+        title: "Museu de acrópole",
       },
     ];
   
@@ -35,7 +39,7 @@ import {
         <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
           <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40 }}>
   
-            <ImageBackground source={require("../images/imagesAmericaNorte/americadonorte.jpg")}
+            <ImageBackground source={require("../images/Europa/grecia.jpg")}
               style={{ height: "100%", borderBottomEndRadius: 40, flexDirection: "column" }}
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
@@ -52,7 +56,7 @@ import {
                 </View>
               </View>
               <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end" }}>
-                <Text style={{ color: "#ffffff", fontSize: 25 }} >Grécia</Text>
+                <Text style={stylesPaises.txtTituloPais} >Grécia</Text>
               </View>
             </ImageBackground>
           </View>
@@ -66,7 +70,7 @@ import {
                   <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
                     <Image source={item.source}
                       style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
-                    <Text style={{ fontSize: 20, color: "white" }}>{item.title}</Text>
+                    <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>
                   </View>
                 )
               }} />

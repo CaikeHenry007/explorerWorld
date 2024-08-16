@@ -36,6 +36,7 @@ export default function AmericaCentro() {
       subtitle: "3º maior país da América Central",
       populacao: " 4,4 Mi",
       tamanho: " 75.417km²",
+      route: () => setVisiblePanama(true),
     },
     {
       source: require("../images/imagesAmericaCentro/costarica.jpg"),
@@ -43,6 +44,7 @@ export default function AmericaCentro() {
       subtitle: "4º maior país da América Central",
       populacao: "5,2 Mi",
       tamanho: "51.100 km²",
+      route: () => setVisibleCosta(true),
     },
     {
       source: require("../images/imagesAmericaCentro/nicaragua.jpg"),
@@ -50,6 +52,7 @@ export default function AmericaCentro() {
       subtitle: "maior país da América Central",
       populacao: "6,9 Mi",
       tamanho: "130.373 km²",
+      route: () => setVisibleNicaragua(true),
     },
     {
       source: require("../images/imagesAmericaCentro/honduras.jpg"),
@@ -57,6 +60,7 @@ export default function AmericaCentro() {
       subtitle: "2º maior país da América Central",
       populacao: "10 Mi",
       tamanho: "112.492 km²",
+      route: () => setVisibleHonduras(true),
     },
     {
       source: require("../images/imagesAmericaCentro/elsalvador2.jpg"),
@@ -64,6 +68,7 @@ export default function AmericaCentro() {
       subtitle: "5º maior país da América Central",
       populacao: "6,5 Mi",
       tamanho: "21.041 km²",
+      route: () => setVisibleElSalvador(true),
     },
   ];
 
@@ -77,7 +82,7 @@ export default function AmericaCentro() {
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons
-            name="arrow-left-thick"
+            name="arrow-left"
             size={35}
             color={"white"}
           />

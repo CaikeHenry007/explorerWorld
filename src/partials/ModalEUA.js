@@ -17,6 +17,10 @@ export default function EuaModal({ visibleEua, closeEua }) {
 
   const places = [
     {
+      source: require("../images/imagesAmericaNorte/disney.jpg"),
+      title: "Disneylandia Orlando",
+    },
+    {
       source: require("../images/imagesAmericaNorte/estatualiberdade.jpg"),
       title: "Estátua da Liberdade",
     },
@@ -28,6 +32,7 @@ export default function EuaModal({ visibleEua, closeEua }) {
       source: require("../images/imagesAmericaNorte/goldengate.jpg"),
       title: "Golden Gate",
     },
+    
   ];
 
   return (
@@ -52,7 +57,7 @@ export default function EuaModal({ visibleEua, closeEua }) {
               </View>
             </View>
             <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end" }}>
-              <Text style={{ color: "#ffffff", fontSize: 25 }} >Estados Unidos</Text>
+              <Text style={stylesPaises.TitlePaises} >Estados Unidos</Text>
             </View>
           </ImageBackground>
         </View>
@@ -66,7 +71,7 @@ export default function EuaModal({ visibleEua, closeEua }) {
                 <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
                   <Image source={item.source}
                     style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
-                  <Text style={{ fontSize: 20, color: "white" }}>{item.title}</Text>
+                  <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>
                 </View>
               )
             }} />
