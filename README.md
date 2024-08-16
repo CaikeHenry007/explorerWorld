@@ -24,6 +24,11 @@ npx create-expo-app nomedoseuApp
 
 <br>
 
+```
+npx create-expo-app nomedoseuApp
+```
+<br>
+
 <b>Entre no diretório do novo App</b>
 
 ```
@@ -40,6 +45,12 @@ npx expo install react-native-web react-dom @expo/metro-runtime
 
  <br>
  
+ ```
+yarn add react-native-web react-dom @expo/metro-runtime
+```
+
+ <br>
+ 
 <b>Instale o pacote em seu projeto, que fornece as funcionalidades básicas para navegação.<b>
 
 ```
@@ -47,6 +58,13 @@ npm install @react-navigation/native
 ```
 
  <br>
+
+```
+yarn add @react-navigation/native
+```
+
+ <br>
+ 
 
 <b>Instale dependências necessárias para o correto funcionamento do React Navigation em projetos Expo.<b>
 
@@ -56,10 +74,22 @@ npx expo install react-native-screens react-native-safe-area-context
 
 <br>
 
+```
+yarn add react-native-screens react-native-safe-area-context
+```
+
+ <br>
+
 <b>Instale o pacote Stack que gerencia a navegação entre diferentes telas.<b>
 
 ```
 npm install @react-navigation/native-stack
+```
+
+<br>
+
+```
+yarn add @react-navigation/native-stack
 ```
 
 <br>
@@ -72,10 +102,22 @@ npm install expo-linear-gradient
 
 <br>
 
+```
+yarn add expo-linear-gradient
+```
+
+<br>
+
 <b>Instale o Banco de Dados.<b>
 
 ```
 npm install firebase
+```
+<br>
+
+```
+yarn add firebase
+
 ```
 
 <br>
