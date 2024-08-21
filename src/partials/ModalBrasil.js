@@ -3,6 +3,7 @@ import {Text,View,ImageBackground,TouchableOpacity,Modal,Pressable,FlatList,Imag
 import { useFonts } from "expo-font";
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
+  import React, { useState } from "react";
   
   export default function BrasilModal({ visibleBrasil, closeBrasil }) {
     const navigation = useNavigation();
@@ -28,10 +29,12 @@ import { useFonts } from "expo-font";
       {
         source: require("../images/imagesAmericaSul/brasil5.jpg"),
         title: "Jardim Botânico",
+        rota: "CristoRedentor"
       },
       {
         source: require("../images/imagesAmericaSul/rjBrasil.jpg"),
         title: "Cristo Redentor",
+        rota: "CristoRedentor"
       },
       {
         source: require("../images/imagesAmericaSul/scBrasil.jpg"),
@@ -76,11 +79,15 @@ import { useFonts } from "expo-font";
               keyExtractor={(item) => item}
               renderItem={({ item }) => {
                 return (
-                  <View style={stylesPaises.Viewimages}>
+                  <Pressable onPress={() => navigation.navigate(item.rota)}>
+                  <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
                     <Image source={item.source}
-                      style={stylesPaises.imgFlatList} />
+                      style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
                     <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>
                   </View>
+
+                  
+                  </Pressable>
                 )
               }} />
   

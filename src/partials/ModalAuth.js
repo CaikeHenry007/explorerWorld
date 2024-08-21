@@ -20,6 +20,7 @@ export default function ModalAuth({
   isLogin,
   setIsLogin,
   handleAuthentication,
+  handlePasswordReset,
 }) {
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -77,6 +78,15 @@ export default function ModalAuth({
                     secureTextEntry
                   />
                 </View>
+
+                {isLogin && (
+                  <TouchableOpacity onPress={handlePasswordReset}>
+                    <Text style={{color: "blue", textAlign: "center"}}>
+                      Esqueceu sua senha?
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
                 <View style={styles.viewbotoes}>
                   <TouchableOpacity
                     style={styles.btncadastro}

@@ -11,18 +11,18 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import EuaModal from "../partials/ModalEUA";
-import MaldivasModal from "../partials/ModalMaldivas";
 import EmiradosModal from "../partials/ModalEmirados";
 import ChinaModal from "../partials/ModalChina";
 import JapaoModal from "../partials/ModalJapao";
+import MalasiaModal from "../partials/ModalMalasia";
+import CatarModal from "../partials/ModalCatar";
 
 export default function Asia() {
   const navigation = useNavigation();
 
-  const [visibleMaldivas, setVisibleMaldivas] = useState(false);
+  const [visibleMalasia, setVisibleMalasia] = useState(false);
   const [visibleEmirados, setVisibleEmirados] = useState(false);
-  const [visibleTailandia, setVisibleTailandia] = useState(false);
+  const [visibleCatar, setVisibleCatar] = useState(false);
   const [visibleChina, setVisibleChina] = useState(false);
   const [visibleJapao, setVisibleJapao] = useState(false);
 
@@ -39,12 +39,12 @@ export default function Asia() {
 
   const data = [
     {
-      source: require("../images/Asia/maldivas.jpg"),
-      title: "Maldivas",
+      source: require("../images/Asia/malasia.jpg"),
+      title: "Malásia",
       subtitle: "187º Maior país do mundo",
       populacao: "581 217",
       tamanho: "298 km²",
-      route: () => setVisibleMaldivas(true),
+      route: () => setVisibleMalasia(true),
     },
     {
       source: require("../images/Asia/emirados.jpg"),
@@ -55,12 +55,12 @@ export default function Asia() {
       route: () => setVisibleEmirados(true),
     },
     {
-      source: require("../images/Asia/tailandia.jpg"),
-      title: "Tailândia",
+      source: require("../images/Asia/catar.jpg"),
+      title: "Catar",
       subtitle: "50º Maior país do mundo",
       populacao: "70 931 793",
       tamanho: "513 120 km²",
-      route: () => setVisibleTailandia(true),
+      route: () => setVisibleCatar(true),
     },
     {
       source: require("../images/Asia/china.jpg"),
@@ -96,9 +96,9 @@ export default function Asia() {
           />
         </TouchableOpacity>
 
-        <MaldivasModal
-          visibleMaldivas={visibleMaldivas}
-          closeMaldivas={() => setVisibleMaldivas(false)}
+        <MalasiaModal
+          visibleMalasia={visibleMalasia}
+          closeMalasia={() => setVisibleMalasia(false)}
         />
         <EmiradosModal
           visibleEmirados={visibleEmirados}
@@ -111,6 +111,10 @@ export default function Asia() {
         <JapaoModal
           visibleJapao={visibleJapao}
           closeJapao={() => setVisibleJapao(false)}
+        />
+        <CatarModal
+          visibleCatar={visibleCatar}
+          closeCatar={() => setVisibleCatar(false)}
         />
 
 

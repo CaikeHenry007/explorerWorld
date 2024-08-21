@@ -26,20 +26,20 @@ import { useFonts } from "expo-font";
   
     const places = [
       {
-        source: require("../images/imagesAmericaSul/buenosAires.jpg"),
-        title: "Buenos Aires",
+        source: require("../images/imagesAmericaSul/islaIncahuasiBolivia.jpg"),
+        title: "BIsla Incahuasi",
       },
       {
-        source: require("../images/imagesAmericaSul/bariloche.jpg"),
-        title: "Beriloche",
+        source: require("../images/imagesAmericaSul/LagunacoloradaBolivia.jpg"),
+        title: "Laguna Colorada",
       },
       {
-        source: require("../images/imagesAmericaSul/TremdelFindelMundo.jpg"),
-        title: "Trem del Fin del Mundo",
+        source: require("../images/imagesAmericaSul/LapozaVerdeBolivia.jpg"),
+        title: "Lapoza Verde",
       },
       {
-        source: require("../images/imagesAmericaSul/terradofogo2.jpg"),
-        title: "Terra do Fogo",
+        source: require("../images/imagesAmericaSul/valledelalunaBolivia.jpg"),
+        title: "Valle de La Luna ",
       },
     ];
   

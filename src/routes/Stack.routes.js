@@ -10,6 +10,11 @@ import AmericaSul from "../pages/AmericaSul";
 import Asia from "../pages/Asia";
 import Europa from "../pages/Europa";
 import Oceania from "../pages/Oceania";
+import RecuperarSenha from "../pages/RecuperarSenha";
+import PavilionMalasia from "../pages/PavilionMalasia";
+import MalasiaModal from "../partials/ModalMalasia";
+import CristoRedentor from "../pages/CristoRedentorBrasil";
+import BrasilModal from "../partials/ModalBrasil";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +25,11 @@ export default function StackRoutes() {
         <Stack.Screen
           name="Inicio"
           component={Inicio}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="RecuperarSenha"
+          component={RecuperarSenha}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -60,6 +70,26 @@ export default function StackRoutes() {
         <Stack.Screen
           name="Oceania"
           component={Oceania}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="PavilionMalasia"
+          component={PavilionMalasia}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="MalasiaModal"
+          component={MalasiaModal}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CristoRedentor"
+          component={CristoRedentor}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="BrasilModal"
+          component={BrasilModal}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -14,6 +14,8 @@ import React, { useState } from "react";
 import BrasilModal from "../partials/ModalBrasil";
 import ArgentinaModal from "../partials/ModalArgentina";
 import ChileModal from "../partials/ModalChile";
+import BoliviaModal from "../partials/ModalBolivia"
+import VenezuelaModal from "../partials/ModalVenezuela"
 
 
 export default function AmericaSul() {
@@ -23,6 +25,7 @@ export default function AmericaSul() {
   const [visibleArgentina, setVisibleArgentina] = useState(false);
   const [visibleChile, setVisibleChile]= useState(false);
   const [visibleBolivia, setVisibleBolivia]= useState(false);
+  const [visibleVenezuela, setVisibleVenezuela]= useState(false);
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -79,6 +82,7 @@ export default function AmericaSul() {
       subtitle: "33º Maior país do mundo",
       populacao: "28 Mi",
       tamanho: "916.445 km² km²",
+      route:() => setVisibleVenezuela(true)
     },
   ];
 
@@ -114,6 +118,10 @@ export default function AmericaSul() {
           <BoliviaModal 
           visibleBolivia={visibleBolivia}
           closeBolivia={()=> setVisibleBolivia(false)}
+          />
+          <VenezuelaModal 
+          visibleVenezuela={visibleVenezuela}
+          closeVenezuela={()=> setVisibleVenezuela(false)}
           />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Sul</Text>

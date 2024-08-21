@@ -30,7 +30,7 @@ import {
       },
       {
         source: require("../images/Oceania/waiotapunovazelandia.jpg"),
-        title: "Waiotapu Thermal Wonderland",
+        title: "Waiotapu Thermal Wonderland", 
       },
     ];
   

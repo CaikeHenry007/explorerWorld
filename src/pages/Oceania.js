@@ -13,6 +13,9 @@ import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import AustraliaModal from "../partials/ModalAustralia";
 import ModalNovaZelandia from "../partials/ModalNovaZelandia";
+import ModalPapuaNovaGuine from "../partials/ModalPapuaNovaGuine";
+import ModalFiji from "../partials/ModalFiji";
+import ModalIlhasSalomao from "../partials/ModalilhasSalomao";
 
 export default function Oceania() {
   const navigation = useNavigation();
@@ -103,12 +106,28 @@ export default function Oceania() {
           closeNovaZelandia={() => setVisibleNovaZelandia(false)}
         />
 
+        <ModalPapuaNovaGuine
+          visiblePapuaNovaGuine={visiblePapuaNovaGuine}
+          closePapuaNovaGuine={() => setVisiblePapuaNovaGuine(false)}
+        />
+
+        <ModalFiji
+          visibleFiji={visibleFiji}
+          closeFiji={() => setVisibleFiji(false)}
+        />
+
+      <ModalIlhasSalomao
+          visibleIlhasSalomao={visibleIlhasSalomao}
+          closeIlhasSalomao={() => setVisibleIlhasSalomao(false)}
+        />
+
+
         <Text style={stylesContinente.tituloPrincipal}>Oceania</Text>
       </View>
 
       <FlatList
         data={data}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>

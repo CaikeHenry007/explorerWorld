@@ -8,43 +8,57 @@ import {
     FlatList,
     Image
   } from "react-native";
+  import { useFonts } from "expo-font";
   import stylesPaises from "../styles/StylePaises";
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function MaldivasModal({ visibleMaldivas, closeMaldivas }) {
+  export default function CatarModal({ visibleCatar, closeCatar }) {
     const navigation = useNavigation();
+
+    const [fontLoaded] = useFonts({
+      Pacifico: require("../fonts/Pacifico-Regular.ttf"),
+      Bebas: require("../fonts/Bebas.ttf"),
+      Noto: require("../fonts/NotoSherif.ttf"),
+      BonaNova: require("../fonts/BonaNovaItalic.ttf"),
+      BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
+      Lilita: require("../fonts/LilitaOne.ttf"),
+      Display: require("../fonts/DisplayExtraBoldItalic.ttf"),
+      DisplayBold: require("../fonts/DisplayBoldItalic.ttf"),
+      DisplayItalic: require("../fonts/DisplayItalic.ttf")
+    });
+
   
     const places = [
       {
-        source: require("../images/Europa/restaurante.jpg"),
-        title: "Ithaa Undersea Restaurant",
+        source: require("../images/Asia/livraria.jpg"),
+        title: "Qatar National Library",
       },
       {
-        source: require("../images/Europa/navagio.jpg"),
-        title: "Navagio",
+        source: require("../images/Asia/museuCatar.jpg"),
+        title: "National Museum of Qatar",
       },
       {
-        source: require("../images/Europa/santorini.jpg"),
-        title: "Santorini",
+        source: require("../images/Asia/museuIslamico.jpg"),
+        title: "Museu da Arte Islâmica",
       },
       {
-        source: require("../images/Europa/acropole.jpg"),
-        title: "Museu de acrópole",
+        source: require("../images/Asia/villaggiomall.jpg"),
+        title: "Villaggio Mall",
       },
     ];
   
     return (
-      <Modal transparent={true} animationType="fade" visible={visibleMaldivas}>
+      <Modal transparent={true} animationType="fade" visible={visibleCatar}>
         <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
           <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40 }}>
   
-            <ImageBackground source={require("../images/Asia/maldivas.jpg")}
+            <ImageBackground source={require("../images/Asia/catar.jpg")}
               style={{ height: "100%", borderBottomEndRadius: 40, flexDirection: "column" }}
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeMaldivas} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={closeCatar} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}
@@ -56,7 +70,7 @@ import {
                 </View>
               </View>
               <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end" }}>
-                <Text style={stylesPaises.txtTituloPais} >Maldivas</Text>
+                <Text style={stylesPaises.TitlePaises} >Catar</Text>
               </View>
             </ImageBackground>
           </View>

@@ -121,3 +121,18 @@ yarn add firebase
 ```
 
 <br>
+
+<b>Instale o auth do firebase.<b>
+
+```
+npm install @react-native-firebase/auth
+
+```
+<br>
+
+```
+yarn add @react-native-firebase/auth
+
+```
+
+<br>

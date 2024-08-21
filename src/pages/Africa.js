@@ -11,13 +11,14 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import EuaModal from "../partials/ModalEUA";
+
+import GuineModal from "../partials/ModalGuine";
 
 export default function Africa() {
   const navigation = useNavigation();
-
-  const [visibleEua, setVisibleEua] = useState(false);
-
+  const [visibleGuine, setVisibleGuine] = useState(false);
+  const [visibleEgito, setVisibleEgito] = useState(false);
+ 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
     Bebas: require("../fonts/Bebas.ttf"),
@@ -31,20 +32,25 @@ export default function Africa() {
 
   const data = [
     {
+      id: "1",
       source: require("../images/Africa/guine.jpg"),
       title: "Guiné",
       subtitle: "77º Maior país do mundo",
       populacao: "13 Mi",
       tamanho: "36.120 km²",
+      route: () => setVisibleGuine(true),
     },
     {
+      id: "2",
       source: require("../images/Africa/egito.jpg"),
       title: "Egito",
       subtitle: "29º Maior país do mundo",
       populacao: "111 Mi",
       tamanho: "1.002.000 km²",
+      route: () => setVisibleEgito(true),
     },
     {
+      id: "3",
       source: require("../images/Africa/nigeria.jpg"),
       title: "Nigéria",
       subtitle: "31º Maior país do mundo",
@@ -52,6 +58,7 @@ export default function Africa() {
       tamanho: "923.768 km²",
     },
     {
+      id: "4",
       source: require("../images/Africa/angola.jpg"),
       title: "Angola",
       subtitle: "22º Maior país do mundo",
@@ -59,6 +66,7 @@ export default function Africa() {
       tamanho: "1.247.000 km²",
     },
     {
+      id: "5",
       source: require("../images/Africa/africadosul.jpg"),
       title: "África do Sul",
       subtitle: "24º Maior país do mundo",
@@ -83,10 +91,17 @@ export default function Africa() {
           />
         </TouchableOpacity>
 
-        <EuaModal
-          visibleEua={visibleEua}
-          closeEua={() => setVisibleEua(false)}
+        <GuineModal
+          visibleGuine={visibleGuine}
+          closeGuine={() => setVisibleGuine(false)}
         />
+
+<EgitoModal
+          visibleEgito={visibleEgito}
+          closeEgito={() => setVisibleEgito(false)}
+        />
+
+        
 
         <Text style={stylesContinente.tituloPrincipal}>África</Text>
       </View>
@@ -97,7 +112,9 @@ export default function Africa() {
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>
-              <Pressable onPress={() => setVisibleEua(true)}>
+            <Pressable onPress={item.route}>
+                
+        
                 <View style={stylesContinente.card}>
                   <Image
                     source={item.source}
@@ -139,3 +156,17 @@ export default function Africa() {
     </View>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

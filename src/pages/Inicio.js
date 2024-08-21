@@ -111,6 +111,7 @@ export default function Inicio() {
               isLogin={isLogin}
               setIsLogin={setIsLogin}
               handleAuthentication={handleAuthentication}
+              handlePasswordReset={() => navigation.navigate("RecuperarSenha")}
             />
           )}
         </View>

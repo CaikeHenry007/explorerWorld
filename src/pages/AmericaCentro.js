@@ -11,12 +11,20 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import EuaModal from "../partials/ModalEUA";
+import PanamaModal from "../partials/ModalPanama";
+import CostaRicaModal from "../partials/ModalCostaRica";
+import NicaraguaModal from "../partials/ModalNicaragua";
+import HondurasModal from "../partials/ModalHonduras";
+import ElSalvadorModal from "../partials/ModalElSalvador";
 
 export default function AmericaCentro() {
   const navigation = useNavigation();
 
-  const [visibleEua, setVisibleEua] = useState(false);
+  const [visiblePanama, setVisiblePanama] = useState(false);
+  const [visibleCostaRica, setVisibleCostaRica] = useState(false);
+  const [visibleNicaragua, setVisibleNicaragua] = useState(false);
+  const [visibleHonduras, setVisibleHonduras] = useState(false);
+  const [visibleElSalvador, setVisibleElSalvador] = useState(false);
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -44,7 +52,7 @@ export default function AmericaCentro() {
       subtitle: "4º maior país da América Central",
       populacao: "5,2 Mi",
       tamanho: "51.100 km²",
-      route: () => setVisibleCosta(true),
+      route: () => setVisibleCostaRica(true),
     },
     {
       source: require("../images/imagesAmericaCentro/nicaragua.jpg"),
@@ -88,9 +96,26 @@ export default function AmericaCentro() {
           />
         </TouchableOpacity>
 
-        <EuaModal
-          visibleEua={visibleEua}
-          closeEua={() => setVisibleEua(false)}
+        
+        <PanamaModal 
+        visiblePanama={visiblePanama}
+        closePanama={()=> setVisiblePanama(false)}
+        />
+        <CostaRicaModal
+        visibleCostaRica={visibleCostaRica}
+        closeCostaRica={()=>setVisibleCostaRica(false)}
+        />
+        <NicaraguaModal 
+        visibleNicaragua={visibleNicaragua}
+        closeNicaragua={()=>setVisibleNicaragua(false)}
+        />
+        <HondurasModal
+        visibleHonduras={visibleHonduras}
+        closeHonduras={()=> setVisibleHonduras(false)} 
+        />
+        <ElSalvadorModal 
+        visibleElSalvador={visibleElSalvador}
+        closeHonduras={()=>setVisibleHonduras(false)}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America Central</Text>
@@ -98,11 +123,11 @@ export default function AmericaCentro() {
 
       <FlatList
         data={data}
-        keyExtractor={(item) => item}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => {
           return (
             <View style={stylesContinente.containerFlatlist}>
-              <Pressable onPress={() => setVisibleEua(true)}>
+              <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
                   <Image
                     source={item.source}
