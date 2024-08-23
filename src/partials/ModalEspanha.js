@@ -12,7 +12,7 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function EspanhaModal({ visibleEspanha, closeEspanha }) {
+  export default function EspanhaModal({ visibleEspanha, setVisibleEspanha }) {
     const navigation = useNavigation();
   
     const places = [
@@ -44,7 +44,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeEspanha} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleEspanha(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Animated
 } from "react-native";
 import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
@@ -19,6 +20,8 @@ import EspanhaModal from "../partials/ModalEspanha";
 
 export default function Europa() {
   const navigation = useNavigation();
+
+  
 
   const [visibleFranca, setVisibleFranca] = useState(false);
   const [VisibleGrecia, setVisibleGrecia] = useState(false);
@@ -86,7 +89,7 @@ export default function Europa() {
 
   return (
     <View style={stylesContinente.container}>
-      <View style={stylesContinente.topView}>
+      <Animated.View style={stylesContinente.topView}>
         <Image
           source={require("../images/Europa/europa.jpg")}
           style={stylesContinente.topImage}
@@ -101,27 +104,28 @@ export default function Europa() {
         </TouchableOpacity>
         <GreciaModal 
           visibleGrecia={VisibleGrecia}
-          closeGrecia={() => setVisibleGrecia(false)}/>
+          setVisibleGrecia={setVisibleGrecia}
+          />
         <FrancaModal
           visibleFranca={visibleFranca}
-          closeFranca={() => setVisibleFranca(false)}
+          setVisibleFranca={setVisibleFranca}
         />
         <ItaliaModal
           visibleItalia={visibleItalia}
-          closeItalia={() => setVisibleItalia(false)}
+          setVisibleItalia={setVisibleItalia}
         />
         <InglaterraModal
           visibleInglaterra={visibleInglaterra}
-          closeInglaterra={() => setVisibleInglaterra(false)}
+          setVisibleInglaterra={setVisibleInglaterra}
         />
         <EspanhaModal
           visibleEspanha={visibleEspanha}
-          closeEspanha={() => setVisibleEspanha(false)}
+          setVisibleEspanha={setVisibleEspanha}
         />
         
 
         <Text style={stylesContinente.tituloPrincipal}>Europa</Text>
-      </View>
+      </Animated.View>
 
       <FlatList
         data={data}
@@ -131,10 +135,12 @@ export default function Europa() {
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
+                <View style={stylesContinente.ImgRotate}>
                   <Image
                     source={item.source}
                     style={stylesContinente.imagePais}
                   />
+                  </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}
@@ -143,7 +149,7 @@ export default function Europa() {
                       {item.subtitle}
                     </Text>
                     <View style={stylesContinente.viewIcones}>
-                      <View style={stylesContinente.icones}>
+                      <View style={{ width: "45%", height: "40%", backgroundColor: "#ca763b", borderRadius: 20, alignItems: "center", justifyContent: "center", flexDirection: "row",}}>
                         <MaterialCommunityIcons
                           name="account-group"
                           size={25}
@@ -155,7 +161,7 @@ export default function Europa() {
                         </Text>
                       </View>
                       <View style={stylesContinente.espaco}></View>
-                      <View style={stylesContinente.icones}>
+                      <View style={{ width: "45%", height: "40%", backgroundColor: "#ca763b", borderRadius: 20, alignItems: "center", justifyContent: "center", flexDirection: "row",}}>
                         <Text style={stylesContinente.textosIcones}>
                           {item.tamanho}
                         </Text>

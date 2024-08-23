@@ -13,7 +13,7 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function CatarModal({ visibleCatar, closeCatar }) {
+  export default function CatarModal({ visibleCatar, setVisibleCatar }) {
     const navigation = useNavigation();
 
     const [fontLoaded] = useFonts({
@@ -58,7 +58,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeCatar} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleCatar(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

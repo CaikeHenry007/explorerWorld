@@ -13,7 +13,7 @@ import {
   import { useNavigation } from "@react-navigation/native";
   
   
-  export default function PanamaModal({ visiblePanama, closePanama }) {
+  export default function PanamaModal({ visiblePanama, setVisiblePanama }) {
     const navigation = useNavigation();
   
     const places = [
@@ -46,7 +46,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closePanama} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisiblePanama(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

@@ -12,7 +12,7 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function ElSalvadorModal({ visibleElSalvador, closeElSalvador }) {
+  export default function ElSalvadorModal({ visibleElSalvador, setVisibleElSalvador }) {
     const navigation = useNavigation();
   
     const places = [
@@ -45,7 +45,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeElSalvador} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleElSalvador(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}
@@ -69,6 +69,7 @@ import {
               renderItem={({ item }) => {
                 return (
                   <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
+                    
                     <Image source={item.source}
                       style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
                     <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>

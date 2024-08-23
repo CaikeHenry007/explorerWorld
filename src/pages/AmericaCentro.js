@@ -99,23 +99,23 @@ export default function AmericaCentro() {
         
         <PanamaModal 
         visiblePanama={visiblePanama}
-        closePanama={()=> setVisiblePanama(false)}
+        setVisiblePanama={setVisiblePanama}
         />
         <CostaRicaModal
         visibleCostaRica={visibleCostaRica}
-        closeCostaRica={()=>setVisibleCostaRica(false)}
+        setVisibleCostaRica={setVisibleCostaRica}
         />
         <NicaraguaModal 
         visibleNicaragua={visibleNicaragua}
-        closeNicaragua={()=>setVisibleNicaragua(false)}
+        setVisibleNicaragua={setVisibleNicaragua}
         />
         <HondurasModal
         visibleHonduras={visibleHonduras}
-        closeHonduras={()=> setVisibleHonduras(false)} 
+        setVisibleHonduras={setVisibleHonduras}
         />
         <ElSalvadorModal 
         visibleElSalvador={visibleElSalvador}
-        closeHonduras={()=>setVisibleHonduras(false)}
+        setVisibleElSalvador={setVisibleElSalvador}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America Central</Text>
@@ -129,10 +129,12 @@ export default function AmericaCentro() {
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
+                  <View style={stylesContinente.ImgRotate}>
                   <Image
                     source={item.source}
                     style={stylesContinente.imagePais}
-                  />
+                  />                                             
+</View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}

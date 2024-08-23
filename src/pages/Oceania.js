@@ -98,27 +98,27 @@ export default function Oceania() {
 
         <AustraliaModal
           visibleAustralia={visibleAustralia}
-          closeAustralia={() => setVisibleAustralia(false)}
+          setVisibleAustralia={setVisibleAustralia}
         />
 
         <ModalNovaZelandia 
           visibleNovaZelandia={visibleNovaZelandia}
-          closeNovaZelandia={() => setVisibleNovaZelandia(false)}
+          setVisibleNovaZelandia={setVisibleNovaZelandia}
         />
 
         <ModalPapuaNovaGuine
           visiblePapuaNovaGuine={visiblePapuaNovaGuine}
-          closePapuaNovaGuine={() => setVisiblePapuaNovaGuine(false)}
+          setVisiblePapuaNovaGuine={setVisiblePapuaNovaGuine}
         />
 
         <ModalFiji
           visibleFiji={visibleFiji}
-          closeFiji={() => setVisibleFiji(false)}
+          setVisibleFiji={setVisibleFiji}
         />
 
       <ModalIlhasSalomao
           visibleIlhasSalomao={visibleIlhasSalomao}
-          closeIlhasSalomao={() => setVisibleIlhasSalomao(false)}
+          setVisibleIlhasSaloao={setVisibleIlhasSalomao}
         />
 
 
@@ -133,10 +133,12 @@ export default function Oceania() {
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
+                <View style={stylesContinente.ImgRotate}>
                   <Image
                     source={item.source}
                     style={stylesContinente.imagePais}
                   />
+                  </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}

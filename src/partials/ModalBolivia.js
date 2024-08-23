@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function BoliviaModal({ visibleBolivia, closeBolivia }) {
+  export default function BoliviaModal({ visibleBolivia, setVisibleBolivia }) {
     const navigation = useNavigation();
 
 
@@ -53,7 +53,7 @@ import { useFonts } from "expo-font";
               resizeMode="cover" >
               <View style={stylesPaises.Viewbtn} >
   
-                <Pressable onPress={closeBolivia} style={stylesPaises.btnVoltar} >
+                <Pressable onPress={() => setVisibleBolivia(false)} style={stylesPaises.btnVoltar} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

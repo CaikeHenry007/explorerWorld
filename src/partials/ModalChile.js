@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function ChileModal({ visibleChile, closeChile }) {
+  export default function ChileModal({ visibleChile, setVisibleChile }) {
     const navigation = useNavigation();
 
 
@@ -53,7 +53,7 @@ import { useFonts } from "expo-font";
               resizeMode="cover" >
               <View style={stylesPaises.Viewbtn} >
   
-                <Pressable onPress={closeChile} style={stylesPaises.btnVoltar} >
+                <Pressable onPress={() => setVisibleChile(false)} style={stylesPaises.btnVoltar} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

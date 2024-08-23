@@ -12,7 +12,7 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function IlhasSalomaoModal({ visibleIlhasSalomao, closeIlhasSaloao }) {
+  export default function IlhasSalomaoModal({ visibleIlhasSalomao, setVisibleIlhasSaloao }) {
     const navigation = useNavigation();
   
     const places = [
@@ -21,16 +21,16 @@ import {
         title: "Marovo Lagoon",
       },
       {
-        source: require("../images/Oceania/honiarasalomao.jpg"),
-        title: "Honiara",
-      },
-      {
         source: require("../images/Oceania/kokodaPapua.jpg"),
         title: "Kokoda Track",
       },
       {
-        source: require("../images/Oceania/portPapua.jpg"),
-        title: "Port Moresby",
+        source: require("../images/Oceania/vilusalomao.jpg"),
+        title: "Vilu War Museum",
+      },
+      {
+        source: require("../images/Oceania/kennedysalomao.jpg"),
+        title: "Kennedy Island",
       },
     ];
   
@@ -45,7 +45,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeIlhasSaloao} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleIlhasSaloao(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

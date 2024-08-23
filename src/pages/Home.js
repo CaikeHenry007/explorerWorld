@@ -23,7 +23,7 @@ import { TouchableOpacity } from "react-native";
 
 const imagens = [
   {
-    source: require("../images/imagesAmericaNorte/americadonorte.jpg"),
+    source: require("../images/imagesAmericaNorte/americadonorte2.jpg"),
     title: "América do Norte",
     rota: "AmericaNorte",
   },
@@ -97,7 +97,7 @@ function Backdrop({ scrollX }) {
 
 export default function Home({ route }) {
   const navigation = useNavigation();
-  const { handleAuthentication } = route.params;
+  const  handleAuthentication  = route.params;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),

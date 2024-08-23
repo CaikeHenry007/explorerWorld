@@ -11,22 +11,21 @@ import {
 import stylesPaises from "../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
-import CatarModal from "./ModalCatar";
 import React, { useState } from "react";
 
 
-export default function GuineModal({ visibleGuine, closeGuine }) {
+export default function GuineModal({ setVisibleGuine, visibleGuine }) {
   const navigation = useNavigation();
 
  
   const places = [
     {
-      source: require("../images/Africa/guimelhedelos(1).jpg"),
-      title: "guimelhedelos",
+      source: require("../images/Africa/guinebissaoÎledeKereen(1).jpg"),
+      title: "Bissao Île de Kéréen(1).jpg",
     },
     {
-      source: require("../images/Africa/levoileGuine.jpg"),
-      title: "Le Voile de la Mariee",
+      source: require("../images/Africa/guimelevoiledelamariee.jpg"),
+      title: "guime le voile de la mariee ",
     },
     {
       source: require("../images/Africa/mountGuine.jpg"),
@@ -48,7 +47,7 @@ export default function GuineModal({ visibleGuine, closeGuine }) {
             resizeMode="cover" >
             <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
 
-              <Pressable onPress={closeGuine} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+              <Pressable onPress={() => setVisibleGuine(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                 <MaterialCommunityIcons
                   name="arrow-left"
                   size={35}
@@ -60,7 +59,7 @@ export default function GuineModal({ visibleGuine, closeGuine }) {
               </View>
             </View>
             <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end" }}>
-              <Text style={stylesPaises.txtTituloPais} >Guiné </Text>
+              <Text style={stylesPaises.txtTituloPais} >Guine</Text>
             </View>
           </ImageBackground>
         </View>

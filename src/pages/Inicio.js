@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ImageBackground, Image, Button } from "react-native";
+import { View, Text, ImageBackground, Image, TextInput, TouchableOpacity } from "react-native";
 import { initializeApp } from "@firebase/app";
 import {
   getAuth,
@@ -10,8 +10,8 @@ import {
 } from "@firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-
-import ModalAuth from "../partials/ModalAuth";
+import styles from "../styles/StyleSheet";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA51Q_cRKLbEJR2yohL_EQ_9eITyJNsbc0",
@@ -26,16 +26,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default function Inicio() {
-  const navigation = useNavigation(); // Hook de navegação
-
+  const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null); // Track user authentication state
+  const [user, setUser] = useState(null);
   const [isLogin, setIsLogin] = useState(true);
 
   const auth = getAuth(app);
 
-  // Verifica a autenticação do usuário
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
@@ -47,17 +45,13 @@ export default function Inicio() {
   const handleAuthentication = async () => {
     try {
       if (user) {
-        // Se o usuário já está autenticado, faz logout
         console.log("Usuário desconectado com sucesso!");
         await signOut(auth);
       } else {
-        // Faz login ou cadastro
         if (isLogin) {
-          // Login
           await signInWithEmailAndPassword(auth, email, password);
           console.log("Usuário conectado com sucesso!");
         } else {
-          // Cadastro
           await createUserWithEmailAndPassword(auth, email, password);
           console.log("Usuário cadastrado com sucesso!");
         }
@@ -67,7 +61,6 @@ export default function Inicio() {
     }
   };
 
-  // Redireciona para a Home se o usuário estiver autenticado
   useEffect(() => {
     if (user) {
       navigation.navigate("Home", { handleAuthentication });
@@ -75,46 +68,67 @@ export default function Inicio() {
   }, [user, navigation]);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <StatusBar backgroundColor="#000000" color="#fff" />
       <ImageBackground
-        style={{
-          flex: 1,
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        style={{ flex: 1, width: "100%", justifyContent: "center", alignItems: "center" }}
         resizeMode="cover"
         source={require("../images/Home.jpg")}
       >
-        <View style={{ alignItems: "center", height: "100%", width: "100%" }}>
-          <Image
-            style={{ alignItems: "flex-end", height: 700, width: 700 }}
-            source={require("../images/EXPLORAR.png")}
-          />
-          {user ? (
-            // Exibe uma mensagem simples para indicar que o usuário está logado
-            <Text>logado!</Text>
-          ) : (
-            // Exibe o formulário de autenticação se o usuário não estiver autenticado
-            <ModalAuth
-              email={email}
-              setEmail={setEmail}
-              senha={password}
-              setSenha={setPassword}
-              isLogin={isLogin}
-              setIsLogin={setIsLogin}
-              handleAuthentication={handleAuthentication}
-              handlePasswordReset={() => navigation.navigate("RecuperarSenha")}
-            />
-          )}
-        </View>
+        {user ? (
+          <Text>Logado!</Text>
+        ) : (
+          <View style={{height:700, }}>
+            <View style={styles.modalcadastro2}>
+              <View style={styles.espaco}></View>
+              <Text style={styles.cadastrotitulo}>{isLogin ? "Login" : "Cadastro"}</Text>
+              <View style={styles.form}>
+                <View style={styles.viewcaixa}>
+                  <MaterialCommunityIcons name="email" size={20} color={"#c0c0c0"} />
+                  <TextInput
+                    style={styles.Caixa}
+                    value={email}
+                    onChangeText={setEmail}
+                    placeholder="Email"
+                    autoCapitalize="none"
+                  />
+                </View>
+
+                <View style={styles.viewcaixa}>
+                  <MaterialCommunityIcons name="lock" size={20} color={"#c0c0c0"} />
+                  <TextInput
+                    style={styles.Caixa}
+                    value={password}
+                    onChangeText={setPassword}
+                    placeholder="Senha"
+                    secureTextEntry
+                  />
+                </View>
+
+                {isLogin && (
+                  <TouchableOpacity onPress={() => navigation.navigate("RecuperarSenha")}>
+                    <Text style={{ color: "blue", textAlign: "center" }}>
+                      Esqueceu sua senha?
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
+                <View style={styles.viewbotoes}>
+                  <TouchableOpacity
+                    style={styles.btncadastro}
+                    onPress={handleAuthentication}
+                  >
+                    <Text style={styles.btntxt}>{isLogin ? "Login" : "Cadastre-se"}</Text>
+                  </TouchableOpacity>
+
+                  <Text onPress={() => setIsLogin(!isLogin)} style={styles.texto}>
+                    {isLogin ? "Ainda não tem conta? Cadastre-se" : "Já tem uma conta? Login"}
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        )}
       </ImageBackground>
     </View>
   );

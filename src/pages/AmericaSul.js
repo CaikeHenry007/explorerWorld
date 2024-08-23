@@ -104,24 +104,24 @@ export default function AmericaSul() {
 
           <BrasilModal
           visibleBrasil={visibleBrasil}
-          closeBrasil={() => setVisibleBrasil(false)}
+          setVisibleBrasil={setVisibleBrasil}
           />
 
           <ArgentinaModal 
           visibleArgentina={visibleArgentina}
-          closeArgentina={()=> setVisibleArgentina(false)}
+          setVisibleArgentina={setVisibleArgentina}
           />
           <ChileModal 
           visibleChile={visibleChile}
-          closeChile={()=> setVisibleChile(false)}
+          setVisibleChile={setVisibleChile}
           />
           <BoliviaModal 
           visibleBolivia={visibleBolivia}
-          closeBolivia={()=> setVisibleBolivia(false)}
+          setVisibleBolivia={setVisibleBolivia}
           />
           <VenezuelaModal 
           visibleVenezuela={visibleVenezuela}
-          closeVenezuela={()=> setVisibleVenezuela(false)}
+          setVisibleVenezuela={setVisibleVenezuela}
           />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Sul</Text>
@@ -135,10 +135,12 @@ export default function AmericaSul() {
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
+                <View style={stylesContinente.ImgRotate}>
                   <Image
                     source={item.source}
                     style={stylesContinente.imagePais}
                   />
+                  </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}

@@ -13,7 +13,7 @@ import {
   import { useNavigation } from "@react-navigation/native";
   import React, { useState } from "react";
   
-  export default function MalasiaModal({ visibleMalasia, closeMalasia }) {
+  export default function MalasiaModal({ visibleMalasia, setVisibleMalasia }) {
     const navigation = useNavigation();
 
   
@@ -48,7 +48,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeMalasia} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleMalasia(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

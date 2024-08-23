@@ -98,23 +98,23 @@ export default function Asia() {
 
         <MalasiaModal
           visibleMalasia={visibleMalasia}
-          closeMalasia={() => setVisibleMalasia(false)}
+          setVisibleMalasia={setVisibleMalasia}
         />
         <EmiradosModal
           visibleEmirados={visibleEmirados}
-          closeEmirados={() => setVisibleEmirados(false)}
+          setVisibleEmirados={setVisibleEmirados}
         />
         <ChinaModal
           visibleChina={visibleChina}
-          closeChina={() => setVisibleChina(false)}
+          setVisibleChina={setVisibleChina}
         />
         <JapaoModal
           visibleJapao={visibleJapao}
-          closeJapao={() => setVisibleJapao(false)}
+          setVisibleJapao={setVisibleJapao}
         />
         <CatarModal
           visibleCatar={visibleCatar}
-          closeCatar={() => setVisibleCatar(false)}
+          setVisibleCatar={setVisibleCatar}
         />
 
 
@@ -129,10 +129,12 @@ export default function Asia() {
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
+                <View style={stylesContinente.ImgRotate}>
                   <Image
                     source={item.source}
                     style={stylesContinente.imagePais}
                   />
+                  </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}

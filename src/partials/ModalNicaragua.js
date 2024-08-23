@@ -12,25 +12,27 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function NicaraguaModal({ visibleNicaragua, closeNicaragua }) {
+  export default function NicaraguaModal({ visibleNicaragua, setVisibleNicaragua }) {
     const navigation = useNavigation();
   
     const places = [
       {
         source: require("../images/imagesAmericaCentro/isletasdegranadaNicaragua.jpg"),
-        title: "Disneylandia Orlando",
+        title: "Isletas de Granada",
       },
       {
         source: require("../images/imagesAmericaCentro/littlecornislandNicaragua.jpg"),
-        title: "Estátua da Liberdade",
+        title: "Little Corn Island",
       },
       {
         source: require("../images/imagesAmericaCentro/vulcãomasayaNicaragua.jpg"),
-        title: "Times Square",
+        title: "Vulcão Masaya",
       },
       {
         source: require("../images/imagesAmericaCentro/cerronegroNicaragua.jpg"),
-        title: "Golden Gate",
+        title: "Cerro Negro"
+        
+        
       },
       
     ];
@@ -45,7 +47,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeNicaragua} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleNicaragua(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

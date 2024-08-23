@@ -5,7 +5,7 @@ import { useFonts } from "expo-font";
   import { useNavigation } from "@react-navigation/native";
   import React, { useState } from "react";
   
-  export default function BrasilModal({ visibleBrasil, closeBrasil }) {
+  export default function BrasilModal({ visibleBrasil, setVisibleBrasil }) {
     const navigation = useNavigation();
 
 
@@ -56,7 +56,7 @@ import { useFonts } from "expo-font";
               resizeMode="cover" >
               <View style={stylesPaises.Viewbtn} >
   
-                <Pressable onPress={closeBrasil} style={stylesPaises.btnVoltar} >
+                <Pressable onPress={() => setVisibleBrasil(false)} style={stylesPaises.btnVoltar} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

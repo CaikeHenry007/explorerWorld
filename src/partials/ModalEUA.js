@@ -12,8 +12,9 @@ import stylesPaises from "../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function EuaModal({ visibleEua, closeEua }) {
+export default function EuaModal({ visibleEua, setVisibleEua }) {
   const navigation = useNavigation();
+
 
   const places = [
     {
@@ -45,7 +46,7 @@ export default function EuaModal({ visibleEua, closeEua }) {
             resizeMode="cover" >
             <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
 
-              <Pressable onPress={closeEua} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+              <Pressable onPress={() => setVisibleEua(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                 <MaterialCommunityIcons
                   name="arrow-left"
                   size={35}

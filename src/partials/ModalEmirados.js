@@ -12,12 +12,12 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function EmiradosModal({ visibleEmirados, closeEmirados }) {
+  export default function EmiradosModal({ visibleEmirados, setVisibleEmirados }) {
     const navigation = useNavigation();
   
     const places = [
       {
-        source: require("../images/Asia/parque.jpg"),
+        source: require("../images/Asia/parqueArabe.jpg"),
         title: "Aquaventure Waterpark",
       },
       {
@@ -44,7 +44,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closeEmirados} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => set} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

@@ -27,8 +27,6 @@ import {
       return null;
     }
   
-    
-  
     return (
           
         <View>
@@ -39,6 +37,7 @@ import {
             color={"white"}
           />
         </TouchableOpacity>
+        
         </View>
     );
   }

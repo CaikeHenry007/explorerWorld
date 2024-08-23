@@ -12,7 +12,7 @@ import {
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function PapuaNovaGuineModal({ visiblePapuaNovaGuine, closePapuaNovaGuine }) {
+  export default function PapuaNovaGuineModal({ visiblePapuaNovaGuine, setVisiblePapuaNovaGuine }) {
     const navigation = useNavigation();
   
     const places = [
@@ -45,7 +45,7 @@ import {
               resizeMode="cover" >
               <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
   
-                <Pressable onPress={closePapuaNovaGuine} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisiblePapuaNovaGuine(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}

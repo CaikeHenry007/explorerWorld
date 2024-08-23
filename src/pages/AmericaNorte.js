@@ -82,19 +82,16 @@ export default function AmericaNorte() {
 
         <EuaModal
           visibleEua={visibleEua}
-          closeEua={() => setVisibleEua(false)}
+          setVisibleEua={setVisibleEua}
         />
 
         <CanadaModal
           visibleCanada={visibleCanada}
-          closeCanada={() => setVisibleCanada(false)}
+          setVisibleCanada={setVisibleCanada}
         />
         <MexicoModal
         visibleMexico={visibleMexico}
-        closeMexico={() => setVisibleMexico(false)}
-          
-        
-        
+        setVisibleMexico={setVisibleMexico}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>
@@ -108,10 +105,12 @@ export default function AmericaNorte() {
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
                 <View style={stylesContinente.card}>
+                  <View style={stylesContinente.ImgRotate}>
                   <Image
                     source={item.source}
                     style={stylesContinente.imagePais}
                   />
+                  </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}

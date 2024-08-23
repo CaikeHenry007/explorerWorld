@@ -4,7 +4,7 @@ import { useFonts } from "expo-font";
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
-  export default function VenezuelaModal({ visibleVenezuela, closeVenezuela }) {
+  export default function VenezuelaModal({ visibleVenezuela, setVisibleVenezuela }) {
     const navigation = useNavigation();
 
 
@@ -26,20 +26,20 @@ import { useFonts } from "expo-font";
   
     const places = [
       {
-        source: require("../images/imagesAmericaSul/buenosAires.jpg"),
-        title: "Buenos Aires",
+        source: require("../images/imagesAmericaSul/parquemarrocoy.jpg"),
+        title: "Parque Marrocoy",
       },
       {
-        source: require("../images/imagesAmericaSul/bariloche.jpg"),
-        title: "Beriloche",
+        source: require("../images/imagesAmericaSul/parqueCanaimaVenezuela.jpg"),
+        title: "Parque Canaima",
       },
       {
-        source: require("../images/imagesAmericaSul/TremdelFindelMundo.jpg"),
-        title: "Trem del Fin del Mundo",
+        source: require("../images/imagesAmericaSul/playaElAguaVenezuela.jpg"),
+        title: "Playa El Agua",
       },
       {
-        source: require("../images/imagesAmericaSul/terradofogo2.jpg"),
-        title: "Terra do Fogo",
+        source: require("../images/imagesAmericaSul/tucacasVenezeula.jpg"),
+        title: "Tutucas",
       },
     ];
   
@@ -53,7 +53,7 @@ import { useFonts } from "expo-font";
               resizeMode="cover" >
               <View style={stylesPaises.Viewbtn} >
   
-                <Pressable onPress={closeVenezuela} style={stylesPaises.btnVoltar} >
+                <Pressable onPress={() => setVisibleVenezuela(false)} style={stylesPaises.btnVoltar} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}
