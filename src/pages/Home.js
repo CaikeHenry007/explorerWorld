@@ -97,7 +97,7 @@ function Backdrop({ scrollX }) {
 
 export default function Home({ route }) {
   const navigation = useNavigation();
-  const  handleAuthentication  = route.params;
+  const handleAuthentication = route.params;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -179,7 +179,12 @@ export default function Home({ route }) {
                     stylesHome.moldura,
                   ]}
                 >
-                  <Image source={item.source} style={stylesHome.posterImage} />
+                  <View style={stylesHome.sombraImage}>
+                    <Image
+                      source={item.source}
+                      style={stylesHome.posterImage}
+                    />
+                  </View>
                   <Text style={stylesHome.texto}>{item.title}</Text>
                 </Animated.View>
               </Pressable>

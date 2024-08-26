@@ -15,10 +15,22 @@ const stylesHome = StyleSheet.create({
   },
   posterImage: {
     width: "100%",
-    height: LARGURA_CONTAINER * 1.2,
+    height: "100%",
     resizeMode: "cover",
     margin: 0,
     marginBottom: 10,
+    borderRadius: 20,
+  },
+  sombraImage: {
+    width: "100%",
+    height: LARGURA_CONTAINER * 1.2,
+    shadowColor: "black",
+    shadowOffset: {
+      width: 0,
+      height: 20,
+    },
+    shadowRadius: 20,
+    elevation: 15,
   },
   containerFlatList: {
     width: LARGURA_CONTAINER,
@@ -28,6 +40,7 @@ const stylesHome = StyleSheet.create({
     padding: ESPACO,
     backgroundColor: "#fff",
     alignItems: "center",
+    borderRadius: 30,
   },
   texto: {
     fontSize: 22,

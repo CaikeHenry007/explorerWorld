@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
-  Animated
+  Animated,
+  StatusBar,
 } from "react-native";
 import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
@@ -21,13 +22,15 @@ import EspanhaModal from "../partials/ModalEspanha";
 export default function Europa() {
   const navigation = useNavigation();
 
-  
-
   const [visibleFranca, setVisibleFranca] = useState(false);
   const [VisibleGrecia, setVisibleGrecia] = useState(false);
   const [visibleItalia, setVisibleItalia] = useState(false);
   const [visibleInglaterra, setVisibleInglaterra] = useState(false);
   const [visibleEspanha, setVisibleEspanha] = useState(false);
+
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+
+  const ITEM_SIZE = 200;
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -38,7 +41,7 @@ export default function Europa() {
     Lilita: require("../fonts/LilitaOne.ttf"),
     Display: require("../fonts/DisplayExtraBoldItalic.ttf"),
     DisplayBold: require("../fonts/DisplayBoldItalic.ttf"),
-    DisplayItalic: require("../fonts/DisplayItalic.ttf")
+    DisplayItalic: require("../fonts/DisplayItalic.ttf"),
   });
   if (!font) {
     return null;
@@ -75,15 +78,15 @@ export default function Europa() {
       subtitle: "106º Maior país do mundo",
       populacao: "69 689 583",
       tamanho: "130 395 km²",
-      route: () => setVisibleInglaterra(true)
+      route: () => setVisibleInglaterra(true),
     },
     {
       source: require("../images/Europa/espanha.jpg"),
       title: "Espanha",
-     subtitle: "51º Maior país do mundo",
+      subtitle: "51º Maior país do mundo",
       populacao: "46 300 118",
       tamanho: "504 782 km²",
-      route: () => setVisibleEspanha(true)
+      route: () => setVisibleEspanha(true),
     },
   ];
 
@@ -96,16 +99,12 @@ export default function Europa() {
         />
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <MaterialCommunityIcons
-            name="arrow-left"
-            size={35}
-            color={"white"}
-          />
+          <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
-        <GreciaModal 
+        <GreciaModal
           visibleGrecia={VisibleGrecia}
           setVisibleGrecia={setVisibleGrecia}
-          />
+        />
         <FrancaModal
           visibleFranca={visibleFranca}
           setVisibleFranca={setVisibleFranca}
@@ -122,24 +121,62 @@ export default function Europa() {
           visibleEspanha={visibleEspanha}
           setVisibleEspanha={setVisibleEspanha}
         />
-        
 
         <Text style={stylesContinente.tituloPrincipal}>Europa</Text>
       </Animated.View>
 
-      <FlatList
+      <Animated.FlatList
         data={data}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
+        contentContainerStyle={{
+          padding: 20,
+          paddingTop: StatusBar.currentHeight || 42,
+        }}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
+          const inputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
+          const opacityInputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const opacity = scrollY.interpolate({
+            inputRange: opacityInputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
           return (
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
-                <View style={stylesContinente.card}>
-                <View style={stylesContinente.ImgRotate}>
-                  <Image
-                    source={item.source}
-                    style={stylesContinente.imagePais}
-                  />
+                <Animated.View
+                  style={[
+                    stylesContinente.card,
+                    { transform: [{ scale }], opacity },
+                  ]}
+                >
+                  <View style={stylesContinente.ImgRotate}>
+                    <Image
+                      source={item.source}
+                      style={stylesContinente.imagePais}
+                    />
                   </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
@@ -149,7 +186,7 @@ export default function Europa() {
                       {item.subtitle}
                     </Text>
                     <View style={stylesContinente.viewIcones}>
-                      <View style={{ width: "45%", height: "40%", backgroundColor: "#ca763b", borderRadius: 20, alignItems: "center", justifyContent: "center", flexDirection: "row",}}>
+                      <View style={stylesContinente.icones}>
                         <MaterialCommunityIcons
                           name="account-group"
                           size={25}
@@ -161,18 +198,15 @@ export default function Europa() {
                         </Text>
                       </View>
                       <View style={stylesContinente.espaco}></View>
-                      <View style={{ width: "45%", height: "40%", backgroundColor: "#ca763b", borderRadius: 20, alignItems: "center", justifyContent: "center", flexDirection: "row",}}>
+                      <View style={stylesContinente.icones}>
                         <Text style={stylesContinente.textosIcones}>
                           {item.tamanho}
                         </Text>
                       </View>
                     </View>
                   </View>
-                </View>
+                </Animated.View>
               </Pressable>
-
-
-              
             </View>
           );
         }}

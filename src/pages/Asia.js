@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Animated,
+  StatusBar,
 } from "react-native";
 import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
@@ -26,6 +28,10 @@ export default function Asia() {
   const [visibleChina, setVisibleChina] = useState(false);
   const [visibleJapao, setVisibleJapao] = useState(false);
 
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+
+  const ITEM_SIZE = 200;
+
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
     Bebas: require("../fonts/Bebas.ttf"),
@@ -42,15 +48,15 @@ export default function Asia() {
       source: require("../images/Asia/malasia.jpg"),
       title: "Malásia",
       subtitle: "187º Maior país do mundo",
-      populacao: "581 217",
+      populacao: "581 Mil",
       tamanho: "298 km²",
       route: () => setVisibleMalasia(true),
     },
     {
       source: require("../images/Asia/emirados.jpg"),
-      title: "Emirados Árabes Unidos",
+      title: "Emirados Árabes",
       subtitle: "114º Maior país do mundo",
-      populacao: "10 716 757",
+      populacao: "10,7 Mi",
       tamanho: "83 600 km²",
       route: () => setVisibleEmirados(true),
     },
@@ -58,7 +64,7 @@ export default function Asia() {
       source: require("../images/Asia/catar.jpg"),
       title: "Catar",
       subtitle: "50º Maior país do mundo",
-      populacao: "70 931 793",
+      populacao: "70,9 Mi",
       tamanho: "513 120 km²",
       route: () => setVisibleCatar(true),
     },
@@ -66,7 +72,7 @@ export default function Asia() {
       source: require("../images/Asia/china.jpg"),
       title: "China",
       subtitle: "3º Maior país do mundo",
-      populacao: "1.425 Mi",
+      populacao: "1,4 Bi",
       tamanho: "9 596 961 km²",
       route: () => setVisibleChina(true),
     },
@@ -74,7 +80,7 @@ export default function Asia() {
       source: require("../images/Asia/japao.jpg"),
       title: "Japão",
       subtitle: "62º Maior país do mundo",
-      populacao: "125 980 581",
+      populacao: "125,9 Mi",
       tamanho: "377 975 km²",
       route: () => setVisibleJapao(true),
     },
@@ -89,11 +95,7 @@ export default function Asia() {
         />
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <MaterialCommunityIcons
-            name="arrow-left"
-            size={35}
-            color={"white"}
-          />
+          <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
         <MalasiaModal
@@ -117,23 +119,61 @@ export default function Asia() {
           setVisibleCatar={setVisibleCatar}
         />
 
-
         <Text style={stylesContinente.tituloPrincipal}>Asia</Text>
       </View>
 
-      <FlatList
+      <Animated.FlatList
         data={data}
-        keyExtractor={(item) => item}
-        renderItem={({ item }) => {
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
+        contentContainerStyle={{
+          padding: 20,
+          paddingTop: StatusBar.currentHeight || 42,
+        }}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item, index }) => {
+          const inputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
+          const opacityInputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const opacity = scrollY.interpolate({
+            inputRange: opacityInputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
           return (
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
-                <View style={stylesContinente.card}>
-                <View style={stylesContinente.ImgRotate}>
-                  <Image
-                    source={item.source}
-                    style={stylesContinente.imagePais}
-                  />
+                <Animated.View
+                  style={[
+                    stylesContinente.card,
+                    { transform: [{ scale }], opacity },
+                  ]}
+                >
+                  <View style={stylesContinente.ImgRotate}>
+                    <Image
+                      source={item.source}
+                      style={stylesContinente.imagePais}
+                    />
                   </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
@@ -162,7 +202,7 @@ export default function Asia() {
                       </View>
                     </View>
                   </View>
-                </View>
+                </Animated.View>
               </Pressable>
             </View>
           );

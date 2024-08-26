@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, ImageBackground, Image, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import { initializeApp } from "@firebase/app";
 import {
   getAuth,
@@ -71,20 +78,31 @@ export default function Inicio() {
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <StatusBar backgroundColor="#000000" color="#fff" />
       <ImageBackground
-        style={{ flex: 1, width: "100%", justifyContent: "center", alignItems: "center" }}
+        style={{
+          flex: 1,
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         resizeMode="cover"
         source={require("../images/Home.jpg")}
       >
         {user ? (
           <Text>Logado!</Text>
         ) : (
-          <View style={{height:700, }}>
+          <View style={{ height: 700 }}>
             <View style={styles.modalcadastro2}>
               <View style={styles.espaco}></View>
-              <Text style={styles.cadastrotitulo}>{isLogin ? "Login" : "Cadastro"}</Text>
+              <Text style={styles.cadastrotitulo}>
+                {isLogin ? "Login" : "Cadastro"}
+              </Text>
               <View style={styles.form}>
                 <View style={styles.viewcaixa}>
-                  <MaterialCommunityIcons name="email" size={20} color={"#c0c0c0"} />
+                  <MaterialCommunityIcons
+                    name="email"
+                    size={20}
+                    color={"#c0c0c0"}
+                  />
                   <TextInput
                     style={styles.Caixa}
                     value={email}
@@ -95,7 +113,11 @@ export default function Inicio() {
                 </View>
 
                 <View style={styles.viewcaixa}>
-                  <MaterialCommunityIcons name="lock" size={20} color={"#c0c0c0"} />
+                  <MaterialCommunityIcons
+                    name="lock"
+                    size={20}
+                    color={"#c0c0c0"}
+                  />
                   <TextInput
                     style={styles.Caixa}
                     value={password}
@@ -106,7 +128,9 @@ export default function Inicio() {
                 </View>
 
                 {isLogin && (
-                  <TouchableOpacity onPress={() => navigation.navigate("RecuperarSenha")}>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("RecuperarSenha")}
+                  >
                     <Text style={{ color: "blue", textAlign: "center" }}>
                       Esqueceu sua senha?
                     </Text>
@@ -118,11 +142,18 @@ export default function Inicio() {
                     style={styles.btncadastro}
                     onPress={handleAuthentication}
                   >
-                    <Text style={styles.btntxt}>{isLogin ? "Login" : "Cadastre-se"}</Text>
+                    <Text style={styles.btntxt}>
+                      {isLogin ? "Login" : "Cadastre-se"}
+                    </Text>
                   </TouchableOpacity>
 
-                  <Text onPress={() => setIsLogin(!isLogin)} style={styles.texto}>
-                    {isLogin ? "Ainda não tem conta? Cadastre-se" : "Já tem uma conta? Login"}
+                  <Text
+                    onPress={() => setIsLogin(!isLogin)}
+                    style={styles.texto}
+                  >
+                    {isLogin
+                      ? "Ainda não tem conta? Cadastre-se"
+                      : "Já tem uma conta? Login"}
                   </Text>
                 </View>
               </View>

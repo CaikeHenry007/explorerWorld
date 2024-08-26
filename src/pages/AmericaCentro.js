@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Animated,
+  StatusBar,
 } from "react-native";
 import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
@@ -25,6 +27,10 @@ export default function AmericaCentro() {
   const [visibleNicaragua, setVisibleNicaragua] = useState(false);
   const [visibleHonduras, setVisibleHonduras] = useState(false);
   const [visibleElSalvador, setVisibleElSalvador] = useState(false);
+
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+
+  const ITEM_SIZE = 200;
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -89,52 +95,86 @@ export default function AmericaCentro() {
         />
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <MaterialCommunityIcons
-            name="arrow-left"
-            size={35}
-            color={"white"}
-          />
+          <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        
-        <PanamaModal 
-        visiblePanama={visiblePanama}
-        setVisiblePanama={setVisiblePanama}
+        <PanamaModal
+          visiblePanama={visiblePanama}
+          setVisiblePanama={setVisiblePanama}
         />
         <CostaRicaModal
-        visibleCostaRica={visibleCostaRica}
-        setVisibleCostaRica={setVisibleCostaRica}
+          visibleCostaRica={visibleCostaRica}
+          setVisibleCostaRica={setVisibleCostaRica}
         />
-        <NicaraguaModal 
-        visibleNicaragua={visibleNicaragua}
-        setVisibleNicaragua={setVisibleNicaragua}
+        <NicaraguaModal
+          visibleNicaragua={visibleNicaragua}
+          setVisibleNicaragua={setVisibleNicaragua}
         />
         <HondurasModal
-        visibleHonduras={visibleHonduras}
-        setVisibleHonduras={setVisibleHonduras}
+          visibleHonduras={visibleHonduras}
+          setVisibleHonduras={setVisibleHonduras}
         />
-        <ElSalvadorModal 
-        visibleElSalvador={visibleElSalvador}
-        setVisibleElSalvador={setVisibleElSalvador}
+        <ElSalvadorModal
+          visibleElSalvador={visibleElSalvador}
+          setVisibleElSalvador={setVisibleElSalvador}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America Central</Text>
       </View>
 
-      <FlatList
+      <Animated.FlatList
         data={data}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
+        contentContainerStyle={{
+          padding: 20,
+          paddingTop: StatusBar.currentHeight || 42,
+        }}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
+          const inputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
+          const opacityInputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const opacity = scrollY.interpolate({
+            inputRange: opacityInputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
           return (
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
-                <View style={stylesContinente.card}>
+                <Animated.View
+                  style={[
+                    stylesContinente.card,
+                    { transform: [{ scale }], opacity },
+                  ]}
+                >
                   <View style={stylesContinente.ImgRotate}>
-                  <Image
-                    source={item.source}
-                    style={stylesContinente.imagePais}
-                  />                                             
-</View>
+                    <Image
+                      source={item.source}
+                      style={stylesContinente.imagePais}
+                    />
+                  </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
                       {item.title}
@@ -162,7 +202,7 @@ export default function AmericaCentro() {
                       </View>
                     </View>
                   </View>
-                </View>
+                </Animated.View>
               </Pressable>
             </View>
           );

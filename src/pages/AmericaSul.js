@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Animated,
+  StatusBar,
 } from "react-native";
 import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
@@ -14,18 +16,21 @@ import React, { useState } from "react";
 import BrasilModal from "../partials/ModalBrasil";
 import ArgentinaModal from "../partials/ModalArgentina";
 import ChileModal from "../partials/ModalChile";
-import BoliviaModal from "../partials/ModalBolivia"
-import VenezuelaModal from "../partials/ModalVenezuela"
-
+import BoliviaModal from "../partials/ModalBolivia";
+import VenezuelaModal from "../partials/ModalVenezuela";
 
 export default function AmericaSul() {
   const navigation = useNavigation();
 
   const [visibleBrasil, setVisibleBrasil] = useState(false);
   const [visibleArgentina, setVisibleArgentina] = useState(false);
-  const [visibleChile, setVisibleChile]= useState(false);
-  const [visibleBolivia, setVisibleBolivia]= useState(false);
-  const [visibleVenezuela, setVisibleVenezuela]= useState(false);
+  const [visibleChile, setVisibleChile] = useState(false);
+  const [visibleBolivia, setVisibleBolivia] = useState(false);
+  const [visibleVenezuela, setVisibleVenezuela] = useState(false);
+
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+
+  const ITEM_SIZE = 200;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -36,7 +41,7 @@ export default function AmericaSul() {
     Lilita: require("../fonts/LilitaOne.ttf"),
     Display: require("../fonts/DisplayExtraBoldItalic.ttf"),
     DisplayBold: require("../fonts/DisplayBoldItalic.ttf"),
-    DisplayItalic: require("../fonts/DisplayItalic.ttf")
+    DisplayItalic: require("../fonts/DisplayItalic.ttf"),
   });
 
   if (!fontLoaded) {
@@ -45,6 +50,7 @@ export default function AmericaSul() {
 
   const data = [
     {
+      id: "1",
       source: require("../images/imagesAmericaSul/brasil.jpg"),
       title: "Brasil",
       subtitle: "5º maior país do mundo ",
@@ -53,6 +59,7 @@ export default function AmericaSul() {
       route: () => setVisibleBrasil(true),
     },
     {
+      id: "2",
       source: require("../images/imagesAmericaSul/argentina.jpg"),
       title: "Argentina",
       subtitle: "8º Maior país do mundo",
@@ -61,28 +68,31 @@ export default function AmericaSul() {
       route: () => setVisibleArgentina(true),
     },
     {
+      id: "3",
       source: require("../images/imagesAmericaSul/chilejpg.jpg"),
       title: "Chile",
       subtitle: "38º Maior país do mundo",
       populacao: "19 Mi",
       tamanho: "756.102 km²",
-      route:() => setVisibleChile(true)
+      route: () => setVisibleChile(true),
     },
     {
+      id: "4",
       source: require("../images/imagesAmericaSul/bolivia.jpg"),
       title: "Bolívia",
       subtitle: "27º Maior país do mundo",
       populacao: "12 Mi",
       tamanho: "1.098.581 km²",
-      route:() => setVisibleBolivia(true)
+      route: () => setVisibleBolivia(true),
     },
     {
+      id: "5",
       source: require("../images/imagesAmericaSul/venezuela.jpg"),
       title: "Venezuela",
       subtitle: "33º Maior país do mundo",
       populacao: "28 Mi",
       tamanho: "916.445 km² km²",
-      route:() => setVisibleVenezuela(true)
+      route: () => setVisibleVenezuela(true),
     },
   ];
 
@@ -95,51 +105,86 @@ export default function AmericaSul() {
         />
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <MaterialCommunityIcons
-            name="arrow-left"
-            size={35}
-            color={"white"}
-          />
+          <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-          <BrasilModal
+        <BrasilModal
           visibleBrasil={visibleBrasil}
           setVisibleBrasil={setVisibleBrasil}
-          />
+        />
 
-          <ArgentinaModal 
+        <ArgentinaModal
           visibleArgentina={visibleArgentina}
           setVisibleArgentina={setVisibleArgentina}
-          />
-          <ChileModal 
+        />
+        <ChileModal
           visibleChile={visibleChile}
           setVisibleChile={setVisibleChile}
-          />
-          <BoliviaModal 
+        />
+        <BoliviaModal
           visibleBolivia={visibleBolivia}
           setVisibleBolivia={setVisibleBolivia}
-          />
-          <VenezuelaModal 
+        />
+        <VenezuelaModal
           visibleVenezuela={visibleVenezuela}
           setVisibleVenezuela={setVisibleVenezuela}
-          />
+        />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Sul</Text>
       </View>
 
-      <FlatList
+      <Animated.FlatList
         data={data}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
+        contentContainerStyle={{
+          padding: 20,
+          paddingTop: StatusBar.currentHeight || 42,
+        }}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
+          const inputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
+          const opacityInputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const opacity = scrollY.interpolate({
+            inputRange: opacityInputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
           return (
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
-                <View style={stylesContinente.card}>
-                <View style={stylesContinente.ImgRotate}>
-                  <Image
-                    source={item.source}
-                    style={stylesContinente.imagePais}
-                  />
+                <Animated.View
+                  style={[
+                    stylesContinente.card,
+                    { transform: [{ scale }], opacity },
+                  ]}
+                >
+                  <View style={stylesContinente.ImgRotate}>
+                    <Image
+                      source={item.source}
+                      style={stylesContinente.imagePais}
+                    />
                   </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
@@ -168,7 +213,7 @@ export default function AmericaSul() {
                       </View>
                     </View>
                   </View>
-                </View>
+                </Animated.View>
               </Pressable>
             </View>
           );

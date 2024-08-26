@@ -5,6 +5,8 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  Animated,
+  StatusBar,
 } from "react-native";
 import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
@@ -21,6 +23,10 @@ export default function AmericaNorte() {
   const [visibleEua, setVisibleEua] = useState(false);
   const [visibleCanada, setVisibleCanada] = useState(false);
   const [visibleMexico, setVisibleMexico] = useState(false);
+
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+
+  const ITEM_SIZE = 200;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -73,43 +79,75 @@ export default function AmericaNorte() {
         />
 
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <MaterialCommunityIcons
-            name="arrow-left"
-            size={35}
-            color={"white"}
-          />
+          <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        <EuaModal
-          visibleEua={visibleEua}
-          setVisibleEua={setVisibleEua}
-        />
+        <EuaModal visibleEua={visibleEua} setVisibleEua={setVisibleEua} />
 
         <CanadaModal
           visibleCanada={visibleCanada}
           setVisibleCanada={setVisibleCanada}
         />
         <MexicoModal
-        visibleMexico={visibleMexico}
-        setVisibleMexico={setVisibleMexico}
+          visibleMexico={visibleMexico}
+          setVisibleMexico={setVisibleMexico}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>
       </View>
 
-      <FlatList
+      <Animated.FlatList
         data={data}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
+        contentContainerStyle={{
+          padding: 20,
+          paddingTop: StatusBar.currentHeight || 42,
+        }}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
+          const inputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
+          const opacityInputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const opacity = scrollY.interpolate({
+            inputRange: opacityInputRange,
+            outputRange: [1, 1, 1, 0],
+            extrapolate: "clamp",
+          });
+
           return (
             <View style={stylesContinente.containerFlatlist}>
               <Pressable onPress={item.route}>
-                <View style={stylesContinente.card}>
+                <Animated.View
+                  style={[
+                    stylesContinente.card,
+                    { transform: [{ scale }], opacity },
+                  ]}
+                >
                   <View style={stylesContinente.ImgRotate}>
-                  <Image
-                    source={item.source}
-                    style={stylesContinente.imagePais}
-                  />
+                    <Image
+                      source={item.source}
+                      style={stylesContinente.imagePais}
+                    />
                   </View>
                   <View style={stylesContinente.viewAlinhamento}>
                     <Text style={stylesContinente.tituloPais}>
@@ -138,7 +176,7 @@ export default function AmericaNorte() {
                       </View>
                     </View>
                   </View>
-                </View>
+                </Animated.View>
               </Pressable>
             </View>
           );
