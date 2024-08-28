@@ -61,7 +61,7 @@ import {
               </View>
             </ImageBackground>
           </View>
-          <View style={{ width: "100%", height: "55%", alignItems: "center", justifyContent: "center", padding: 1, }} >
+          <View style={stylesPaises.ViewFlatList}>
             <FlatList
               data={places}
               horizontal={true}

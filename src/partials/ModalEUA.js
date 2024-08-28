@@ -14,17 +14,13 @@ import stylesPaises from "../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 import { render } from "react-native-web";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function EuaModal({ visibleEua, setVisibleEua }) {
   const navigation = useNavigation();
 
-  const { width } = Dimensions.get("screen");
-  const OVERFLOW_HEIGHT = 70;
-  const SPACING = 10;
-  const ITEM_WIDTH = width * 0.8;
-  const ITEM_HEIGHT = ITEM_WIDTH * 1.7;
-
-  const places = [
+  const data = [
     {
       source: require("../images/imagesAmericaNorte/disney.jpg"),
       title: "Disneylandia Orlando",
@@ -43,47 +39,12 @@ export default function EuaModal({ visibleEua, setVisibleEua }) {
     },
   ];
 
+
   return (
-    <Modal transparent={true} animationType="fade" visible={visibleEua}>
-      <View style={{ flex: 1, backgroundColor: "#D5DADB" }}>
-        <FlatList
-          data={places}
-          keyExtractor={(_, index) => String(index)}
-          horizontal
-          inverted
-          contentContainerStyle={{
-            flex: 1,
-            justifyContent: "center",
-            padding: SPACING * 2,
-          }}
-          CellRendererComponent={({
-            item,
-            index,
-            children,
-            style,
-            ...props
-          }) => {
-            return (
-              <View style={style} index={index} {...props}>
-                {children}
-              </View>
-            );
-          }}
-          renderItem={({ item, index }) => {
-            return (
-              <View style={{ position: "absolute", left: -ITEM_WIDTH / 2 }}>
-                <Image
-                  source={item.source}
-                  style={{
-                    width: ITEM_WIDTH,
-                    height: ITEM_HEIGHT,
-                  }}
-                />
-              </View>
-            );
-          }}
-        />
-      </View>
-    </Modal>
+    
+          <Modal transparent={true} animationType="fade" visible={visibleEua}>
+            <View style={{ flex: 1, backgroundColor: "#D5DADB" }}>
+            </View>
+          </Modal>
   );
 }

@@ -43,31 +43,31 @@ import {
   
     return (
       <Modal transparent={true} animationType="fade" visible={visibleAfricadosul}>
-        <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
-          <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40 }}>
+        <View style={stylesPaises.containerModal}>
+          <View style={stylesPaises.TopViewModal}>
   
             <ImageBackground source={require("../images/Africa/sulcapa.jpg")}
-              style={{ height: "100%", borderBottomEndRadius: 40, flexDirection: "column" }}
+              style={stylesPaises.imgbackground}
               resizeMode="cover" >
-              <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
+              <View style={stylesPaises.Viewbtn} >
   
-                <Pressable onPress={() => setVisibleAfricadosul(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
+                <Pressable onPress={() => setVisibleAfricadosul(false)} style={stylesPaises.btnVoltar} >
                   <MaterialCommunityIcons
                     name="arrow-left"
                     size={35}
                     color="white" />
                 </Pressable>
-                <View style={{ alignItems: "center", height: "100%", width: "80%", justifyContent: "center" }} >
+                <View style={stylesPaises.Viewimg} >
                   <Image source={require("../images/logobranco.png")}
-                    style={{ width: "50%", height: "100%" }} />
+                    style={stylesPaises.logoImg} />
                 </View>
               </View>
-              <View style={{ height: "80%", width: "100%", alignItems: "center", justifyContent: "flex-end", }}>
-                <Text style={stylesPaises.txtTituloPais} >Africa do Sul</Text>
+              <View style={stylesPaises.txtTitle}>
+                <Text style={stylesPaises.TitlePaises} >Africa do Sul</Text>
               </View>
             </ImageBackground>
           </View>
-          <View style={{ width: "100%", height: "55%", alignItems: "center", justifyContent: "center", padding: 1, }} >
+          <View style={stylesPaises.ViewFlatList} >
             <FlatList
               data={places}
               horizontal={true}
@@ -75,9 +75,9 @@ import {
               renderItem={({ item }) => {
                 return (
                   <Pressable onPress={item.route}>
-                  <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
+                  <View style={stylesPaises.Viewimages}>
                     <Image source={item.source}
-                      style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
+                      style={stylesPaises.imgFlatList} />
                     <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>
                   </View>
                   

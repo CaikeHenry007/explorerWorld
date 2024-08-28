@@ -79,15 +79,11 @@ import { useFonts } from "expo-font";
               keyExtractor={(item) => item}
               renderItem={({ item }) => {
                 return (
-                  <Pressable onPress={() => navigation.navigate(item.rota)}>
-                  <View style={{ width: 250, height: "90%", borderRadius: 20, alignItems: "center", justifyContent: "flex-end", margin: 10 }}>
+                  <View style={stylesPaises.Viewimages}>
                     <Image source={item.source}
-                      style={{ width: "100%", height: "100%", borderRadius: 20, position: "absolute" }} />
+                      style={stylesPaises.imgFlatList} />
                     <Text style={stylesPaises.txtTituloPais}>{item.title}</Text>
                   </View>
-
-                  
-                  </Pressable>
                 )
               }} />
   

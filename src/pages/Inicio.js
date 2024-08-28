@@ -6,6 +6,7 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { initializeApp } from "@firebase/app";
 import {
@@ -16,8 +17,9 @@ import {
   signOut,
 } from "@firebase/auth";
 import { useNavigation } from "@react-navigation/native";
+import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
-import styles from "../styles/StyleSheet";
+import stylesInicio from "../styles/StyleInicio";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const firebaseConfig = {
@@ -49,6 +51,7 @@ export default function Inicio() {
     return () => unsubscribe();
   }, [auth]);
 
+
   const handleAuthentication = async () => {
     try {
       if (user) {
@@ -74,37 +77,40 @@ export default function Inicio() {
     }
   }, [user, navigation]);
 
+  const [font] = useFonts({
+    Pacifico: require("../fonts/Pacifico-Regular.ttf"),
+    Bebas: require("../fonts/Bebas.ttf"),
+    Noto: require("../fonts/NotoSherif.ttf"),
+    BonaNova: require("../fonts/BonaNovaItalic.ttf"),
+    BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
+  });
+  if (!font) {
+    return null;
+  }
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={stylesInicio.view}>
       <StatusBar backgroundColor="#000000" color="#fff" />
       <ImageBackground
-        style={{
-          flex: 1,
-          width: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        style={stylesInicio.imgBackground}
         resizeMode="cover"
         source={require("../images/Home.jpg")}
       >
         {user ? (
           <Text>Logado!</Text>
         ) : (
-          <View style={{ height: 700 }}>
-            <View style={styles.modalcadastro2}>
-              <View style={styles.espaco}></View>
-              <Text style={styles.cadastrotitulo}>
+            <View style={stylesInicio.modalcadastro}>
+              <Text style={stylesInicio.cadastrotitulo}>
                 {isLogin ? "Login" : "Cadastro"}
               </Text>
-              <View style={styles.form}>
-                <View style={styles.viewcaixa}>
+              <View style={{height: "65%", }}>
+                <View style={stylesInicio.viewcaixa}>
                   <MaterialCommunityIcons
                     name="email"
                     size={20}
                     color={"#c0c0c0"}
                   />
                   <TextInput
-                    style={styles.Caixa}
+                    style={stylesInicio.Caixa}
                     value={email}
                     onChangeText={setEmail}
                     placeholder="Email"
@@ -112,14 +118,14 @@ export default function Inicio() {
                   />
                 </View>
 
-                <View style={styles.viewcaixa}>
+                <View style={stylesInicio.viewcaixa}>
                   <MaterialCommunityIcons
                     name="lock"
                     size={20}
                     color={"#c0c0c0"}
                   />
                   <TextInput
-                    style={styles.Caixa}
+                    style={stylesInicio.Caixa}
                     value={password}
                     onChangeText={setPassword}
                     placeholder="Senha"
@@ -128,28 +134,30 @@ export default function Inicio() {
                 </View>
 
                 {isLogin && (
-                  <TouchableOpacity
+                  <TouchableOpacity 
+                  
                     onPress={() => navigation.navigate("RecuperarSenha")}
                   >
-                    <Text style={{ color: "blue", textAlign: "center" }}>
+                    <Text style={stylesInicio.recuperar}>
                       Esqueceu sua senha?
                     </Text>
                   </TouchableOpacity>
                 )}
+                
 
-                <View style={styles.viewbotoes}>
+                <View style={stylesInicio.viewbotoes}>
                   <TouchableOpacity
-                    style={styles.btncadastro}
+                    style={stylesInicio.btncadastro}
                     onPress={handleAuthentication}
                   >
-                    <Text style={styles.btntxt}>
+                    <Text style={stylesInicio.btntxt}>
                       {isLogin ? "Login" : "Cadastre-se"}
                     </Text>
                   </TouchableOpacity>
 
                   <Text
                     onPress={() => setIsLogin(!isLogin)}
-                    style={styles.texto}
+                    style={stylesInicio.texto2}
                   >
                     {isLogin
                       ? "Ainda não tem conta? Cadastre-se"
@@ -158,7 +166,6 @@ export default function Inicio() {
                 </View>
               </View>
             </View>
-          </View>
         )}
       </ImageBackground>
     </View>

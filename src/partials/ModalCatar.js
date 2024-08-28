@@ -50,13 +50,13 @@ import {
   
     return (
       <Modal transparent={true} animationType="fade" visible={visibleCatar}>
-        <View style={{ flex: 1, backgroundColor: "#F4CFBA" }}>
-          <View style={{ width: "100%", height: "45%", borderBottomEndRadius: 40 }}>
+        <View style={stylesPaises.containerModal}>
+          <View style={stylesPaises.TopViewModal}>
   
             <ImageBackground source={require("../images/Asia/catar.jpg")}
-              style={{ height: "100%", borderBottomEndRadius: 40, flexDirection: "column" }}
+              style={stylesPaises.imgbackground}
               resizeMode="cover" >
-              <View style={{ flexDirection: "row", height: "20%", width: "100%" }} >
+              <View style={stylesPaises.Viewbtn} >
   
                 <Pressable onPress={() => setVisibleCatar(false)} style={{ alignItems: "center", justifyContent: "flex-start", width: "10%" }} >
                   <MaterialCommunityIcons

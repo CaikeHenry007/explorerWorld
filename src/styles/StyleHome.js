@@ -5,12 +5,12 @@ const height = Dimensions.get("window").height;
 
 const LARGURA_CONTAINER = width * 0.7;
 const ESPACO = 10;
-const ALTURA_BACKDROP = height * 0.95;
+const ALTURA_BACKDROP = height;
 
 const stylesHome = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#5A7577",
+    backgroundColor: "#000000",
     justifyContent: "center",
   },
   posterImage: {
@@ -25,12 +25,13 @@ const stylesHome = StyleSheet.create({
     width: "100%",
     height: LARGURA_CONTAINER * 1.2,
     shadowColor: "black",
+    borderRadius: 20,
     shadowOffset: {
       width: 0,
       height: 20,
     },
     shadowRadius: 20,
-    elevation: 15,
+    elevation: 20,
   },
   containerFlatList: {
     width: LARGURA_CONTAINER,
@@ -57,12 +58,7 @@ const stylesHome = StyleSheet.create({
   imagemAnimada: {
     width: width,
     height: ALTURA_BACKDROP,
-  },
-  gradiente: {
-    width,
-    height: ALTURA_BACKDROP,
     position: "absolute",
-    bottom: 0,
   },
 });
 

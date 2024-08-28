@@ -12,7 +12,6 @@ import {
   Button,
 } from "react-native";
 
-import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -75,25 +74,30 @@ function Backdrop({ scrollX }) {
           outputRange: [0, 1, 0],
         });
 
+        const blurRadius = scrollX.interpolate({
+          inputRange,
+          outputRange: [5, 5, 0], // Aumenta e diminui o raio do desfoque
+        });
+
         return (
           <Animated.Image
             key={index}
-            source={imagem.source}
+            source={imagem.source} // Aqui você pode usar a imagem desfocada
             style={[
-              { opacity },
+              {
+                opacity,
+              },
               stylesHome.imagemAnimada,
               StyleSheet.absoluteFillObject,
             ]}
+            blurRadius={blurRadius} // Aplica um leve efeito de blur diretamente na imagem
           />
         );
       })}
-      <LinearGradient
-        colors={["#00000000", "#5A7577"]}
-        style={stylesHome.gradiente}
-      />
     </View>
   );
 }
+
 
 export default function Home({ route }) {
   const navigation = useNavigation();

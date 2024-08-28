@@ -14,15 +14,55 @@ const stylesInicio = StyleSheet.create({
   },
 
   //Login
+
+  view: {
+    flex: 1, 
+    alignItems: "center", 
+    justifyContent: "center",
+    
+},
+
   Caixa: {
     borderColor: "white",
-    borderBottomWidth: 1,
-    height: 50,
+    borderBottomWidth: 2,
+    height: "30%",
     width: "70%",
-    justifyContent: "center",
-    alignItems: "center",
+    margin: "5%",
     color: "white",
+    fontFamily: "Bebas",
+    fontSize: 18
   },
+
+  texto2: {
+    borderBlockColor: "white",
+    color: "white",
+    borderBottomColor: "white",
+    fontFamily: "Bebas",
+    fontSize: 15,
+  },
+
+  viewbotoes: {
+    alignItems: "center",
+    height: "30%",
+    justifyContent: "center",
+  }, 
+
+  recuperar: {
+    color: "blue", 
+    textAlign: "center", 
+    fontFamily: "Bebas", 
+    fontSize: 20,
+    textAlign: "center",
+    bottom: 10
+},
+
+viewcaixa: {
+  height: "30%",
+  alignItems: "center",
+  justifyContent: "center",
+  flexDirection: "row",
+},
+
   txtLogin: {
     fontSize: 50,
     color: "white",
@@ -38,24 +78,22 @@ const stylesInicio = StyleSheet.create({
     borderRadius: 10,
     textAlign: "center",
   },
-  //Cadastro
+
   modalcadastro: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  modalcadastro2: {
-    width: 350,
-    height: "75%",
+    width: "95%",
+    height: "70%",
     backgroundColor: "#5A7577",
     borderRadius: 20,
+    position: 'absolute',
+    bottom: 10,
+    alignItems:'center'
   },
   cadastrotitulo: {
     fontSize: 25,
     color: "white",
     fontFamily: "Bebas",
     textAlign: "center",
-    margin: 10,
+    margin: 35,
     fontSize: 40,
   },
 
@@ -64,15 +102,23 @@ const stylesInicio = StyleSheet.create({
     height: 40,
     width: "20%",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 15,
     height: "30%",
-    width: "30%",
+    width: "40%",
   },
   btntxt: {
     textAlign: "center",
     fontFamily: "Bebas",
     fontSize: 25,
   },
+
+  imgBackground: {
+    flex: 1,
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+  }
 });
 
 export default stylesInicio;

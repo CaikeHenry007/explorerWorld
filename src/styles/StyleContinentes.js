@@ -9,13 +9,14 @@ const stylesContinente = StyleSheet.create({
   topView: {
     height: "45%",
     width: "100%",
-    backgroundColor: "#D5DADB",
+    backgroundColor: "white",
   },
   topImage: {
     width: "100%",
     height: "100%",
     position: "absolute",
     borderBottomLeftRadius: 40,
+  
     borderBottomRightRadius: 40,
   },
   tituloPrincipal: {
