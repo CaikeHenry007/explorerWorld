@@ -3,10 +3,13 @@ import {
   View,
   Text,
   ImageBackground,
-  Image,
   TextInput,
   TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform,
   ScrollView,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 import { initializeApp } from "@firebase/app";
 import {
@@ -51,7 +54,6 @@ export default function Inicio() {
     return () => unsubscribe();
   }, [auth]);
 
-
   const handleAuthentication = async () => {
     try {
       if (user) {
@@ -84,90 +86,103 @@ export default function Inicio() {
     BonaNova: require("../fonts/BonaNovaItalic.ttf"),
     BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
   });
+
   if (!font) {
     return null;
   }
+
   return (
-    <View style={stylesInicio.view}>
-      <StatusBar backgroundColor="#000000" color="#fff" />
-      <ImageBackground
-        style={stylesInicio.imgBackground}
-        resizeMode="cover"
-        source={require("../images/Home.jpg")}
-      >
-        {user ? (
-          <Text>Logado!</Text>
-        ) : (
-            <View style={stylesInicio.modalcadastro}>
-              <Text style={stylesInicio.cadastrotitulo}>
-                {isLogin ? "Login" : "Cadastro"}
-              </Text>
-              <View style={{height: "65%", }}>
-                <View style={stylesInicio.viewcaixa}>
-                  <MaterialCommunityIcons
-                    name="email"
-                    size={20}
-                    color={"#c0c0c0"}
-                  />
-                  <TextInput
-                    style={stylesInicio.Caixa}
-                    value={email}
-                    onChangeText={setEmail}
-                    placeholder="Email"
-                    autoCapitalize="none"
-                  />
-                </View>
-
-                <View style={stylesInicio.viewcaixa}>
-                  <MaterialCommunityIcons
-                    name="lock"
-                    size={20}
-                    color={"#c0c0c0"}
-                  />
-                  <TextInput
-                    style={stylesInicio.Caixa}
-                    value={password}
-                    onChangeText={setPassword}
-                    placeholder="Senha"
-                    secureTextEntry
-                  />
-                </View>
-
-                {isLogin && (
-                  <TouchableOpacity 
-                  
-                    onPress={() => navigation.navigate("RecuperarSenha")}
-                  >
-                    <Text style={stylesInicio.recuperar}>
-                      Esqueceu sua senha?
-                    </Text>
-                  </TouchableOpacity>
-                )}
-                
-
-                <View style={stylesInicio.viewbotoes}>
-                  <TouchableOpacity
-                    style={stylesInicio.btncadastro}
-                    onPress={handleAuthentication}
-                  >
-                    <Text style={stylesInicio.btntxt}>
-                      {isLogin ? "Login" : "Cadastre-se"}
-                    </Text>
-                  </TouchableOpacity>
-
-                  <Text
-                    onPress={() => setIsLogin(!isLogin)}
-                    style={stylesInicio.texto2}
-                  >
-                    {isLogin
-                      ? "Ainda não tem conta? Cadastre-se"
-                      : "Já tem uma conta? Login"}
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === "ios" ? "padding" : null}
+      keyboardVerticalOffset={Platform.OS === "android" ? 0 : 0}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={stylesInicio.container}>
+          <StatusBar backgroundColor="#000000" color="#fff" />
+          <ImageBackground
+            style={stylesInicio.imgBackground}
+            resizeMode="cover"
+            source={require("../images/Home.jpg")}
+          >
+            {user ? (
+              <Text>Logado!</Text>
+            ) : (
+              <View style={stylesInicio.card}>
+                <ScrollView
+                  contentContainerStyle={stylesInicio.scrollContainer}
+                  keyboardShouldPersistTaps="handled"
+                >
+                  <Text style={stylesInicio.titulo}>
+                    {isLogin ? "Login" : "Cadastro"}
                   </Text>
-                </View>
+                  <View style={{ height: "65%" }}>
+                    <View style={stylesInicio.viewcaixa}>
+                      <MaterialCommunityIcons
+                        name="email"
+                        size={20}
+                        color={"#c0c0c0"}
+                      />
+                      <TextInput
+                        style={stylesInicio.caixaTexto}
+                        value={email}
+                        onChangeText={setEmail}
+                        placeholder="Email"
+                        autoCapitalize="none"
+                      />
+                    </View>
+
+                    <View style={stylesInicio.viewcaixa}>
+                      <MaterialCommunityIcons
+                        name="lock"
+                        size={20}
+                        color={"#c0c0c0"}
+                      />
+                      <TextInput
+                        style={stylesInicio.caixaTexto}
+                        value={password}
+                        onChangeText={setPassword}
+                        placeholder="Senha"
+                        secureTextEntry
+                      />
+                    </View>
+
+                    {isLogin && (
+                      <TouchableOpacity
+                        onPress={() => navigation.navigate("RecuperarSenha")}
+                      >
+                        <Text style={stylesInicio.recuperarText}>
+                          Esqueceu sua senha?
+                        </Text>
+                      </TouchableOpacity>
+                    )}
+
+                    <View style={stylesInicio.viewbotoes}>
+                      <TouchableOpacity
+                        style={stylesInicio.btn}
+                        onPress={handleAuthentication}
+                      >
+                        <Text style={stylesInicio.btntxt}>
+                          {isLogin ? "Login" : "Cadastre-se"}
+                        </Text>
+                      </TouchableOpacity>
+
+                      <Text
+                        onPress={() => setIsLogin(!isLogin)}
+                        style={stylesInicio.textoMenor}
+                      >
+                        {isLogin
+                          ? "Ainda não tem conta? Cadastre-se"
+                          : "Já tem uma conta? Login"}
+                      </Text>
+                    </View>
+                  </View>
+                </ScrollView>
               </View>
-            </View>
-        )}
-      </ImageBackground>
-    </View>
+            )}
+          </ImageBackground>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }

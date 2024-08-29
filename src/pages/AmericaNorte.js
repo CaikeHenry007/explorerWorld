@@ -26,7 +26,7 @@ export default function AmericaNorte() {
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
-  const ITEM_SIZE = 200;
+  const ITEM_SIZE = 190;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -57,7 +57,7 @@ export default function AmericaNorte() {
       subtitle: "2º Maior país do mundo",
       populacao: "39 Mi",
       tamanho: "9,985,000 km²",
-      route: () => setVisibleCanada(true),
+      route: () => navigation.navigate("CanadaTeste"),
     },
     {
       id: "3",

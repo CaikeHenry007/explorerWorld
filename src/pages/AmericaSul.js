@@ -30,7 +30,7 @@ export default function AmericaSul() {
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
-  const ITEM_SIZE = 200;
+  const ITEM_SIZE = 190;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),

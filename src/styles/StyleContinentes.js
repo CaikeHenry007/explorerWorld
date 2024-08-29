@@ -9,14 +9,14 @@ const stylesContinente = StyleSheet.create({
   topView: {
     height: "45%",
     width: "100%",
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
   },
   topImage: {
     width: "100%",
     height: "100%",
     position: "absolute",
     borderBottomLeftRadius: 40,
-  
+
     borderBottomRightRadius: 40,
   },
   tituloPrincipal: {
@@ -30,7 +30,7 @@ const stylesContinente = StyleSheet.create({
     alignItems: "center",
   },
   card: {
-    backgroundColor: "white",
+    backgroundColor: "#e0e0e0",
     height: 150,
     width: "95%",
     borderRadius: 20,

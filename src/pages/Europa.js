@@ -1,4 +1,4 @@
-  import {
+import {
   Pressable,
   Text,
   View,
@@ -30,7 +30,7 @@ export default function Europa() {
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
-  const ITEM_SIZE = 200;
+  const ITEM_SIZE = 190;
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -169,7 +169,34 @@ export default function Europa() {
                 <Animated.View
                   style={[
                     stylesContinente.card,
-                    { transform: [{ scale }], opacity },
+                    {
+                      transform: [
+                        {
+                          scale: scrollY.interpolate({
+                            inputRange: [
+                              -1,
+                              0,
+                              ITEM_SIZE * index,
+                              ITEM_SIZE * (index + 0.5),
+                              ITEM_SIZE * (index + 2),
+                            ],
+                            outputRange: [1, 1, 1, 0.85, 0],
+                            extrapolate: "clamp",
+                          }),
+                        },
+                      ],
+                      opacity: scrollY.interpolate({
+                        inputRange: [
+                          -1,
+                          0,
+                          ITEM_SIZE * index,
+                          ITEM_SIZE * (index + 0.5),
+                          ITEM_SIZE * (index + 2),
+                        ],
+                        outputRange: [1, 1, 1, 0.5, 0],
+                        extrapolate: "clamp",
+                      }),
+                    },
                   ]}
                 >
                   <View style={stylesContinente.ImgRotate}>

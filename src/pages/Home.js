@@ -9,7 +9,6 @@ import {
   SafeAreaView,
   Animated,
   Pressable,
-  Button,
 } from "react-native";
 
 import { useFonts } from "expo-font";
@@ -98,7 +97,6 @@ function Backdrop({ scrollX }) {
   );
 }
 
-
 export default function Home({ route }) {
   const navigation = useNavigation();
   const handleAuthentication = route.params;
@@ -113,7 +111,6 @@ export default function Home({ route }) {
 
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
-  // Certifique-se de que todos os hooks foram chamados antes de qualquer retorno condicional
   if (!fontLoaded) {
     return null;
   }
@@ -160,7 +157,7 @@ export default function Home({ route }) {
         decelerationRate={1}
         scrollEventThrottle={16}
         data={imagens}
-        keyExtractor={(item, index) => index.toString()} // Corrigido o keyExtractor
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item, index }) => {
           const inputRange = [
             (index - 1) * LARGURA_CONTAINER,
@@ -172,6 +169,13 @@ export default function Home({ route }) {
             inputRange,
             outputRange: [0, -50, 0],
           });
+
+          const textTranslateX = scrollX.interpolate({
+            inputRange,
+            outputRange: [50, 0, -50], // Movimenta o texto horizontalmente
+            extrapolate: "extend",
+          });
+
           return (
             <View style={stylesHome.containerFlatList}>
               <Pressable onPress={() => navigation.navigate(item.rota)}>
@@ -189,7 +193,16 @@ export default function Home({ route }) {
                       style={stylesHome.posterImage}
                     />
                   </View>
-                  <Text style={stylesHome.texto}>{item.title}</Text>
+                  <Animated.Text
+                    style={[
+                      {
+                        transform: [{ translateX: textTranslateX }],
+                      },
+                      stylesHome.texto,
+                    ]}
+                  >
+                    {item.title}
+                  </Animated.Text>
                 </Animated.View>
               </Pressable>
             </View>

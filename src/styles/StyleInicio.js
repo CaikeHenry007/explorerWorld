@@ -6,89 +6,31 @@ const stylesInicio = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  texto: {
-    backgroundColor: "red",
+
+  imgBackground: {
     flex: 1,
-    alignItems: "center",
+    width: "100%",
     justifyContent: "center",
-  },
-
-  //Login
-
-  view: {
-    flex: 1, 
-    alignItems: "center", 
-    justifyContent: "center",
-    
-},
-
-  Caixa: {
-    borderColor: "white",
-    borderBottomWidth: 2,
-    height: "30%",
-    width: "70%",
-    margin: "5%",
-    color: "white",
-    fontFamily: "Bebas",
-    fontSize: 18
-  },
-
-  texto2: {
-    borderBlockColor: "white",
-    color: "white",
-    borderBottomColor: "white",
-    fontFamily: "Bebas",
-    fontSize: 15,
-  },
-
-  viewbotoes: {
     alignItems: "center",
-    height: "30%",
-    justifyContent: "center",
-  }, 
-
-  recuperar: {
-    color: "blue", 
-    textAlign: "center", 
-    fontFamily: "Bebas", 
-    fontSize: 20,
-    textAlign: "center",
-    bottom: 10
-},
-
-viewcaixa: {
-  height: "30%",
-  alignItems: "center",
-  justifyContent: "center",
-  flexDirection: "row",
-},
-
-  txtLogin: {
-    fontSize: 50,
-    color: "white",
-    fontFamily: "Bebas",
-    textAlign: "center",
-    padding: 45,
-  },
-  botaoFechar: {
-    backgroundColor: "#F4CFBA",
-    width: "50%",
-    alignItems: "center",
-    height: 40,
-    borderRadius: 10,
-    textAlign: "center",
   },
 
-  modalcadastro: {
+  card: {
     width: "95%",
-    height: "70%",
+    maxHeight: "70%",
     backgroundColor: "#5A7577",
     borderRadius: 20,
-    position: 'absolute',
-    bottom: 10,
-    alignItems:'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
-  cadastrotitulo: {
+
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+
+  titulo: {
     fontSize: 25,
     color: "white",
     fontFamily: "Bebas",
@@ -97,7 +39,40 @@ viewcaixa: {
     fontSize: 40,
   },
 
-  btncadastro: {
+  viewcaixa: {
+    height: "30%",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
+
+  caixaTexto: {
+    borderColor: "white",
+    borderBottomWidth: 2,
+    height: "30%",
+    width: "70%",
+    margin: "5%",
+    color: "white",
+    fontFamily: "Bebas",
+    fontSize: 18,
+  },
+
+  recuperarText: {
+    color: "blue",
+    textAlign: "center",
+    fontFamily: "Bebas",
+    fontSize: 20,
+    textAlign: "center",
+    bottom: 10,
+  },
+
+  viewbotoes: {
+    alignItems: "center",
+    height: "30%",
+    justifyContent: "center",
+  },
+
+  btn: {
     backgroundColor: "#F4CFBA",
     height: 40,
     width: "20%",
@@ -106,19 +81,21 @@ viewcaixa: {
     height: "30%",
     width: "40%",
   },
+
   btntxt: {
     textAlign: "center",
     fontFamily: "Bebas",
     fontSize: 25,
   },
 
-  imgBackground: {
-    flex: 1,
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    position: "relative",
-  }
+  textoMenor: {
+    borderBlockColor: "white",
+    color: "white",
+    borderBottomColor: "white",
+    fontFamily: "Bebas",
+    fontSize: 15,
+    marginTop: "10%",
+  },
 });
 
 export default stylesInicio;
