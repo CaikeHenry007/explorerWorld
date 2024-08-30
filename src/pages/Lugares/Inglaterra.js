@@ -8,30 +8,30 @@ import {
   FlatList,
   Image,
 } from "react-native";
-import stylesPaises from "../styles/StylePaises";
+import stylesPaises from "../../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CanadaTeste() {
+export default function Inglaterra() {
   const navigation = useNavigation();
 
   const places = [
     {
-      source: require("../images/imagesAmericaNorte/torontocanada.jpg"),
-      title: "Toronto",
-    },
-    {
-      source: require("../images/imagesAmericaNorte/torrecanada.jpg"),
-      title: "Torre CN",
-    },
-    {
-      source: require("../images/imagesAmericaNorte/cataratacanada.jpg"),
-      title: "Cataratas do Niágara",
-    },
-    {
-      source: require("../images/imagesAmericaNorte/parliamentcanada.jpg"),
-      title: "Parliament Hill",
-    },
+        source: require("../../images/Europa/tower.jpg"),
+        title: "Tower Bridge",
+      },
+      {
+        source: require("../../images/Europa/big.jpg"),
+        title: "Big Ban",
+      },
+      {
+        source: require("../../images/Europa/palacio.jpg"),
+        title: "Palácio de Buckingham",
+      },
+      {
+        source: require("../../images/Europa/catedral.jpg"),
+        title: "Catedral de Winchester",
+      }
   ];
 
   const scaleAnim = useRef(new Animated.Value(0)).current;
@@ -76,7 +76,7 @@ export default function CanadaTeste() {
         }}
       >
         <ImageBackground
-          source={require("../images/imagesAmericaNorte/canada.jpg")}
+          source={require("../../images/Europa/inglaterra.jpg")}
           style={{ width: "100%", height: "100%" }}
           resizeMode="cover"
         >
@@ -91,7 +91,7 @@ export default function CanadaTeste() {
               style={{ flexDirection: "row", height: "20%", width: "100%" }}
             >
               <TouchableOpacity
-                onPress={() => navigation.navigate("AmericaNorte")}
+                onPress={() => navigation.navigate("Europa")}
                 style={{
                   alignItems: "center",
                   justifyContent: "flex-start",
@@ -113,7 +113,7 @@ export default function CanadaTeste() {
                 }}
               >
                 <Image
-                  source={require("../images/logobranco.png")}
+                  source={require("../../images/logobranco.png")}
                   style={{ width: "80%", height: "100%" }}
                 />
               </View>
@@ -128,7 +128,7 @@ export default function CanadaTeste() {
               }}
             >
               <Text style={[stylesPaises.TitlePaises, { left: "10%" }]}>
-                Lugar0
+                Lugares
               </Text>
             </View>
 

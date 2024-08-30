@@ -12,11 +12,19 @@ import Europa from "../pages/Europa";
 import Oceania from "../pages/Oceania";
 import RecuperarSenha from "../pages/RecuperarSenha";
 import PavilionMalasia from "../pages/PavilionMalasia";
-import MalasiaModal from "../partials/ModalMalasia";
 import CristoRedentor from "../pages/CristoRedentorBrasil";
-import BrasilModal from "../partials/ModalBrasil";
-import CanadaTeste from "../Lugares/CanadaTeste";
-import Mexico from "../Lugares/Mexico";
+import Canada from "../pages/Lugares/Canada";
+import Mexico from "../pages/Lugares/Mexico";
+import Malasia from "../pages/Lugares/Malasia";
+import Emirados from "../pages/Lugares/Emirados";
+import Catar from "../pages/Lugares/Catar";
+import China from "../pages/Lugares/China";
+import Japao from "../pages/Lugares/Japao";
+import Grecia from "../pages/Lugares/Grecia";
+import Franca from "../pages/Lugares/Franca";
+import Italia from "../pages/Lugares/Italia";
+import Inglaterra from "../pages/Lugares/Inglaterra";
+import Espanha from "../pages/Lugares/Espanha";
 
 const Stack = createNativeStackNavigator();
 
@@ -85,13 +93,63 @@ export default function StackRoutes() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="CanadaTeste"
-          component={CanadaTeste}
+          name="Canada"
+          component={Canada}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Mexico"
           component={Mexico}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Malasia"
+          component={Malasia}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Emirados"
+          component={Emirados}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Catar"
+          component={Catar}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="China"
+          component={China}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Japao"
+          component={Japao}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Grecia"
+          component={Grecia}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Franca"
+          component={Franca}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Italia"
+          component={Italia}
+          options={{ headerShown: false }}
+        />
+         <Stack.Screen
+          name="Inglaterra"
+          component={Inglaterra}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Espanha"
+          component={Espanha}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

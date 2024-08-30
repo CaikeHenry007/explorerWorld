@@ -12,25 +12,10 @@ import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
-import React, { useState } from "react";
-import EmiradosModal from "../partials/ModalEmirados";
-import ChinaModal from "../partials/ModalChina";
-import JapaoModal from "../partials/ModalJapao";
-import MalasiaModal from "../partials/ModalMalasia";
-import CatarModal from "../partials/ModalCatar";
+import React from "react";
 
 export default function Asia() {
   const navigation = useNavigation();
-
-  const [visibleMalasia, setVisibleMalasia] = useState(false);
-  const [visibleEmirados, setVisibleEmirados] = useState(false);
-  const [visibleCatar, setVisibleCatar] = useState(false);
-  const [visibleChina, setVisibleChina] = useState(false);
-  const [visibleJapao, setVisibleJapao] = useState(false);
-
-  const scrollY = React.useRef(new Animated.Value(0)).current;
-
-  const ITEM_SIZE = 190;
 
   const [font] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -38,10 +23,21 @@ export default function Asia() {
     Noto: require("../fonts/NotoSherif.ttf"),
     BonaNova: require("../fonts/BonaNovaItalic.ttf"),
     BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
+    Lilita: require("../fonts/LilitaOne.ttf"),
+    Display: require("../fonts/DisplayExtraBoldItalic.ttf"),
+    DisplayBold: require("../fonts/DisplayBoldItalic.ttf"),
+    DisplayItalic: require("../fonts/DisplayItalic.ttf"),
   });
   if (!font) {
     return null;
   }
+
+
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+
+  const ITEM_SIZE = 190;
+
+  
 
   const data = [
     {
@@ -50,7 +46,7 @@ export default function Asia() {
       subtitle: "187º Maior país do mundo",
       populacao: "581 Mil",
       tamanho: "298 km²",
-      route: () => setVisibleMalasia(true),
+      route: () => navigation.navigate("Malasia"),
     },
     {
       source: require("../images/Asia/emirados.jpg"),
@@ -58,7 +54,7 @@ export default function Asia() {
       subtitle: "114º Maior país do mundo",
       populacao: "10,7 Mi",
       tamanho: "83 600 km²",
-      route: () => setVisibleEmirados(true),
+      route: () => navigation.navigate("Emirados"),
     },
     {
       source: require("../images/Asia/catar.jpg"),
@@ -66,7 +62,7 @@ export default function Asia() {
       subtitle: "50º Maior país do mundo",
       populacao: "70,9 Mi",
       tamanho: "513 120 km²",
-      route: () => setVisibleCatar(true),
+      route: () => navigation.navigate("Catar"),
     },
     {
       source: require("../images/Asia/china.jpg"),
@@ -74,7 +70,7 @@ export default function Asia() {
       subtitle: "3º Maior país do mundo",
       populacao: "1,4 Bi",
       tamanho: "9 596 961 km²",
-      route: () => setVisibleChina(true),
+      route: () => navigation.navigate("China"),
     },
     {
       source: require("../images/Asia/japao.jpg"),
@@ -82,7 +78,7 @@ export default function Asia() {
       subtitle: "62º Maior país do mundo",
       populacao: "125,9 Mi",
       tamanho: "377 975 km²",
-      route: () => setVisibleJapao(true),
+      route: () => navigation.navigate("Japao"),
     },
   ];
 
@@ -97,27 +93,7 @@ export default function Asia() {
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
-
-        <MalasiaModal
-          visibleMalasia={visibleMalasia}
-          setVisibleMalasia={setVisibleMalasia}
-        />
-        <EmiradosModal
-          visibleEmirados={visibleEmirados}
-          setVisibleEmirados={setVisibleEmirados}
-        />
-        <ChinaModal
-          visibleChina={visibleChina}
-          setVisibleChina={setVisibleChina}
-        />
-        <JapaoModal
-          visibleJapao={visibleJapao}
-          setVisibleJapao={setVisibleJapao}
-        />
-        <CatarModal
-          visibleCatar={visibleCatar}
-          setVisibleCatar={setVisibleCatar}
-        />
+        
 
         <Text style={stylesContinente.tituloPrincipal}>Asia</Text>
       </View>

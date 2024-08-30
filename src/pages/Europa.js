@@ -12,21 +12,11 @@ import stylesContinente from "../styles/StyleContinentes";
 import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
-import React, { useState } from "react";
-import GreciaModal from "../partials/ModalGrecia";
-import FrancaModal from "../partials/ModalFranca";
-import ItaliaModal from "../partials/ModalItalia";
-import InglaterraModal from "../partials/ModalInglaterra";
-import EspanhaModal from "../partials/ModalEspanha";
+import React from "react";
 
 export default function Europa() {
   const navigation = useNavigation();
 
-  const [visibleFranca, setVisibleFranca] = useState(false);
-  const [VisibleGrecia, setVisibleGrecia] = useState(false);
-  const [visibleItalia, setVisibleItalia] = useState(false);
-  const [visibleInglaterra, setVisibleInglaterra] = useState(false);
-  const [visibleEspanha, setVisibleEspanha] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -54,7 +44,7 @@ export default function Europa() {
       subtitle: "95º Maior país do mundo",
       populacao: "10 256 001",
       tamanho: "9131 990 km²",
-      route: () => setVisibleGrecia(true),
+      route: () => navigation.navigate("Grecia"),
     },
     {
       source: require("../images/Europa/frança.jpg"),
@@ -62,7 +52,7 @@ export default function Europa() {
       subtitle: "48º Maior país do mundo",
       populacao: "68,4 Mi",
       tamanho: "551 500 km²",
-      route: () => setVisibleFranca(true),
+      route: () => navigation.navigate("Franca"),
     },
     {
       source: require("../images/Europa/italia.jpg"),
@@ -70,7 +60,7 @@ export default function Europa() {
       subtitle: "71º Maior país do mundo",
       populacao: "60 703 666",
       tamanho: "301 338 km²",
-      route: () => setVisibleItalia(true),
+      route: () => navigation.navigate("Italia"),
     },
     {
       source: require("../images/Europa/inglaterra.jpg"),
@@ -78,7 +68,7 @@ export default function Europa() {
       subtitle: "106º Maior país do mundo",
       populacao: "69 689 583",
       tamanho: "130 395 km²",
-      route: () => setVisibleInglaterra(true),
+      route: () => navigation.navigate("Inglaterra"),
     },
     {
       source: require("../images/Europa/espanha.jpg"),
@@ -86,7 +76,7 @@ export default function Europa() {
       subtitle: "51º Maior país do mundo",
       populacao: "46 300 118",
       tamanho: "504 782 km²",
-      route: () => setVisibleEspanha(true),
+      route: () => navigation.navigate("Espanha"),
     },
   ];
 
@@ -101,26 +91,6 @@ export default function Europa() {
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
-        <GreciaModal
-          visibleGrecia={VisibleGrecia}
-          setVisibleGrecia={setVisibleGrecia}
-        />
-        <FrancaModal
-          visibleFranca={visibleFranca}
-          setVisibleFranca={setVisibleFranca}
-        />
-        <ItaliaModal
-          visibleItalia={visibleItalia}
-          setVisibleItalia={setVisibleItalia}
-        />
-        <InglaterraModal
-          visibleInglaterra={visibleInglaterra}
-          setVisibleInglaterra={setVisibleInglaterra}
-        />
-        <EspanhaModal
-          visibleEspanha={visibleEspanha}
-          setVisibleEspanha={setVisibleEspanha}
-        />
 
         <Text style={stylesContinente.tituloPrincipal}>Europa</Text>
       </Animated.View>

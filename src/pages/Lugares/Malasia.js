@@ -7,32 +7,35 @@ import {
   Animated,
   FlatList,
   Image,
+  Pressable
 } from "react-native";
-import stylesPaises from "../styles/StylePaises";
+import stylesPaises from "../../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CanadaTeste() {
+export default function Malasia() {
   const navigation = useNavigation();
 
   const places = [
-    {
-      source: require("../images/imagesAmericaNorte/torontocanada.jpg"),
-      title: "Toronto",
-    },
-    {
-      source: require("../images/imagesAmericaNorte/torrecanada.jpg"),
-      title: "Torre CN",
-    },
-    {
-      source: require("../images/imagesAmericaNorte/cataratacanada.jpg"),
-      title: "Cataratas do Niágara",
-    },
-    {
-      source: require("../images/imagesAmericaNorte/parliamentcanada.jpg"),
-      title: "Parliament Hill",
-    },
-  ];
+        {
+          source: require("../../images/Asia/pavilion.jpg"),
+          title: "PAVILION",
+          rota: "PavilionMalasia"
+        },
+        {
+          source: require("../../images/Asia/lego.jpg"),
+          title: "LEGOLAND",
+        },
+        {
+          source: require("../../images/Asia/merdeka.jpg"),
+          title: "MERDEKA SQUARE",
+        },
+        {
+          source: require("../../images/Asia/batu.jpg"),
+          title: "BATU CAVES",
+        },
+      ];
+  
 
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const bgOpacityAnim = useRef(new Animated.Value(0)).current;
@@ -76,7 +79,7 @@ export default function CanadaTeste() {
         }}
       >
         <ImageBackground
-          source={require("../images/imagesAmericaNorte/canada.jpg")}
+          source={require("../../images/imagesAmericaNorte/mexico.jpg")}
           style={{ width: "100%", height: "100%" }}
           resizeMode="cover"
         >
@@ -91,7 +94,7 @@ export default function CanadaTeste() {
               style={{ flexDirection: "row", height: "20%", width: "100%" }}
             >
               <TouchableOpacity
-                onPress={() => navigation.navigate("AmericaNorte")}
+                onPress={() => navigation.navigate("Asia")}
                 style={{
                   alignItems: "center",
                   justifyContent: "flex-start",
@@ -113,7 +116,7 @@ export default function CanadaTeste() {
                 }}
               >
                 <Image
-                  source={require("../images/logobranco.png")}
+                  source={require("../../images/logobranco.png")}
                   style={{ width: "80%", height: "100%" }}
                 />
               </View>
@@ -162,6 +165,9 @@ export default function CanadaTeste() {
                         paddingTop: "4%",
                       }}
                     >
+                        <TouchableOpacity>
+                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <View style={{ width: 250, height: 300, alignItems: "center", justifyContent: "flex-end",   }}>
                       <Image
                         source={item.source}
                         style={{
@@ -169,10 +175,20 @@ export default function CanadaTeste() {
                           height: "88%",
                         }}
                       />
-                      <Text style={{ color: "#000000", fontSize: 20, fontFamily: "Display" }}>
+                      
+                      
+                      <Text style={{ color: "#000000", fontSize:20 , fontFamily: "Display" }}>
                         {item.title}
                       </Text>
+                      
+                  </View>
+
+                  
+                  </Pressable>
+                      </TouchableOpacity>
+                      
                     </Animated.View>
+                    
                   );
                 }}
               />

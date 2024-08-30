@@ -8,30 +8,31 @@ import {
   FlatList,
   Image,
 } from "react-native";
-import stylesPaises from "../styles/StylePaises";
+import stylesPaises from "../../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Mexico() {
+export default function Catar() {
   const navigation = useNavigation();
+
 
   const places = [
     {
-        source: require("../images/imagesAmericaNorte/valartamexico.jpg"),
-        title: "Tulum",
-    },
-    {
-        source: require("../images/imagesAmericaNorte/cabosaolucas.jpg"),
-        title: "Cabo San Lucas",
-    },
-    {
-        source: require("../images/imagesAmericaNorte/cancun.jpg"),
-        title: "Cancun",
-    },
-    {
-        source: require("../images/imagesAmericaNorte/tulum.jpg"),
-        title: "Tulum",
-    },
+        source: require("../../images/Asia/livraria.jpg"),
+        title: "Qatar National Library",
+      },
+      {
+        source: require("../../images/Asia/museuCatar.jpg"),
+        title: "National Museum of Qatar",
+      },
+      {
+        source: require("../../images/Asia/museuIslamico.jpg"),
+        title: "Museu da Arte Islâmica",
+      },
+      {
+        source: require("../../images/Asia/villaggiomall.jpg"),
+        title: "Villaggio Mall",
+      },
   ];
 
   const scaleAnim = useRef(new Animated.Value(0)).current;
@@ -76,7 +77,7 @@ export default function Mexico() {
         }}
       >
         <ImageBackground
-          source={require("../images/imagesAmericaNorte/canada.jpg")}
+          source={require("../../images/imagesAmericaNorte/mexico.jpg")}
           style={{ width: "100%", height: "100%" }}
           resizeMode="cover"
         >
@@ -91,7 +92,7 @@ export default function Mexico() {
               style={{ flexDirection: "row", height: "20%", width: "100%" }}
             >
               <TouchableOpacity
-                onPress={() => navigation.navigate("AmericaNorte")}
+                onPress={() => navigation.navigate("Asia")}
                 style={{
                   alignItems: "center",
                   justifyContent: "flex-start",
@@ -113,7 +114,7 @@ export default function Mexico() {
                 }}
               >
                 <Image
-                  source={require("../images/logobranco.png")}
+                  source={require("../../images/logobranco.png")}
                   style={{ width: "80%", height: "100%" }}
                 />
               </View>
@@ -128,7 +129,7 @@ export default function Mexico() {
               }}
             >
               <Text style={[stylesPaises.TitlePaises, { left: "10%" }]}>
-                Lugare
+                Lugares
               </Text>
             </View>
 

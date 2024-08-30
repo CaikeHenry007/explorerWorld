@@ -14,13 +14,11 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import EuaModal from "../partials/ModalEUA";
-import CanadaModal from "../partials/ModalCanada";
 
 export default function AmericaNorte() {
   const navigation = useNavigation();
 
   const [visibleEua, setVisibleEua] = useState(false);
-  const [visibleCanada, setVisibleCanada] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -55,7 +53,7 @@ export default function AmericaNorte() {
       subtitle: "2º Maior país do mundo",
       populacao: "39 Mi",
       tamanho: "9,985,000 km²",
-      route: () => navigation.navigate("CanadaTeste"),
+      route: () => navigation.navigate("Canada"),
     },
     {
       id: "3",
@@ -82,10 +80,6 @@ export default function AmericaNorte() {
 
         <EuaModal visibleEua={visibleEua} setVisibleEua={setVisibleEua} />
 
-        <CanadaModal
-          visibleCanada={visibleCanada}
-          setVisibleCanada={setVisibleCanada}
-        />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>
       </View>
