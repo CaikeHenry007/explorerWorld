@@ -15,14 +15,12 @@ import { useFonts } from "expo-font";
 import React, { useState } from "react";
 import EuaModal from "../partials/ModalEUA";
 import CanadaModal from "../partials/ModalCanada";
-import MexicoModal from "../partials/ModalMexico";
 
 export default function AmericaNorte() {
   const navigation = useNavigation();
 
   const [visibleEua, setVisibleEua] = useState(false);
   const [visibleCanada, setVisibleCanada] = useState(false);
-  const [visibleMexico, setVisibleMexico] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -66,7 +64,7 @@ export default function AmericaNorte() {
       subtitle: "14º Maior país do mundo",
       populacao: "136 Mi",
       tamanho: "1.973.000 km²",
-      route: () => setVisibleMexico(true),
+      route: () => navigation.navigate("Mexico"),
     },
   ];
 
@@ -87,10 +85,6 @@ export default function AmericaNorte() {
         <CanadaModal
           visibleCanada={visibleCanada}
           setVisibleCanada={setVisibleCanada}
-        />
-        <MexicoModal
-          visibleMexico={visibleMexico}
-          setVisibleMexico={setVisibleMexico}
         />
 
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>

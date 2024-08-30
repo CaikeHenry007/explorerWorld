@@ -9,11 +9,24 @@ import {
     Image
   } from "react-native";
   import stylesPaises from "../styles/StylePaises";
+  import { useFonts } from "expo-font";
   import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
   import { useNavigation } from "@react-navigation/native";
   
   export default function CanadaModal({ visibleCanada, setVisibleCanada }) {
     const navigation = useNavigation();
+
+    const [fontLoaded] = useFonts({
+      Pacifico: require("../fonts/Pacifico-Regular.ttf"),
+      Bebas: require("../fonts/Bebas.ttf"),
+      Noto: require("../fonts/NotoSherif.ttf"),
+      BonaNova: require("../fonts/BonaNovaItalic.ttf"),
+      BonaNovaBold: require("../fonts/BonaNovaBold.ttf"),
+      Lilita: require("../fonts/LilitaOne.ttf"),
+      Display: require("../fonts/DisplayExtraBoldItalic.ttf"),
+      DisplayBold: require("../fonts/DisplayBoldItalic.ttf"),
+      DisplayItalic: require("../fonts/DisplayItalic.ttf")
+    });
   
     const places = [
       {

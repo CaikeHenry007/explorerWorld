@@ -13,7 +13,6 @@ const stylesPaises = StyleSheet.create({
     justifyContent: "center",
   },
 
- 
   // Style Modal
 
   containerModal: { 

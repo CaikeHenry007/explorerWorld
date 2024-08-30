@@ -12,25 +12,25 @@ import stylesPaises from "../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CanadaTeste() {
+export default function Mexico() {
   const navigation = useNavigation();
 
   const places = [
     {
-      source: require("../images/imagesAmericaNorte/torontocanada.jpg"),
-      title: "Toronto",
+        source: require("../images/imagesAmericaNorte/valartamexico.jpg"),
+        title: "Tulum",
     },
     {
-      source: require("../images/imagesAmericaNorte/torrecanada.jpg"),
-      title: "Torre CN",
+        source: require("../images/imagesAmericaNorte/cabosaolucas.jpg"),
+        title: "Cabo San Lucas",
     },
     {
-      source: require("../images/imagesAmericaNorte/cataratacanada.jpg"),
-      title: "Cataratas do Niágara",
+        source: require("../images/imagesAmericaNorte/cancun.jpg"),
+        title: "Cancun",
     },
     {
-      source: require("../images/imagesAmericaNorte/parliamentcanada.jpg"),
-      title: "Parliament Hill",
+        source: require("../images/imagesAmericaNorte/tulum.jpg"),
+        title: "Tulum",
     },
   ];
 
@@ -128,7 +128,7 @@ export default function CanadaTeste() {
               }}
             >
               <Text style={[stylesPaises.TitlePaises, { left: "10%" }]}>
-                Lugar0
+                Lugare
               </Text>
             </View>
 

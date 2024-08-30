@@ -128,7 +128,7 @@ export default function CanadaTeste() {
               }}
             >
               <Text style={[stylesPaises.TitlePaises, { left: "10%" }]}>
-                Lugar0
+                Lugares
               </Text>
             </View>
 

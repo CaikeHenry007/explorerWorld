@@ -15,7 +15,8 @@ import PavilionMalasia from "../pages/PavilionMalasia";
 import MalasiaModal from "../partials/ModalMalasia";
 import CristoRedentor from "../pages/CristoRedentorBrasil";
 import BrasilModal from "../partials/ModalBrasil";
-import CanadaTeste from "../pages/CanadaTeste";
+import CanadaTeste from "../Lugares/CanadaTeste";
+import Mexico from "../Lugares/Mexico";
 
 const Stack = createNativeStackNavigator();
 
@@ -86,6 +87,11 @@ export default function StackRoutes() {
         <Stack.Screen
           name="CanadaTeste"
           component={CanadaTeste}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Mexico"
+          component={Mexico}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
