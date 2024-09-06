@@ -76,9 +76,10 @@ export default function Canada() {
         }}
       >
         <ImageBackground
-          source={require("../../images/imagesAmericaNorte/canada.jpg")}
+          source={require("../../images/Home.jpg")}
           style={{ width: "100%", height: "100%" }}
           resizeMode="cover"
+          blurRadius={6}
         >
           <View
             style={{
@@ -113,7 +114,7 @@ export default function Canada() {
                 }}
               >
                 <Image
-                  source={require("../../images/logobranco.png")}
+                  source={require("../../images/EXPLORAR.INICIO.png")}
                   style={{ width: "80%", height: "100%" }}
                 />
               </View>

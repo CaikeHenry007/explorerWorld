@@ -8,62 +8,78 @@ const stylesInicio = StyleSheet.create({
   },
 
   imgBackground: {
-    flex: 1,
+    height: "100%",
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
   },
 
-  card: {
-    width: "95%",
-    maxHeight: "70%",
-    backgroundColor: "#5A7577",
-    borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
+  viewLogo: {
+    alignItems: "flex-end",
+    justifyContent: "flex-start",
+    height: "100%",
+    width: "100%",
+    position: "absolute",
   },
 
-  scrollContainer: {
-    flexGrow: 1,
+  logo: {
+    width: "65%",
+    height: "35%",
+    position: "absolute",
+  },
+
+  animatedView: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+  },
+
+  card: {
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    backgroundColor: "#d5bc87",
   },
 
   titulo: {
     fontSize: 25,
-    color: "white",
-    fontFamily: "Bebas",
+    color: "#f5f0e8",
+    fontFamily: "DisplayItalic",
     textAlign: "center",
-    margin: 35,
     fontSize: 40,
+    marginTop: "3%"
   },
 
   viewcaixa: {
-    height: "30%",
-    alignItems: "center",
-    justifyContent: "center",
     flexDirection: "row",
+    alignItems: "center",
+    paddingLeft: "3%"
   },
 
   caixaTexto: {
-    borderColor: "white",
+    borderColor: "#f5f0e8",
     borderBottomWidth: 2,
-    height: "30%",
+    height: "45%",
     width: "70%",
     margin: "5%",
     color: "white",
-    fontFamily: "Bebas",
+    fontFamily: "DisplayItalic",
     fontSize: 18,
   },
 
+  recuperarBtn: {
+    borderBottomWidth: 1, 
+    borderBottomColor: "#384554", 
+    width: "50%", 
+    margin: "5%", 
+  },
+
   recuperarText: {
-    color: "blue",
+    color: "#384554",
     textAlign: "center",
     fontFamily: "Bebas",
-    fontSize: 20,
+    fontSize: 15,
     textAlign: "center",
-    bottom: 10,
+    fontFamily: "DisplayItalic"
   },
 
   viewbotoes: {
@@ -73,28 +89,27 @@ const stylesInicio = StyleSheet.create({
   },
 
   btn: {
-    backgroundColor: "#F4CFBA",
-    height: 40,
-    width: "20%",
+    backgroundColor: "#384554",
     justifyContent: "center",
     borderRadius: 15,
     height: "30%",
-    width: "40%",
+    width: "60%",
   },
 
   btntxt: {
     textAlign: "center",
-    fontFamily: "Bebas",
-    fontSize: 25,
+    fontFamily: "DisplayItalic",
+    fontSize: 20,
+    color: "white"
   },
 
   textoMenor: {
-    borderBlockColor: "white",
-    color: "white",
-    borderBottomColor: "white",
-    fontFamily: "Bebas",
+    color: "#384554",
+    borderBottomColor: "#384554",
+    borderBottomWidth: 1,
+    fontFamily: "DisplayItalic",
     fontSize: 15,
-    marginTop: "10%",
+    marginTop: "4%",
   },
 });
 

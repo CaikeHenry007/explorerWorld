@@ -13,6 +13,21 @@ const stylesHome = StyleSheet.create({
     backgroundColor: "#000000",
     justifyContent: "center",
   },
+
+  viewLogo: {
+    alignItems: "flex-end",
+    justifyContent: "flex-start",
+    height: "100%",
+    width: "100%",
+    position: "absolute",
+  },
+
+  logo: {
+    width: "75%",
+    height: "100%",
+    position: "absolute",
+  },
+
   posterImage: {
     width: "100%",
     height: "100%",
@@ -21,6 +36,7 @@ const stylesHome = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 20,
   },
+
   sombraImage: {
     width: "100%",
     height: LARGURA_CONTAINER * 1.2,
@@ -33,9 +49,11 @@ const stylesHome = StyleSheet.create({
     shadowRadius: 20,
     elevation: 20,
   },
+
   containerFlatList: {
     width: LARGURA_CONTAINER,
   },
+
   moldura: {
     marginHorizontal: ESPACO,
     padding: ESPACO,
@@ -43,6 +61,7 @@ const stylesHome = StyleSheet.create({
     alignItems: "center",
     borderRadius: 30,
   },
+
   texto: {
     fontSize: 22,
     fontFamily: "BonaNovaBold",
@@ -55,6 +74,7 @@ const stylesHome = StyleSheet.create({
     top: 1,
     width: width,
   },
+  
   imagemAnimada: {
     width: width,
     height: ALTURA_BACKDROP,

@@ -4,10 +4,10 @@
     "slug": "explorerWorld",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./src/images/logobranco.png",
+    "icon": "./src/images/EXPLORAR.INICIO.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./src/images/logobranco.png",
+      "image": "./src/images/EXPLORAR.INICIO.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
     },
@@ -16,12 +16,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./src/images/logobranco.png",
+        "foregroundImage": "./src/images/EXPLORAR.INICIO.png",
         "backgroundColor": "#ffffff"
       }
     },
     "web": {
-      "favicon": "./src/images/logobranco.png"
+      "favicon": "./src/images/EXPLORAR.INICIO.png"
     },
     "scripts": {
       "postinstall": "npx jetify"

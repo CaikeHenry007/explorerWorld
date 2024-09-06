@@ -10,14 +10,10 @@ import {
   Animated,
   Pressable,
 } from "react-native";
-
 import { useFonts } from "expo-font";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
 import { useNavigation } from "@react-navigation/native";
-
 import stylesHome from "../styles/StyleHome";
-import { TouchableOpacity } from "react-native";
 
 const imagens = [
   {
@@ -75,13 +71,13 @@ function Backdrop({ scrollX }) {
 
         const blurRadius = scrollX.interpolate({
           inputRange,
-          outputRange: [5, 5, 0], // Aumenta e diminui o raio do desfoque
+          outputRange: [5, 5, 0],
         });
 
         return (
           <Animated.Image
             key={index}
-            source={imagem.source} // Aqui você pode usar a imagem desfocada
+            source={imagem.source}
             style={[
               {
                 opacity,
@@ -89,7 +85,7 @@ function Backdrop({ scrollX }) {
               stylesHome.imagemAnimada,
               StyleSheet.absoluteFillObject,
             ]}
-            blurRadius={blurRadius} // Aplica um leve efeito de blur diretamente na imagem
+            blurRadius={blurRadius}
           />
         );
       })}
@@ -97,9 +93,8 @@ function Backdrop({ scrollX }) {
   );
 }
 
-export default function Home({ route }) {
+export default function Home() {
   const navigation = useNavigation();
-  const handleAuthentication = route.params;
 
   const [fontLoaded] = useFonts({
     Pacifico: require("../fonts/Pacifico-Regular.ttf"),
@@ -122,24 +117,14 @@ export default function Home({ route }) {
       <View
         style={{
           width: "100%",
-          alignItems: "flex-end",
-          height: "8%",
-          padding: "2%",
+          alignItems: "center",
+          height: "12%",
+          justifyContent: "center",
         }}
       >
-        <TouchableOpacity
-          onPress={handleAuthentication}
-          style={{
-            backgroundColor: "#ffffff",
-            borderRadius: 100,
-            height: "100%",
-            width: "12%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <MaterialCommunityIcons name="logout" size={35} color={"#5A7577"} />
-        </TouchableOpacity>
+        <Image 
+        source={require("../images/EXPLORAR.INICIO.png")}
+        style={stylesHome.logo}/>
       </View>
       <Animated.FlatList
         onScroll={Animated.event(
@@ -172,7 +157,7 @@ export default function Home({ route }) {
 
           const textTranslateX = scrollX.interpolate({
             inputRange,
-            outputRange: [50, 0, -50], // Movimenta o texto horizontalmente
+            outputRange: [50, 0, -50],
             extrapolate: "extend",
           });
 
