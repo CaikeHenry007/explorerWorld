@@ -1,21 +1,21 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import {
-  Text,
   View,
-  ImageBackground,
-  TouchableOpacity,
-  Animated,
   FlatList,
+  Animated,
+  Dimensions,
+  StyleSheet,
+  ImageBackground,
   Image,
+  Text,
 } from "react-native";
-import stylesPaises from "../../styles/StylePaises";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { useNavigation } from "@react-navigation/native";
 
-export default function Canada() {
-  const navigation = useNavigation();
+const { width } = Dimensions.get("window");
+const ITEM_WIDTH = width * 0.7;
+const ITEM_HEIGHT = ITEM_WIDTH * 0.97;
+const SPACING = 20;
 
-  const places = [
+  const data= [
     {
       source: require("../../images/imagesAmericaNorte/torontocanada.jpg"),
       title: "Toronto",
@@ -34,153 +34,159 @@ export default function Canada() {
     },
   ];
 
-  const scaleAnim = useRef(new Animated.Value(0)).current;
-  const bgOpacityAnim = useRef(new Animated.Value(0)).current;
-  const itemAnimations = places.map(
-    () => useRef(new Animated.Value(0)).current
-  );
-
-  useEffect(() => {
-    // Primeiro, anima a opacidade da imagem de fundo
-    Animated.timing(bgOpacityAnim, {
-      toValue: 1,
-      duration: 1,
-      useNativeDriver: true,
-    }).start(() => {
-      // Depois que a imagem de fundo aparecer, começa a animação de escala
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }).start(() => {
-        // Após a escala, anima os itens do FlatList um de cada vez
-        itemAnimations.forEach((anim, index) => {
-          Animated.timing(anim, {
-            toValue: 1,
-            duration: 300,
-            delay: index * 100, // Cada item com um atraso
-            useNativeDriver: true,
-          }).start();
-        });
-      });
-    });
-  }, );
-
-  return (
-    <View style={stylesPaises.containerModal}>
-      <Animated.View
-        style={{
-          flex: 1,
-          transform: [{ scale: scaleAnim }],
-          opacity: bgOpacityAnim,
-        }}
-      >
+  const Carousel = () => {
+    const scrollX = useRef(new Animated.Value(0)).current;
+  
+    return (
+      <View style={styles.container}>
         <ImageBackground
           source={require("../../images/Home.jpg")}
           style={{ width: "100%", height: "100%" }}
           resizeMode="cover"
           blurRadius={6}
         >
-          <View
+          <Animated.View
             style={{
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#00000055",
+              flex: 1,
+              justifyContent: "center",
+              height: 700,
             }}
           >
             <View
-              style={{ flexDirection: "row", height: "20%", width: "100%" }}
-            >
-              <TouchableOpacity
-                onPress={() => navigation.navigate("AmericaNorte")}
-                style={{
-                  alignItems: "center",
-                  justifyContent: "flex-start",
-                  width: "10%",
-                }}
-              >
-                <MaterialCommunityIcons
-                  name="arrow-left"
-                  size={35}
-                  color="white"
-                />
-              </TouchableOpacity>
-              <View
-                style={{
-                  alignItems: "center",
-                  height: "100%",
-                  width: "80%",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={require("../../images/EXPLORAR.INICIO.png")}
-                  style={{ width: "80%", height: "100%" }}
-                />
-              </View>
-            </View>
-
-            <View
               style={{
-                height: "20%",
-                width: "100%",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
+                height: 200,
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <Text style={[stylesPaises.TitlePaises, { left: "10%" }]}>
+              
+              <Image
+              source={require("../../images/EXPLORAR.INICIO.png")}
+              style={{height:"100%", width:"100%"}}
+               />
+
+            </View>
+            <View
+              style={{
+                alignItems: "flex-start",
+                justifyContent: "center",
+                height: "20%",
+              }}
+            >
+              <Text
+                style={{
+                  left: "10%",
+                  color: "#ffffff",
+                  fontSize: 30,
+                  fontFamily: "Display",
+                }}
+              >
                 Lugares
               </Text>
             </View>
-
-            <View
-              style={{
-                width: "100%",
-                height: "60%",
-                justifyContent: "flex-end",
-              }}
-            >
-              <FlatList
-                data={places}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{
-                  justifyContent: "flex-end",
-                  height: "95%",
-                }}
-                keyExtractor={(item) => item.title}
-                renderItem={({ item, index }) => {
-                  return (
-                    <Animated.View
+            <Animated.FlatList
+              data={data}
+              keyExtractor={(item) => item.title}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              snapToInterval={ITEM_WIDTH + SPACING * 2}
+              decelerationRate="fast"
+              bounces={true}
+              onScroll={Animated.event(
+                [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+                { useNativeDriver: true }
+              )}
+              contentContainerStyle={{ paddingHorizontal: SPACING }}
+              renderItem={({ item, index }) => {
+                const inputRange = [
+                  (index - 1) * (ITEM_WIDTH + SPACING * 2),
+                  index * (ITEM_WIDTH + SPACING * 2),
+                  (index + 1) * (ITEM_WIDTH + SPACING * 2),
+                ];
+  
+                const scale = scrollX.interpolate({
+                  inputRange,
+                  outputRange: [0.9, 1, 0.9],
+                  extrapolate: "clamp",
+                });
+  
+                const opacity = scrollX.interpolate({
+                  inputRange,
+                  outputRange: [0.6, 1, 0.6],
+                  extrapolate: "clamp",
+                });
+  
+                const rotate = scrollX.interpolate({
+                  inputRange,
+                  outputRange: ["-8deg", "0deg", "8deg"],
+                  extrapolate: "clamp",
+                });
+  
+                return (
+                  <Animated.View
+                    style={[
+                      styles.itemContainer,
+                      {
+                        transform: [{ scale }, { rotate }],
+                        opacity,
+                      },
+                    ]}
+                  >
+                    <Image source={item.source} style={styles.image} />
+                    <Text
                       style={{
-                        width: 250,
-                        height: "70%",
-                        alignItems: "center",
-                        justifyContent: "flex-start",
-                        margin: 10,
-                        opacity: itemAnimations[index],
-                        backgroundColor: "#ffffff",
-                        paddingTop: "4%",
+                        color: "#000000",
+                        fontSize: 20,
+                        fontFamily: "Display",
                       }}
                     >
-                      <Image
-                        source={item.source}
-                        style={{
-                          width: "90%",
-                          height: "88%",
-                        }}
-                      />
-                      <Text style={{ color: "#000000", fontSize: 20, fontFamily: "Display" }}>
-                        {item.title}
-                      </Text>
-                    </Animated.View>
-                  );
-                }}
-              />
-            </View>
-          </View>
+                      {item.title}
+                    </Text>
+                  </Animated.View>
+                );
+              }}
+            />
+          </Animated.View>
         </ImageBackground>
-      </Animated.View>
-    </View>
-  );
-}
+      </View>
+    );
+  };
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "blue",
+    },
+    carouselContainer: {
+      flex: 1,
+      backgroundColor: "pink",
+      justifyContent: "center",
+      height: 700,
+    },
+    header: {
+      height: 200,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "blue",
+    },
+    spacer: {
+      height: "20%",
+    },
+    itemContainer: {
+      width: ITEM_WIDTH,
+      height: ITEM_HEIGHT,
+      marginHorizontal: SPACING,
+      borderRadius: 20,
+      overflow: "hidden",
+      borderWidth: 9, // Adiciona a largura da borda
+      borderColor: "white", // Define a cor da borda
+    },
+    image: {
+      width: "100%",
+      height: "100%",
+    },
+  });
+  
+  export default Carousel;

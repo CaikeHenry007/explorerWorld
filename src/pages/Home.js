@@ -20,32 +20,43 @@ const imagens = [
     source: require("../images/imagesAmericaNorte/americadonorte2.jpg"),
     title: "América do Norte",
     rota: "AmericaNorte",
+    logo: require("../images/LogoAmericaNorte.png"),
   },
   {
     source: require("../images/imagesAmericaSul/americadosul.jpg"),
     title: "América do Sul",
     rota: "AmericaSul",
+    logo: require("../images/LogoAmericaSul.png"),
   },
   {
     source: require("../images/imagesAmericaCentro/americacentral.jpg"),
     title: "América Central",
     rota: "AmericaCentro",
+    logo: require("../images/LogoAmericaCentral.png"),
   },
   {
     source: require("../images/Africa/africa.jpg"),
     title: "África",
     rota: "Africa",
+    logo: require("../images/LogoAfrica.png"),
   },
   {
     source: require("../images/Europa/europa.jpg"),
     title: "Europa",
     rota: "Europa",
+    logo: require("../images/LogoEuropa.png"),
   },
-  { source: require("../images/Asia/asia.jpg"), title: "Ásia", rota: "Asia" },
+  {
+    source: require("../images/Asia/asia.jpg"),
+    title: "Ásia",
+    rota: "Asia",
+    logo: require("../images/LogoAsia.png"),
+  },
   {
     source: require("../images/Oceania/oceania.jpg"),
     title: "Oceania",
     rota: "Oceania",
+    logo: require("../images/LogoOceania.png"),
   },
 ];
 
@@ -114,18 +125,6 @@ export default function Home() {
     <SafeAreaView style={stylesHome.container}>
       <StatusBar hidden />
       <Backdrop scrollX={scrollX} />
-      <View
-        style={{
-          width: "100%",
-          alignItems: "center",
-          height: "12%",
-          justifyContent: "center",
-        }}
-      >
-        <Image 
-        source={require("../images/EXPLORAR.INICIO.png")}
-        style={stylesHome.logo}/>
-      </View>
       <Animated.FlatList
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { x: scrollX } } }],
@@ -163,6 +162,13 @@ export default function Home() {
 
           return (
             <View style={stylesHome.containerFlatList}>
+              <View
+                style={stylesHome.viewLogo}
+              >
+                <Image
+                  source={item.logo}
+                  style={stylesHome.logo} />
+              </View>
               <Pressable onPress={() => navigation.navigate(item.rota)}>
                 <Animated.View
                   style={[

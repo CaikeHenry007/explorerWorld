@@ -17,7 +17,7 @@ import AustraliaModal from "../partials/ModalAustralia";
 import ModalNovaZelandia from "../partials/ModalNovaZelandia";
 import ModalPapuaNovaGuine from "../partials/ModalPapuaNovaGuine";
 import ModalFiji from "../partials/ModalFiji";
-import ModalIlhasSalomao from "../partials/ModalilhasSalomao";
+import ModalIlhasSalomao from "../partials/ModalilhasSalomao"; 
 
 export default function Oceania() {
   const navigation = useNavigation();

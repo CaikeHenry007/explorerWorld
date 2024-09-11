@@ -26,7 +26,7 @@ const stylesPaises = StyleSheet.create({
   },
   imgbackground:{
     height: "100%", 
-    borderBottomEndRadius: 40, 
+    borderBottomEndRadius: 40,   
     flexDirection: "column",
   },
   Viewbtn: { 

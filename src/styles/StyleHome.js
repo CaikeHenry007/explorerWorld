@@ -15,17 +15,17 @@ const stylesHome = StyleSheet.create({
   },
 
   viewLogo: {
-    alignItems: "flex-end",
-    justifyContent: "flex-start",
-    height: "100%",
     width: "100%",
+    alignItems: "center",
+    height: "15%",
+    justifyContent: "center",
     position: "absolute",
+    marginTop: -200,
   },
 
   logo: {
-    width: "75%",
+    width: "85%",
     height: "100%",
-    position: "absolute",
   },
 
   posterImage: {
@@ -74,7 +74,7 @@ const stylesHome = StyleSheet.create({
     top: 1,
     width: width,
   },
-  
+
   imagemAnimada: {
     width: width,
     height: ALTURA_BACKDROP,
