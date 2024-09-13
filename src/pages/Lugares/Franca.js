@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+ import React, { useRef, useEffect } from "react";
 import {
   Text,
   View,
@@ -24,20 +24,32 @@ const SPACING = 20;
 
   const data= [
     {
-      source: require("../../images/imagesAmericaNorte/torontocanada.jpg"),
-      title: "Toronto",
+      source: require("../../images/Europa/torreParisEntardecer.jpg"),
+      title: "Torre Eiffel",
     },
     {
-      source: require("../../images/imagesAmericaNorte/torrecanada.jpg"),
-      title: "Torre CN",
+      source: require("../../images/Europa/arcoParis.jpg"),
+      title: "Arco do Triunfo",
     },
     {
-      source: require("../../images/imagesAmericaNorte/cataratacanada.jpg"),
-      title: "Cataratas do Niágara",
+      source: require("../../images/Europa/disneyParis.jpg"),
+      title: "Disneyland Paris",
     },
     {
-      source: require("../../images/imagesAmericaNorte/parliamentcanada.jpg"),
-      title: "Parliament Hill",
+      source: require("../../images/Europa/louvre.jpg"),
+      title: "Museu do Louvre",
+    },
+    {
+      source: require("../../images/Europa/françaLugar.jpg"),
+      title: "Museu do Louvre",
+    },
+    {
+      source: require("../../images/Europa/FrançaLugar2.jpg"),
+      title: "Museu do Louvre",
+    },
+    {
+      source: require("../../images/Europa/françaLugar3.jpg"),
+      title: "Museu do Louvre",
     },
   ];
 
@@ -75,11 +87,11 @@ const Carousel = () => {
  return(
   <View>
          <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
-    <View style={{height: 350}}>
+    <View style={{height: 300}}>
       <ImageBackground 
        resizeMode="cover"
-       source={require("../../images/Europa/torreParisEntardecer.jpg")}
-       blurRadius={7}>
+       source={require("../../images/Europa/frança2.jpg")}
+       blurRadius={5}>
     
     <TouchableOpacity
                 onPress={() => navigation.navigate("Europa")}
@@ -97,7 +109,7 @@ const Carousel = () => {
               </TouchableOpacity>
               <Image
                   source={require("../../images/EXPLORAR.PAISES.png")}
-                  style={{ width: "50%", height: "40%",  }}
+                  style={{ width: "50%", height: "40%"  }}
                 />
               
               <View
@@ -108,8 +120,7 @@ const Carousel = () => {
             justifyContent: "space-around",
           }}
         >
-    <TouchableOpacity style={{ margin: 45,backgroundColor:
-selectedButton === "Historia" ? "white" : "white",}}
+    <TouchableOpacity style={{ margin: 45,}}
   onPress={() =>
   {
     setSelectedButton("Historia");
@@ -117,13 +128,18 @@ selectedButton === "Historia" ? "white" : "white",}}
   }
 }
 >
-    <Text style={{fontSize: 30, fontFamily: "Noto", color: "white", color:
-selectedButton === "Historia" ? "#d4a57b" : "black",
+    <Text style={{fontSize: 30, fontFamily: "Noto",  color:
+selectedButton === "Historia" ? "white" : "white",
  }} >História</Text>
-
+    <View
+              style={{
+                borderBottomWidth: selectedButton === "Historia" ? 2 : 0,
+                borderColor: "black",
+                width: 120,
+              }}
+            />
     </TouchableOpacity>
-    <TouchableOpacity style={{ margin: 45,backgroundColor:
-selectedButton === "galeria" ? "white" : "white",}}
+    <TouchableOpacity style={{ margin: 45, }}
   onPress={() =>
   {
     setSelectedButton("galeria");
@@ -132,15 +148,22 @@ selectedButton === "galeria" ? "white" : "white",}}
 }
 >
     <Text style={{fontSize: 30, fontFamily: "Noto", color: "white", color:
-selectedButton === "galeria" ? "#d4a57b" : "black",
+selectedButton === "galeria" ? "white" : "white", 
  }} >Galeria</Text>
+    <View
+              style={{
+                borderBottomWidth: selectedButton === "galeria" ? 2 : 0,
+                borderColor: "black",
+                width: 110,
+              }}
+            />
     </TouchableOpacity>
     
    </View>
    </ImageBackground>
    </View>
    <View style={{ height: 850}}>
-   <Text style={{fontFamily: "Noto", fontSize: 15}}> 
+   <Text style={{fontFamily: "Noto", fontSize: 15, textAlign: "center"}}> 
   Antiguidade: A região que hoje é a França foi habitada por diversos povos celtas, conhecidos como gauleses. No século I a.C., foi conquistada pelos romanos e tornou-se parte do Império Romano como a Gália.
 
 Idade Média: Após a queda do Império Romano no século V, os francos, um povo germânico, estabeleceram um reino na área. Carlos Magno, rei dos francos, expandiu o território e fundou o Império Carolíngio. Após sua morte, o império se fragmentou em diversos reinos.
@@ -160,7 +183,7 @@ Era Contemporânea: A França se tornou uma potência global influente no cenár
 
    </Text>
    </View>
-   <View style={{height: 600}}>
+   <View style={{height: 350}}>
         <Animated.FlatList
               data={data}
               keyExtractor={(item) => item.title}
@@ -237,10 +260,8 @@ const styles = StyleSheet.create({
     backgroundColor: "blue",
   },
   carouselContainer: {
-    flex: 1,
-    backgroundColor: "pink",
     justifyContent: "center",
-    height: 700,
+    height: 900,
   },
   header: {
     height: 200,
@@ -257,12 +278,11 @@ const styles = StyleSheet.create({
     marginHorizontal: SPACING,
     borderRadius: 20,
     overflow: "hidden",
-    borderWidth: 9, // Adiciona a largura da borda
-    borderColor: "white", // Define a cor da borda
   },
   image: {
     width: "100%",
     height: "100%",
+ 
   },
 });
 
