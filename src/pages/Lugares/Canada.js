@@ -1,90 +1,138 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import {
+  Text,
   View,
-  FlatList,
+  ImageBackground,
+  TouchableOpacity,
   Animated,
+  FlatList,
+  Image,
+  ScrollView,
   Dimensions,
   StyleSheet,
-  ImageBackground,
-  Image,
-  Text,
+  Pressable
 } from "react-native";
+import stylesPaises from "../../styles/StylePaises";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { useNavigation } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import { useState } from "react";
 
 const { width } = Dimensions.get("window");
-const ITEM_WIDTH = width * 0.7;
-const ITEM_HEIGHT = ITEM_WIDTH * 0.97;
+const ITEM_WIDTH = width * 0.8;
+const ITEM_HEIGHT = ITEM_WIDTH * 1.2;
 const SPACING = 20;
 
   const data= [
     {
-      source: require("../../images/imagesAmericaNorte/torontocanada.jpg"),
-      title: "Toronto",
-    },
-    {
-      source: require("../../images/imagesAmericaNorte/torrecanada.jpg"),
+      source: require("../../images/imagesAmericaNorte/canada1.jpg"),
       title: "Torre CN",
+      rota: "PavilionMalasia"
     },
     {
-      source: require("../../images/imagesAmericaNorte/cataratacanada.jpg"),
-      title: "Cataratas do Niágara",
+      source: require("../../images/imagesAmericaNorte/canada2.jpg"),
+      title: "Museu Real de Ontário",
     },
     {
-      source: require("../../images/imagesAmericaNorte/parliamentcanada.jpg"),
-      title: "Parliament Hill",
+      source: require("../../images/imagesAmericaNorte/canada3.jpg"),
+      title: "Ripley’s Aquarium of Canada",
+    },
+    {
+      source: require("../../images/imagesAmericaNorte/canada4.jpg"),
+      title: "Parque de Stanley",
+    },
+    {
+      source: require("../../images/imagesAmericaNorte/canada5.jpg"),
+      title: "Parque Nacional Banff",
     },
   ];
 
-  const Carousel = () => {
-    const scrollX = useRef(new Animated.Value(0)).current;
-  
-    return (
-      <View style={styles.container}>
-        <ImageBackground
-          source={require("../../images/Home.jpg")}
-          style={{ width: "100%", height: "100%" }}
-          resizeMode="cover"
-          blurRadius={6}
-        >
-          <Animated.View
-            style={{
-              flex: 1,
-              justifyContent: "center",
-              height: 700,
-            }}
-          >
-            <View
-              style={{
-                height: 200,
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              
-              <Image
-              source={require("../../images/EXPLORAR.INICIO.png")}
-              style={{height:"100%", width:"100%"}}
-               />
+const Carousel = () => {
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const navigation = useNavigation();
 
-            </View>
-            <View
-              style={{
-                alignItems: "flex-start",
-                justifyContent: "center",
-                height: "20%",
-              }}
-            >
-              <Text
+
+
+  const [font] = useFonts({
+    Pacifico: require("../../fonts/Pacifico-Regular.ttf"),
+    Bebas: require("../../fonts/Bebas.ttf"),
+    Noto: require("../../fonts/NotoSherif.ttf"),
+    BonaNova: require("../../fonts/BonaNovaItalic.ttf"),
+    BonaNovaBold: require("../../fonts/BonaNovaBold.ttf"),
+    Lilita: require("../../fonts/LilitaOne.ttf"),
+    Display: require("../../fonts/DisplayExtraBoldItalic.ttf"),
+    DisplayBold: require("../../fonts/DisplayBoldItalic.ttf"),
+    DisplayItalic: require("../../fonts/DisplayItalic.ttf"),
+  });
+  if (!font) {
+    return null;
+  }
+
+
+  const scaleAnim = useRef(new Animated.Value(0)).current;
+  const bgOpacityAnim = useRef(new Animated.Value(0)).current;
+  const itemAnimations = data.map(
+    () => useRef(new Animated.Value(0)).current
+  );
+
+  useEffect(() => {
+    // Primeiro, anima a opacidade da imagem de fundo
+    Animated.timing(bgOpacityAnim, {
+      toValue: 1,
+      duration: 1,
+      useNativeDriver: true,
+    }).start(() => {
+      // Depois que a imagem de fundo aparecer, começa a animação de escala
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }).start(() => {
+        // Após a escala, anima os itens do FlatList um de cada vez
+        itemAnimations.forEach((anim, index) => {
+          Animated.timing(anim, {
+            toValue: 1,
+            duration: 300,
+            delay: index * 100, // Cada item com um atraso
+            useNativeDriver: true,
+          }).start();
+        });
+      });
+    });
+  }, []);
+
+
+
+ return(
+  <View>
+         
+    <View style={{height: 1000}}>
+      <ImageBackground 
+       resizeMode="cover"
+       source={require("../../images/Europa/frança2.jpg")}
+       blurRadius={5}>
+    
+    <TouchableOpacity
+                onPress={() => navigation.navigate("AmericaNorte")}
                 style={{
-                  left: "10%",
-                  color: "#ffffff",
-                  fontSize: 30,
-                  fontFamily: "Display",
+                  alignItems: "center",
+                  justifyContent: "flex-start",
+                  width: "10%",
                 }}
               >
-                Lugares
-              </Text>
-            </View>
-            <Animated.FlatList
+                <MaterialCommunityIcons
+                  name="arrow-left"
+                  size={35}
+                  color="white"
+                />
+              </TouchableOpacity>
+              <View style={{ height: 50}}>
+              <Text style={{fontFamily: "DisplayItalic", fontSize: 40, textAlign: "center"}}>Pontos Turisticos</Text>
+              </View>
+            
+   <View style={{height: 900, justifyContent:'center', alignItems:'center'}}>
+    <View style={{height:240}}></View>
+        <Animated.FlatList
               data={data}
               keyExtractor={(item) => item.title}
               horizontal
@@ -121,17 +169,15 @@ const SPACING = 20;
                   outputRange: ["-8deg", "0deg", "8deg"],
                   extrapolate: "clamp",
                 });
-  
                 return (
                   <Animated.View
-                    style={[
-                      styles.itemContainer,
-                      {
-                        transform: [{ scale }, { rotate }],
-                        opacity,
-                      },
-                    ]}
+                    style={[  styles.itemContainer,{transform: [{ scale }, { rotate }],opacity,
+                    opacity: itemAnimations[index], }]}
                   >
+
+                        <TouchableOpacity>
+                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text
                       style={{
@@ -142,51 +188,57 @@ const SPACING = 20;
                     >
                       {item.title}
                     </Text>
-                  </Animated.View>
+
+                        </View>
+                  </Pressable>
+                      </TouchableOpacity>
+                      
+                    </Animated.View>
                 );
               }}
             />
-          </Animated.View>
+          
+        </View>
         </ImageBackground>
-      </View>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "blue",
-    },
-    carouselContainer: {
-      flex: 1,
-      backgroundColor: "pink",
-      justifyContent: "center",
-      height: 700,
-    },
-    header: {
-      height: 200,
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: "blue",
-    },
-    spacer: {
-      height: "20%",
-    },
-    itemContainer: {
-      width: ITEM_WIDTH,
-      height: ITEM_HEIGHT,
-      marginHorizontal: SPACING,
-      borderRadius: 20,
-      overflow: "hidden",
-      borderWidth: 9, // Adiciona a largura da borda
-      borderColor: "white", // Define a cor da borda
-    },
-    image: {
-      width: "100%",
-      height: "100%",
-    },
-  });
-  
-  export default Carousel;
+        </View>
+   </View>
+ )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "blue",
+  },
+  carouselContainer: {
+    justifyContent: "center",
+    height: 900,
+  },
+  header: {
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "blue",
+  },
+  spacer: {
+    height: "20%",
+  },
+  itemContainer: {
+    width: ITEM_WIDTH,
+    height: ITEM_HEIGHT,
+    marginHorizontal: SPACING,
+    overflow: "hidden",
+    backgroundColor:'white',
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  image: {
+    width: "90%",
+    height: "80%",
+ 
+  },
+});
+
+export default Carousel;

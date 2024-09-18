@@ -17,22 +17,22 @@ import stylesHome from "../styles/StyleHome";
 
 const imagens = [
   {
-    source: require("../images/imagesAmericaNorte/americadonorte2.jpg"),
+    source: require("../images/imagesAmericaNorte/americaNorte.jpg"),
     title: "América do Norte",
     rota: "AmericaNorte",
-    logo: require("../images/LogoAmericaNorte.png"),
+    logo: require("../images/Logo.png"),
   },
   {
-    source: require("../images/imagesAmericaSul/americadosul.jpg"),
+    source: require("../images/imagesAmericaSul/AmericadoSul2.jpg"),
     title: "América do Sul",
     rota: "AmericaSul",
-    logo: require("../images/LogoAmericaSul.png"),
+    logo: require("../images/Logo.png"),
   },
   {
     source: require("../images/imagesAmericaCentro/americacentral.jpg"),
     title: "América Central",
     rota: "AmericaCentro",
-    logo: require("../images/LogoAmericaCentral.png"),
+    logo: require("../images/Logo.png"),
   },
   {
     source: require("../images/Africa/africa.jpg"),
@@ -44,7 +44,7 @@ const imagens = [
     source: require("../images/Europa/europa.jpg"),
     title: "Europa",
     rota: "Europa",
-    logo: require("../images/LogoEuropa.png"),
+    logo: require("../images/Logo.png"),
   },
   {
     source: require("../images/Asia/asia.jpg"),
@@ -56,7 +56,7 @@ const imagens = [
     source: require("../images/Oceania/oceania.jpg"),
     title: "Oceania",
     rota: "Oceania",
-    logo: require("../images/LogoOceania.png"),
+    logo: require("../images/Logo.png"),
   },
 ];
 

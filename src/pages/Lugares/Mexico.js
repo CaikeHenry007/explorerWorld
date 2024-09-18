@@ -7,36 +7,71 @@ import {
   Animated,
   FlatList,
   Image,
+  ScrollView,
+  Dimensions,
+  StyleSheet,
+  Pressable
 } from "react-native";
 import stylesPaises from "../../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import { useState } from "react";
 
-export default function Mexico() {
-  const navigation = useNavigation();
+const { width } = Dimensions.get("window");
+const ITEM_WIDTH = width * 0.8;
+const ITEM_HEIGHT = ITEM_WIDTH * 1.2;
+const SPACING = 20;
 
-  const places = [
+  const data= [
     {
-        source: require("../../images/imagesAmericaNorte/valartamexico.jpg"),
-        title: "Tulum",
+      source: require("../../images/imagesAmericaNorte/mexico1.jpg"),
+      title: "Chichén Itzá",
+      rota: "PavilionMalasia"
     },
     {
-        source: require("../../images/imagesAmericaNorte/cabosaolucas.jpg"),
-        title: "Cabo San Lucas",
+      source: require("../../images/imagesAmericaNorte/mexico2.jpg"),
+      title: "Parque Eco-arqueológico Xcaret",
     },
     {
-        source: require("../../images/imagesAmericaNorte/cancun.jpg"),
-        title: "Cancun",
+      source: require("../../images/imagesAmericaNorte/mexico3.jpg"),
+      title: "Museu Soumaya",
     },
     {
-        source: require("../../images/imagesAmericaNorte/mexicomerida.jpg"),
-        title: "Merída",
+      source: require("../../images/imagesAmericaNorte/mexico4.jpg"),
+      title: "Castelo de Chapultepec",
+    },
+    {
+      source: require("../../images/imagesAmericaNorte/mexico5.jpg"),
+      title: "Zona Arqueológica de Tulum",
     },
   ];
 
+const Carousel = () => {
+  const scrollX = useRef(new Animated.Value(0)).current;
+  const navigation = useNavigation();
+
+
+
+  const [font] = useFonts({
+    Pacifico: require("../../fonts/Pacifico-Regular.ttf"),
+    Bebas: require("../../fonts/Bebas.ttf"),
+    Noto: require("../../fonts/NotoSherif.ttf"),
+    BonaNova: require("../../fonts/BonaNovaItalic.ttf"),
+    BonaNovaBold: require("../../fonts/BonaNovaBold.ttf"),
+    Lilita: require("../../fonts/LilitaOne.ttf"),
+    Display: require("../../fonts/DisplayExtraBoldItalic.ttf"),
+    DisplayBold: require("../../fonts/DisplayBoldItalic.ttf"),
+    DisplayItalic: require("../../fonts/DisplayItalic.ttf"),
+  });
+  if (!font) {
+    return null;
+  }
+
+
   const scaleAnim = useRef(new Animated.Value(0)).current;
   const bgOpacityAnim = useRef(new Animated.Value(0)).current;
-  const itemAnimations = places.map(
+  const itemAnimations = data.map(
     () => useRef(new Animated.Value(0)).current
   );
 
@@ -66,31 +101,18 @@ export default function Mexico() {
     });
   }, []);
 
-  return (
-    <View style={stylesPaises.containerModal}>
-      <Animated.View
-        style={{
-          flex: 1,
-          transform: [{ scale: scaleAnim }],
-          opacity: bgOpacityAnim,
-        }}
-      >
-        <ImageBackground
-          source={require("../../images/imagesAmericaNorte/mexico.jpg")}
-          style={{ width: "100%", height: "100%" }}
-          resizeMode="cover"
-        >
-          <View
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundColor: "#00000055",
-            }}
-          >
-            <View
-              style={{ flexDirection: "row", height: "20%", width: "100%" }}
-            >
-              <TouchableOpacity
+
+
+ return(
+  <View>
+         
+    <View style={{height: 1000}}>
+      <ImageBackground 
+       resizeMode="cover"
+       source={require("../../images/Europa/frança2.jpg")}
+       blurRadius={5}>
+    
+    <TouchableOpacity
                 onPress={() => navigation.navigate("AmericaNorte")}
                 style={{
                   alignItems: "center",
@@ -104,82 +126,119 @@ export default function Mexico() {
                   color="white"
                 />
               </TouchableOpacity>
-              <View
-                style={{
-                  alignItems: "center",
-                  height: "100%",
-                  width: "80%",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  source={require("../../images/logobranco.png")}
-                  style={{ width: "80%", height: "100%" }}
-                />
+              <View style={{ height: 50}}>
+              <Text style={{fontFamily: "DisplayItalic", fontSize: 40, textAlign: "center"}}>Pontos Turisticos</Text>
               </View>
-            </View>
+            
+   <View style={{height: 900, justifyContent:'center', alignItems:'center'}}>
+    <View style={{height:240}}></View>
+        <Animated.FlatList
+              data={data}
+              keyExtractor={(item) => item.title}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              snapToInterval={ITEM_WIDTH + SPACING * 2}
+              decelerationRate="fast"
+              bounces={true}
+              onScroll={Animated.event(
+                [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+                { useNativeDriver: true }
+              )}
+              contentContainerStyle={{ paddingHorizontal: SPACING }}
+              renderItem={({ item, index }) => {
+                const inputRange = [
+                  (index - 1) * (ITEM_WIDTH + SPACING * 2),
+                  index * (ITEM_WIDTH + SPACING * 2),
+                  (index + 1) * (ITEM_WIDTH + SPACING * 2),
+                ];
+  
+                const scale = scrollX.interpolate({
+                  inputRange,
+                  outputRange: [0.9, 1, 0.9],
+                  extrapolate: "clamp",
+                });
+  
+                const opacity = scrollX.interpolate({
+                  inputRange,
+                  outputRange: [0.6, 1, 0.6],
+                  extrapolate: "clamp",
+                });
+  
+                const rotate = scrollX.interpolate({
+                  inputRange,
+                  outputRange: ["-8deg", "0deg", "8deg"],
+                  extrapolate: "clamp",
+                });
+                return (
+                  <Animated.View
+                    style={[  styles.itemContainer,{transform: [{ scale }, { rotate }],opacity,
+                    opacity: itemAnimations[index], }]}
+                  >
 
-            <View
-              style={{
-                height: "20%",
-                width: "100%",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-              }}
-            >
-              <Text style={[stylesPaises.TitlePaises, { left: "10%" }]}>
-                Lugares
-              </Text>
-            </View>
-
-            <View
-              style={{
-                width: "100%",
-                height: "60%",
-                justifyContent: "flex-end",
-              }}
-            >
-              <FlatList
-                data={places}
-                horizontal={true}
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{
-                  justifyContent: "flex-end",
-                  height: "95%",
-                }}
-                keyExtractor={(item) => item.title}
-                renderItem={({ item, index }) => {
-                  return (
-                    <Animated.View
+                        <TouchableOpacity>
+                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
+                    <Image source={item.source} style={styles.image} />
+                    <Text
                       style={{
-                        width: 250,
-                        height: "70%",
-                        alignItems: "center",
-                        justifyContent: "flex-start",
-                        margin: 10,
-                        opacity: itemAnimations[index],
-                        backgroundColor: "#ffffff",
-                        paddingTop: "4%",
+                        color: "#000000",
+                        fontSize: 20,
+                        fontFamily: "Display",
                       }}
                     >
-                      <Image
-                        source={item.source}
-                        style={{
-                          width: "90%",
-                          height: "88%",
-                        }}
-                      />
-                      <Text style={{ color: "#000000", fontSize: 20, fontFamily: "Display" }}>
-                        {item.title}
-                      </Text>
+                      {item.title}
+                    </Text>
+
+                        </View>
+                  </Pressable>
+                      </TouchableOpacity>
+                      
                     </Animated.View>
-                  );
-                }}
-              />
-            </View>
-          </View>
+                );
+              }}
+            />
+          
+        </View>
         </ImageBackground>
-      </Animated.View>
-    </View>
-  );
+        </View>
+   </View>
+ )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "blue",
+  },
+  carouselContainer: {
+    justifyContent: "center",
+    height: 900,
+  },
+  header: {
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "blue",
+  },
+  spacer: {
+    height: "20%",
+  },
+  itemContainer: {
+    width: ITEM_WIDTH,
+    height: ITEM_HEIGHT,
+    marginHorizontal: SPACING,
+    overflow: "hidden",
+    backgroundColor:'white',
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  image: {
+    width: "90%",
+    height: "80%",
+ 
+  },
+});
+
+export default Carousel;

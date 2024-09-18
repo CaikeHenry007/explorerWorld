@@ -9,7 +9,8 @@ import {
   Image,
   ScrollView,
   Dimensions,
-  StyleSheet
+  StyleSheet,
+  Pressable
 } from "react-native";
 import stylesPaises from "../../styles/StylePaises";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
@@ -18,14 +19,15 @@ import { useFonts } from "expo-font";
 import { useState } from "react";
 
 const { width } = Dimensions.get("window");
-const ITEM_WIDTH = width * 0.7;
-const ITEM_HEIGHT = ITEM_WIDTH * 0.97;
+const ITEM_WIDTH = width * 0.8;
+const ITEM_HEIGHT = ITEM_WIDTH * 1.2;
 const SPACING = 20;
 
   const data= [
     {
       source: require("../../images/Europa/torreParisEntardecer.jpg"),
       title: "Torre Eiffel",
+      rota: "PavilionMalasia"
     },
     {
       source: require("../../images/Europa/arcoParis.jpg"),
@@ -56,18 +58,8 @@ const SPACING = 20;
 const Carousel = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
   const navigation = useNavigation();
-  const scrollViewRef = useRef(null);
 
-  const scrollToSection = (section) => {
-    if (scrollViewRef.current) {
-      scrollViewRef.current.scrollTo({
-      y: section,
-      animated: true,
-    });
-  }
-  };
 
-  const [selectedButton, setSelectedButton] = useState("Galeria");
 
   const [font] = useFonts({
     Pacifico: require("../../fonts/Pacifico-Regular.ttf"),
@@ -84,10 +76,45 @@ const Carousel = () => {
     return null;
   }
 
+
+  const scaleAnim = useRef(new Animated.Value(0)).current;
+  const bgOpacityAnim = useRef(new Animated.Value(0)).current;
+  const itemAnimations = data.map(
+    () => useRef(new Animated.Value(0)).current
+  );
+
+  useEffect(() => {
+    // Primeiro, anima a opacidade da imagem de fundo
+    Animated.timing(bgOpacityAnim, {
+      toValue: 1,
+      duration: 1,
+      useNativeDriver: true,
+    }).start(() => {
+      // Depois que a imagem de fundo aparecer, começa a animação de escala
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }).start(() => {
+        // Após a escala, anima os itens do FlatList um de cada vez
+        itemAnimations.forEach((anim, index) => {
+          Animated.timing(anim, {
+            toValue: 1,
+            duration: 300,
+            delay: index * 100, // Cada item com um atraso
+            useNativeDriver: true,
+          }).start();
+        });
+      });
+    });
+  }, []);
+
+
+
  return(
   <View>
-         <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
-    <View style={{height: 300}}>
+         
+    <View style={{height: 1000}}>
       <ImageBackground 
        resizeMode="cover"
        source={require("../../images/Europa/frança2.jpg")}
@@ -107,83 +134,12 @@ const Carousel = () => {
                   color="white"
                 />
               </TouchableOpacity>
-              <Image
-                  source={require("../../images/EXPLORAR.PAISES.png")}
-                  style={{ width: "50%", height: "40%"  }}
-                />
-              
-              <View
-          style={{
-            flexDirection: "row",
-            height: 130,
-            alignItems: "center",
-            justifyContent: "space-around",
-          }}
-        >
-    <TouchableOpacity style={{ margin: 45,}}
-  onPress={() =>
-  {
-    setSelectedButton("Historia");
-      scrollToSection(250);
-  }
-}
->
-    <Text style={{fontSize: 30, fontFamily: "Noto",  color:
-selectedButton === "Historia" ? "white" : "white",
- }} >História</Text>
-    <View
-              style={{
-                borderBottomWidth: selectedButton === "Historia" ? 2 : 0,
-                borderColor: "black",
-                width: 120,
-              }}
-            />
-    </TouchableOpacity>
-    <TouchableOpacity style={{ margin: 45, }}
-  onPress={() =>
-  {
-    setSelectedButton("galeria");
-    scrollToSection(650);
-  }
-}
->
-    <Text style={{fontSize: 30, fontFamily: "Noto", color: "white", color:
-selectedButton === "galeria" ? "white" : "white", 
- }} >Galeria</Text>
-    <View
-              style={{
-                borderBottomWidth: selectedButton === "galeria" ? 2 : 0,
-                borderColor: "black",
-                width: 110,
-              }}
-            />
-    </TouchableOpacity>
-    
-   </View>
-   </ImageBackground>
-   </View>
-   <View style={{ height: 850}}>
-   <Text style={{fontFamily: "Noto", fontSize: 15, textAlign: "center"}}> 
-  Antiguidade: A região que hoje é a França foi habitada por diversos povos celtas, conhecidos como gauleses. No século I a.C., foi conquistada pelos romanos e tornou-se parte do Império Romano como a Gália.
-
-Idade Média: Após a queda do Império Romano no século V, os francos, um povo germânico, estabeleceram um reino na área. Carlos Magno, rei dos francos, expandiu o território e fundou o Império Carolíngio. Após sua morte, o império se fragmentou em diversos reinos.
-
-Dinastia Capetiana: Em 987, Hugo Capeto foi coroado rei, marcando o início da dinastia capetiana. Os reis capetianos gradualmente expandiram e consolidaram o território francês.
-
-Guerra dos Cem Anos: Entre 1337 e 1453, a França e a Inglaterra lutaram na Guerra dos Cem Anos, que teve um impacto profundo na política e na sociedade francesa. A vitória francesa, com destaque para figuras como Joana d'Arc, ajudou a fortalecer o sentimento nacionalista.
-
-Renascimento e Monarquia Absolutista: O período do Renascimento trouxe um florescimento cultural e artístico. No século XVII, Luís XIV estabeleceu um regime absolutista, centralizando o poder real.
-
-Revolução Francesa: Em 1789, a Revolução Francesa derrubou a monarquia absoluta e instaurou a República, que passou por vários estágios, incluindo o reinado de Napoleão Bonaparte. Napoleão se tornou imperador e expandiu o território francês, mas foi derrotado em 1815.
-
-Século XIX e XX: A França experimentou uma série de mudanças políticas, com a restauração da monarquia, o estabelecimento de várias repúblicas e impérios, e a Primeira e Segunda Guerras Mundiais. Após a Segunda Guerra Mundial, a França foi um dos fundadores da União Europeia e passou a se focar na reconstrução e no desenvolvimento.
-
-Era Contemporânea: A França se tornou uma potência global influente no cenário internacional. Enfrentou desafios como o terrorismo, crises econômicas e questões sociais, enquanto continua a desempenhar um papel importante na política, economia e cultura global.
-
-
-   </Text>
-   </View>
-   <View style={{height: 350}}>
+              <View style={{ height: 50}}>
+              <Text style={{fontFamily: "DisplayItalic", fontSize: 40, textAlign: "center"}}>Pontos Turisticos</Text>
+              </View>
+            
+   <View style={{height: 900, justifyContent:'center', alignItems:'center'}}>
+    <View style={{height:240}}></View>
         <Animated.FlatList
               data={data}
               keyExtractor={(item) => item.title}
@@ -223,14 +179,13 @@ Era Contemporânea: A França se tornou uma potência global influente no cenár
                 });
                 return (
                   <Animated.View
-                    style={[
-                      styles.itemContainer,
-                      {
-                        transform: [{ scale }, { rotate }],
-                        opacity,
-                      },
-                    ]}
+                    style={[  styles.itemContainer,{transform: [{ scale }, { rotate }],opacity,
+                    opacity: itemAnimations[index], }]}
                   >
+
+                        <TouchableOpacity>
+                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text
                       style={{
@@ -241,13 +196,19 @@ Era Contemporânea: A França se tornou uma potência global influente no cenár
                     >
                       {item.title}
                     </Text>
-                  </Animated.View>
+
+                        </View>
+                  </Pressable>
+                      </TouchableOpacity>
+                      
+                    </Animated.View>
                 );
               }}
             />
-
+          
         </View>
-   </ScrollView>
+        </ImageBackground>
+        </View>
    </View>
  )
 }
@@ -276,12 +237,14 @@ const styles = StyleSheet.create({
     width: ITEM_WIDTH,
     height: ITEM_HEIGHT,
     marginHorizontal: SPACING,
-    borderRadius: 20,
     overflow: "hidden",
+    backgroundColor:'white',
+    alignItems:'center',
+    justifyContent:'center'
   },
   image: {
-    width: "100%",
-    height: "100%",
+    width: "90%",
+    height: "80%",
  
   },
 });

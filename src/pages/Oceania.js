@@ -13,20 +13,10 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import AustraliaModal from "../partials/ModalAustralia";
-import ModalNovaZelandia from "../partials/ModalNovaZelandia";
-import ModalPapuaNovaGuine from "../partials/ModalPapuaNovaGuine";
-import ModalFiji from "../partials/ModalFiji";
-import ModalIlhasSalomao from "../partials/ModalilhasSalomao"; 
 
 export default function Oceania() {
   const navigation = useNavigation();
 
-  const [visibleAustralia, setVisibleAustralia] = useState(false);
-  const [visibleNovaZelandia, setVisibleNovaZelandia] = useState(false);
-  const [visiblePapuaNovaGuine, setVisiblePapuaNovaGuine] = useState(false);
-  const [visibleFiji, setVisibleFiji] = useState(false);
-  const [visibleIlhasSalomao, setVisibleIlhasSalomao] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -45,44 +35,44 @@ export default function Oceania() {
 
   const data = [
     {
-      source: require("../images/Oceania/australia.jpg"),
+      source: require("../images/Oceania/australia(2).jpg"),
       title: "Austrália",
       subtitle: "6º Maior país do mundo",
       populacao: "27 Mi",
       tamanho: "7.741.000 km²",
-      route: () => setVisibleAustralia(true),
+      route: () => navigation.navigate("Australia"),
     },
     {
       source: require("../images/Oceania/novazelandia.jpg"),
-      title: "Nova Zêlandia",
+      title: "Nova Zelândia",
       subtitle: "75º Maior país do mundo",
       populacao: "5 Mi",
       tamanho: "268.021 km²",
-      route: () => setVisibleNovaZelandia(true),
+      route: () => navigation.navigate("NovaZelandia"),
     },
     {
-      source: require("../images/Oceania/papuanovaguine.jpg"),
+      source: require("../images/Oceania/papuanovaguine(1).jpg"),
       title: "Papua-Nova Guiné",
       subtitle: "54º Maior país do mundo",
       populacao: "9 Mi",
       tamanho: "462.840 km²",
-      route: () => setVisiblePapuaNovaGuine(true),
+      route: () => navigation.navigate("PapuaGuine"),
     },
     {
-      source: require("../images/Oceania/fiji.jpg"),
+      source: require("../images/Oceania/fiji (1).jpg"),
       title: "Fiji",
       subtitle: "152º Maior país do mundo",
       populacao: "900 Mil",
       tamanho: "18.274 km²",
-      route: () => setVisibleFiji(true),
+      route: () => navigation.navigate("Fiji"),
     },
     {
-      source: require("../images/Oceania/ilhasalomao.jpg"),
+      source: require("../images/Oceania/ilhassalomao.jpg"),
       title: "Ilhas Salomão",
       subtitle: "123º Maior país do mundo",
       populacao: "700 Mil",
       tamanho: "28.896 km²",
-      route: () => setVisibleIlhasSalomao(true),
+      route: () => navigation.navigate("IlhasSalomao"),
     },
   ];
 
@@ -98,27 +88,6 @@ export default function Oceania() {
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        <AustraliaModal
-          visibleAustralia={visibleAustralia}
-          setVisibleAustralia={setVisibleAustralia}
-        />
-
-        <ModalNovaZelandia
-          visibleNovaZelandia={visibleNovaZelandia}
-          setVisibleNovaZelandia={setVisibleNovaZelandia}
-        />
-
-        <ModalPapuaNovaGuine
-          visiblePapuaNovaGuine={visiblePapuaNovaGuine}
-          setVisiblePapuaNovaGuine={setVisiblePapuaNovaGuine}
-        />
-
-        <ModalFiji visibleFiji={visibleFiji} setVisibleFiji={setVisibleFiji} />
-
-        <ModalIlhasSalomao
-          visibleIlhasSalomao={visibleIlhasSalomao}
-          setVisibleIlhasSaloao={setVisibleIlhasSalomao}
-        />
 
         <Text style={stylesContinente.tituloPrincipal}>Oceania</Text>
       </View>

@@ -13,20 +13,9 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import PanamaModal from "../partials/ModalPanama";
-import CostaRicaModal from "../partials/ModalCostaRica";
-import NicaraguaModal from "../partials/ModalNicaragua";
-import HondurasModal from "../partials/ModalHonduras";
-import ElSalvadorModal from "../partials/ModalElSalvador";
 
 export default function AmericaCentro() {
   const navigation = useNavigation();
-
-  const [visiblePanama, setVisiblePanama] = useState(false);
-  const [visibleCostaRica, setVisibleCostaRica] = useState(false);
-  const [visibleNicaragua, setVisibleNicaragua] = useState(false);
-  const [visibleHonduras, setVisibleHonduras] = useState(false);
-  const [visibleElSalvador, setVisibleElSalvador] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -50,7 +39,7 @@ export default function AmericaCentro() {
       subtitle: "3º maior país da América Central",
       populacao: " 4,4 Mi",
       tamanho: " 75.417km²",
-      route: () => setVisiblePanama(true),
+      route: () => navigation.navigate("Panama"),
     },
     {
       source: require("../images/imagesAmericaCentro/costarica.jpg"),
@@ -58,7 +47,7 @@ export default function AmericaCentro() {
       subtitle: "4º maior país da América Central",
       populacao: "5,2 Mi",
       tamanho: "51.100 km²",
-      route: () => setVisibleCostaRica(true),
+      route: () => navigation.navigate("CostaRica"),
     },
     {
       source: require("../images/imagesAmericaCentro/nicaragua.jpg"),
@@ -66,7 +55,7 @@ export default function AmericaCentro() {
       subtitle: "maior país da América Central",
       populacao: "6,9 Mi",
       tamanho: "130.373 km²",
-      route: () => setVisibleNicaragua(true),
+      route: () => navigation.navigate("Nicaragua"),
     },
     {
       source: require("../images/imagesAmericaCentro/honduras.jpg"),
@@ -74,7 +63,7 @@ export default function AmericaCentro() {
       subtitle: "2º maior país da América Central",
       populacao: "10 Mi",
       tamanho: "112.492 km²",
-      route: () => setVisibleHonduras(true),
+      route: () => navigation.navigate("Honduras"),
     },
     {
       source: require("../images/imagesAmericaCentro/elsalvador2.jpg"),
@@ -82,7 +71,7 @@ export default function AmericaCentro() {
       subtitle: "5º maior país da América Central",
       populacao: "6,5 Mi",
       tamanho: "21.041 km²",
-      route: () => setVisibleElSalvador(true),
+      route: () => navigation.navigate("ElSalvador"),
     },
   ];
 
@@ -98,26 +87,7 @@ export default function AmericaCentro() {
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        <PanamaModal
-          visiblePanama={visiblePanama}
-          setVisiblePanama={setVisiblePanama}
-        />
-        <CostaRicaModal
-          visibleCostaRica={visibleCostaRica}
-          setVisibleCostaRica={setVisibleCostaRica}
-        />
-        <NicaraguaModal
-          visibleNicaragua={visibleNicaragua}
-          setVisibleNicaragua={setVisibleNicaragua}
-        />
-        <HondurasModal
-          visibleHonduras={visibleHonduras}
-          setVisibleHonduras={setVisibleHonduras}
-        />
-        <ElSalvadorModal
-          visibleElSalvador={visibleElSalvador}
-          setVisibleElSalvador={setVisibleElSalvador}
-        />
+        
 
         <Text style={stylesContinente.tituloPrincipal}>America Central</Text>
       </View>

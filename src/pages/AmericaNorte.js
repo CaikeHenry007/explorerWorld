@@ -13,12 +13,10 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import EuaModal from "../partials/ModalEUA";
 
 export default function AmericaNorte() {
   const navigation = useNavigation();
 
-  const [visibleEua, setVisibleEua] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -44,7 +42,7 @@ export default function AmericaNorte() {
       subtitle: "4º Maior país do mundo",
       populacao: "341 Mi",
       tamanho: "9.834.000 km²",
-      route: () => setVisibleEua(true),
+      route: () => navigation.navigate("EstadosUnidos"),
     },
     {
       id: "2",
@@ -70,7 +68,7 @@ export default function AmericaNorte() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/imagesAmericaNorte/americadonorte2.jpg")}
+          source={require("../images/imagesAmericaNorte/americaNorte.jpg")}
           style={stylesContinente.topImage}
         />
 
@@ -78,7 +76,6 @@ export default function AmericaNorte() {
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        <EuaModal visibleEua={visibleEua} setVisibleEua={setVisibleEua} />
 
 
         <Text style={stylesContinente.tituloPrincipal}>America do Norte</Text>

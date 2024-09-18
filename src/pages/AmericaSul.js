@@ -13,20 +13,9 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
-import BrasilModal from "../partials/ModalBrasil";
-import ArgentinaModal from "../partials/ModalArgentina";
-import ChileModal from "../partials/ModalChile";
-import BoliviaModal from "../partials/ModalBolivia";
-import VenezuelaModal from "../partials/ModalVenezuela";
 
 export default function AmericaSul() {
   const navigation = useNavigation();
-
-  const [visibleBrasil, setVisibleBrasil] = useState(false);
-  const [visibleArgentina, setVisibleArgentina] = useState(false);
-  const [visibleChile, setVisibleChile] = useState(false);
-  const [visibleBolivia, setVisibleBolivia] = useState(false);
-  const [visibleVenezuela, setVisibleVenezuela] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -51,48 +40,48 @@ export default function AmericaSul() {
   const data = [
     {
       id: "1",
-      source: require("../images/imagesAmericaSul/brasil.jpg"),
+      source: require("../images/imagesAmericaSul/Brasil2.jpg"),
       title: "Brasil",
       subtitle: "5º maior país do mundo ",
       populacao: "203 Mi",
       tamanho: "8.515.767 km²",
-      route: () => setVisibleBrasil(true),
+      route: () => navigation.navigate("Brasil"),
     },
     {
       id: "2",
-      source: require("../images/imagesAmericaSul/argentina.jpg"),
+      source: require("../images/imagesAmericaSul/Argentina2.jpg"),
       title: "Argentina",
       subtitle: "8º Maior país do mundo",
       populacao: "46 Mi",
       tamanho: "2.780.400 km²",
-      route: () => setVisibleArgentina(true),
+      route: () => navigation.navigate("Argentina"),
     },
     {
       id: "3",
-      source: require("../images/imagesAmericaSul/chilejpg.jpg"),
+      source: require("../images/imagesAmericaSul/Chile2.jpg"),
       title: "Chile",
       subtitle: "38º Maior país do mundo",
       populacao: "19 Mi",
       tamanho: "756.102 km²",
-      route: () => setVisibleChile(true),
+      route: () => navigation.navigate("Chile"),
     },
     {
       id: "4",
-      source: require("../images/imagesAmericaSul/bolivia.jpg"),
+      source: require("../images/imagesAmericaSul/Bolivia2.jpg"),
       title: "Bolívia",
       subtitle: "27º Maior país do mundo",
       populacao: "12 Mi",
       tamanho: "1.098.581 km²",
-      route: () => setVisibleBolivia(true),
+      route: () => navigation.navigate("Bolivia"),
     },
     {
       id: "5",
-      source: require("../images/imagesAmericaSul/venezuela.jpg"),
+      source: require("../images/imagesAmericaSul/venezuela2.jpg"),
       title: "Venezuela",
       subtitle: "33º Maior país do mundo",
       populacao: "28 Mi",
       tamanho: "916.445 km² km²",
-      route: () => setVisibleVenezuela(true),
+      route: () => navigation.navigate("Venezuela"),
     },
   ];
 
@@ -100,7 +89,7 @@ export default function AmericaSul() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/imagesAmericaSul/americadosul.jpg")}
+          source={require("../images/imagesAmericaSul/AmericadoSul2.jpg")}
           style={stylesContinente.topImage}
         />
 
@@ -108,27 +97,7 @@ export default function AmericaSul() {
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        <BrasilModal
-          visibleBrasil={visibleBrasil}
-          setVisibleBrasil={setVisibleBrasil}
-        />
-
-        <ArgentinaModal
-          visibleArgentina={visibleArgentina}
-          setVisibleArgentina={setVisibleArgentina}
-        />
-        <ChileModal
-          visibleChile={visibleChile}
-          setVisibleChile={setVisibleChile}
-        />
-        <BoliviaModal
-          visibleBolivia={visibleBolivia}
-          setVisibleBolivia={setVisibleBolivia}
-        />
-        <VenezuelaModal
-          visibleVenezuela={visibleVenezuela}
-          setVisibleVenezuela={setVisibleVenezuela}
-        />
+        
 
         <Text style={stylesContinente.tituloPrincipal}>America do Sul</Text>
       </View>

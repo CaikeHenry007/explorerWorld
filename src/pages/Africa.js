@@ -14,19 +14,8 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { useFonts } from "expo-font";
 import React, { useState } from "react";
 
-import GuineModal from "../partials/ModalGuine";
-import EgitoModal from "../partials/ModalEgito";
-import NigeriaModal from "../partials/ModalNigeria";
-import AngolaModal from "../partials/ModalAngola";
-import AfricadosulModal from "../partials/ModalAfricadosul";
-
 export default function Africa() {
   const navigation = useNavigation();
-  const [visibleGuine, setVisibleGuine] = useState(false);
-  const [visibleEgito, setVisibleEgito] = useState(false);
-  const [visibleNigeria, setVisibleNigeria] = useState(false);
-  const [visibleAngola, setVisibleAngola] = useState(false);
-  const [visibleAfricadosul, setVisibleAfricadosul] = useState(false);
 
   const scrollY = React.useRef(new Animated.Value(0)).current;
 
@@ -51,7 +40,7 @@ export default function Africa() {
       subtitle: "77º Maior país do mundo",
       populacao: "13 Mi",
       tamanho: "36.120 km²",
-      route: () => setVisibleGuine(true),
+      route: () => navigation.navigate("Guine"),
     },
     {
       id: "2",
@@ -60,7 +49,7 @@ export default function Africa() {
       subtitle: "29º Maior país do mundo",
       populacao: "111 Mi",
       tamanho: "1.002.000 km²",
-      route: () => setVisibleEgito(true),
+      route: () => navigation.navigate("Egito"),
     },
     {
       id: "3",
@@ -69,7 +58,7 @@ export default function Africa() {
       subtitle: "31º Maior país do mundo",
       populacao: "229 Mi",
       tamanho: "923.768 km²",
-      route: () => setVisibleNigeria(true),
+      route: () => navigation.navigate("Nigeria"),
     },
     {
       id: "4",
@@ -78,7 +67,7 @@ export default function Africa() {
       subtitle: "22º Maior país do mundo",
       populacao: "37 Mi",
       tamanho: "1.247.000 km²",
-      route: () => setVisibleAngola(true),
+      route: () => navigation.navigate("Angola"),
     },
     {
       id: "5",
@@ -87,7 +76,7 @@ export default function Africa() {
       subtitle: "24º Maior país do mundo",
       populacao: "61 Mi",
       tamanho: "1.220.000 km²",
-      route: () => setVisibleAfricadosul(true),
+      route: () => navigation.navigate("AfricaSul"),
     },
   ];
 
@@ -103,31 +92,7 @@ export default function Africa() {
           <MaterialCommunityIcons name="arrow-left" size={35} color={"white"} />
         </TouchableOpacity>
 
-        <GuineModal
-          setVisibleGuine={setVisibleGuine}
-          visibleGuine={visibleGuine}
-        />
-
-        <EgitoModal
-          setVisibleEgito={setVisibleEgito}
-          visibleEgito={visibleEgito}
-        />
-
-        <NigeriaModal
-          setVisibleNigeria={setVisibleNigeria}
-          visibleNigeria={visibleNigeria}
-        />
-
-        <AngolaModal
-          setVisibleAngola={setVisibleAngola}
-          visibleAngola={visibleAngola}
-        />
-
-        <AfricadosulModal
-          setVisibleAfricadosul={setVisibleAfricadosul}
-          visibleAfricadosul={visibleAfricadosul}
-        />
-
+        
         <Text style={stylesContinente.tituloPrincipal}>África</Text>
       </View>
 
