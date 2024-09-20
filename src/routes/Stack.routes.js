@@ -19,51 +19,51 @@ import RecuperarSenha from "../pages/RecuperarSenha";
 import PavilionMalasia from "../pages/PavilionMalasia";
 
 //america norte paises
-import Canada from "../pages/Lugares/Canada";
-import estadosunidos from "../pages/Lugares/EstadosUnidos";
-import Mexico from "../pages/Lugares/Mexico";
+import Canada from "../pages/Lugares/AmericadoNorte/Canada";
+import estadosunidos from "../pages/Lugares/AmericadoNorte/EstadosUnidos";
+import Mexico from "../pages/Lugares/AmericadoNorte/Mexico";
 
 //asia paises
-import Malasia from "../pages/Lugares/Malasia";
-import Emirados from "../pages/Lugares/Emirados";
-import Catar from "../pages/Lugares/Catar";
-import China from "../pages/Lugares/China";
-import Japao from "../pages/Lugares/Japao";
+import Malasia from "../pages/Lugares/Asia/Malasia";
+import Emirados from "../pages/Lugares/Asia/Emirados";
+import Catar from "../pages/Lugares/Asia/Catar";
+import China from "../pages/Lugares/Asia/China";
+import Japao from "../pages/Lugares/Asia/Japao";
 
 //europa paises
-import Grecia from "../pages/Lugares/Grecia";
-import Franca from "../pages/Lugares/Franca";
-import Italia from "../pages/Lugares/Italia";
-import Inglaterra from "../pages/Lugares/Inglaterra";
-import Espanha from "../pages/Lugares/Espanha";
+import Grecia from "../pages/Lugares/Europa/Grecia";
+import Franca from "../pages/Lugares/Europa/Franca";
+import Italia from "../pages/Lugares/Europa/Italia";
+import Inglaterra from "../pages/Lugares/Europa/Inglaterra";
+import Espanha from "../pages/Lugares/Europa/Espanha";
 
 //america sul paises
-import Argentina from "../pages/Lugares/Argentina";
-import Bolivia from "../pages/Lugares/Bolivia";
-import Chile from "../pages/Lugares/Chile";
-import Venezuela from "../pages/Lugares/Venezuela";
-import Brasil from "../pages/Lugares/Brasil";
+import Argentina from "../pages/Lugares/AmericadoSul/Argentina";
+import Bolivia from "../pages/Lugares/AmericadoSul/Bolivia";
+import Chile from "../pages/Lugares/AmericadoSul/Chile";
+import Venezuela from "../pages/Lugares/AmericadoSul/Venezuela";
+import Brasil from "../pages/Lugares/AmericadoSul/Brasil";
 
 //america central paises
-import Panama from "../pages/Lugares/Panama";
-import CostaRica from "../pages/Lugares/CostaRica";
-import Nicaragua from "../pages/Lugares/Nicaragua";
-import Honduras from "../pages/Lugares/Honduras";
-import ElSalvador from "../pages/Lugares/ElSalvador";
+import Panama from "../pages/Lugares/AmericaCentral/Panama";
+import CostaRica from "../pages/Lugares/AmericaCentral/CostaRica";
+import Nicaragua from "../pages/Lugares/AmericaCentral/Nicaragua";
+import Honduras from "../pages/Lugares/AmericaCentral/Honduras";
+import ElSalvador from "../pages/Lugares/AmericaCentral/ElSalvador";
 
 //africa paises
-import Guine from "../pages/Lugares/Guine";
-import Egito from "../pages/Lugares/Egito";
-import Nigeria from "../pages/Lugares/Nigeria";
-import Angola from "../pages/Lugares/Angola";
-import AfricaSul from "../pages/Lugares/AfricaSul";
+import Guine from "../pages/Lugares/Africa/Guine";
+import Egito from "../pages/Lugares/Africa/Egito";
+import Nigeria from "../pages/Lugares/Africa/Nigeria";
+import Angola from "../pages/Lugares/Africa/Angola";
+import AfricaSul from "../pages/Lugares/Africa/AfricaSul";
 
 //oceania paises
-import Australia from "../pages/Lugares/Australia";
-import NovaZelandia from "../pages/Lugares/NovaZelandia";
-import PapuaGuine from "../pages/Lugares/PapuaGuine";
-import Fiji from "../pages/Lugares/Fiji";
-import IlhasSalomao from "../pages/Lugares/IlhasSalomao";
+import Australia from "../pages/Lugares/Oceania/Australia";
+import NovaZelandia from "../pages/Lugares/Oceania/NovaZelandia";
+import PapuaGuine from "../pages/Lugares/Oceania/PapuaGuine";
+import Fiji from "../pages/Lugares/Oceania/Fiji";
+import IlhasSalomao from "../pages/Lugares/Oceania/IlhasSalomao";
 
 const Stack = createNativeStackNavigator();
 

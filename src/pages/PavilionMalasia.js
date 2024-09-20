@@ -56,7 +56,7 @@ export default function PavilionMalasia() {
       >
         <Animated.Image
           style={styles.imageAnimated(scrollA)}
-          source={require("../images/Asia/pavilion.jpg")}
+          source={require("../images/Asia/pavillion.jpg")}
         />
         <Text
           style={{

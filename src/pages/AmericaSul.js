@@ -40,7 +40,7 @@ export default function AmericaSul() {
   const data = [
     {
       id: "1",
-      source: require("../images/imagesAmericaSul/Brasil2.jpg"),
+      source: require("../images/imagesAmericaSul/Brasil.jpg"),
       title: "Brasil",
       subtitle: "5º maior país do mundo ",
       populacao: "203 Mi",
@@ -49,7 +49,7 @@ export default function AmericaSul() {
     },
     {
       id: "2",
-      source: require("../images/imagesAmericaSul/Argentina2.jpg"),
+      source: require("../images/imagesAmericaSul/Argentina.jpg"),
       title: "Argentina",
       subtitle: "8º Maior país do mundo",
       populacao: "46 Mi",
@@ -67,7 +67,7 @@ export default function AmericaSul() {
     },
     {
       id: "4",
-      source: require("../images/imagesAmericaSul/Bolivia2.jpg"),
+      source: require("../images/imagesAmericaSul/Bolivia.jpg"),
       title: "Bolívia",
       subtitle: "27º Maior país do mundo",
       populacao: "12 Mi",

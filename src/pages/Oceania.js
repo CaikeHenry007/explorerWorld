@@ -35,7 +35,7 @@ export default function Oceania() {
 
   const data = [
     {
-      source: require("../images/Oceania/australia(2).jpg"),
+      source: require("../images/Oceania/australia.jpg"),
       title: "Austrália",
       subtitle: "6º Maior país do mundo",
       populacao: "27 Mi",
@@ -51,7 +51,7 @@ export default function Oceania() {
       route: () => navigation.navigate("NovaZelandia"),
     },
     {
-      source: require("../images/Oceania/papuanovaguine(1).jpg"),
+      source: require("../images/Oceania/papua3.jpg"),
       title: "Papua-Nova Guiné",
       subtitle: "54º Maior país do mundo",
       populacao: "9 Mi",
@@ -59,7 +59,7 @@ export default function Oceania() {
       route: () => navigation.navigate("PapuaGuine"),
     },
     {
-      source: require("../images/Oceania/fiji (1).jpg"),
+      source: require("../images/Oceania/fiji.jpg"),
       title: "Fiji",
       subtitle: "152º Maior país do mundo",
       populacao: "900 Mil",
