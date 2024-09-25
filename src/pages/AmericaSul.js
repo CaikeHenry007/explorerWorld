@@ -58,7 +58,7 @@ export default function AmericaSul() {
     },
     {
       id: "3",
-      source: require("../images/imagesAmericaSul/Chile2.jpg"),
+      source: require("../images/imagesAmericaSul/chile2.jpg"),
       title: "Chile",
       subtitle: "38º Maior país do mundo",
       populacao: "19 Mi",
@@ -76,7 +76,7 @@ export default function AmericaSul() {
     },
     {
       id: "5",
-      source: require("../images/imagesAmericaSul/venezuela2.jpg"),
+      source: require("../images/imagesAmericaSul/venezuela.jpg"),
       title: "Venezuela",
       subtitle: "33º Maior país do mundo",
       populacao: "28 Mi",
@@ -89,7 +89,7 @@ export default function AmericaSul() {
     <View style={stylesContinente.container}>
       <View style={stylesContinente.topView}>
         <Image
-          source={require("../images/imagesAmericaSul/AmericadoSul2.jpg")}
+          source={require("../images/imagesAmericaSul/AmericaSul.jpg")}
           style={stylesContinente.topImage}
         />
 

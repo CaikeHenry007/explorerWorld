@@ -32,6 +32,7 @@ const places = [
   {
     source: require("../../../images/Africa/egito2.jpg"),
     title: "Alexandria",
+    rota: "DescriptionPage"
   },
   {
     source: require("../../../images/Africa/egito3.jpg"),

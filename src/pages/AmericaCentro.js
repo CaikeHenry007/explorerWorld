@@ -66,7 +66,7 @@ export default function AmericaCentro() {
       route: () => navigation.navigate("Honduras"),
     },
     {
-      source: require("../images/imagesAmericaCentro/elsalvador2.jpg"),
+      source: require("../images/imagesAmericaCentro/elsalvador.jpg"),
       title: "El Salvador",
       subtitle: "5º maior país da América Central",
       populacao: "6,5 Mi",

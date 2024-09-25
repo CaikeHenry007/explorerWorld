@@ -27,7 +27,7 @@ const SPACING = 20;
     {
       source: require("../../../images/imagesAmericaNorte/estadosunidos1.jpg"),
       title: "Central Park",
-      rota: "PavilionMalasia"
+      rota: "DescriptionPage"
     },
     {
       source: require("../../../images/imagesAmericaNorte/estadosunidos2.jpg"),

@@ -25,24 +25,24 @@ const SPACING = 20;
 
   const places=[
     {
-      source: require("../../../images/imagesAmericaSul/parquemarrocoy.jpg"),
+      source: require("../../../images/imagesAmericaSul/venezuela1.jpg"),
       title: "Parque Marrocoy",
       rota: "PavilionMalasia"
     },
     {
-      source: require("../../../images/imagesAmericaSul/tucacasVenezeula.jpg"),
+      source: require("../../../images/imagesAmericaSul/venezuela2.jpg"),
       title: "Tucacas",
     },
     {
-      source: require("../../../images/imagesAmericaSul/losRochesVenezuela.jpg"),
+      source: require("../../../images/imagesAmericaSul/venezuela3.jpg"),
       title: "Los Roches",
     },
     {
-      source: require("../../../images/imagesAmericaSul/IslaTortugaVenezuela.jpg"),
+      source: require("../../../images/imagesAmericaSul/venezuela4.jpg"),
       title: "Isla Tortuga",
     },
     {
-      source: require("../../../images/imagesAmericaSul/SantoAngelVenezuela.jpg"),
+      source: require("../../../images/imagesAmericaSul/venezuela5.jpg"),
       title: "Santo Angel",
     },
   ];

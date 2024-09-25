@@ -25,24 +25,24 @@ const SPACING = 20;
 
   const places= [
     {
-      source: require("../../../images/imagesAmericaCentro/museudeCostaRica.jpg"),
+      source: require("../../../images/imagesAmericaCentro/costa1.jpg"),
       title: "Museu de Costa Rica",
       rota: "PavilionMalasia"
     },
     {
-      source: require("../../../images/imagesAmericaCentro/playahermosaCostaRica.jpg"),
+      source: require("../../../images/imagesAmericaCentro/costa2.jpg"),
       title: "Playa Hermosa",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/riocelesteCostaRica.jpg"),
+      source: require("../../../images/imagesAmericaCentro/costa3.jpg"),
       title: "Rio Celeste",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/mantatrailCostaRica.jpg"),
+      source: require("../../../images/imagesAmericaCentro/costa4.jpg"),
       title: "Mentatrail",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/VolcanPoasCostaRica.jpg"),
+      source: require("../../../images/imagesAmericaCentro/costa5.jpg"),
       title: "Parque Nacional Volcán Poás",
     },
   ];

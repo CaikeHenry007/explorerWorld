@@ -17,6 +17,7 @@ import RecuperarSenha from "../pages/RecuperarSenha";
 
 //pagina descrição
 import PavilionMalasia from "../pages/PavilionMalasia";
+import DescricaoPage from "../pages/DescriptionPage"
 
 //america norte paises
 import Canada from "../pages/Lugares/AmericadoNorte/Canada";
@@ -130,6 +131,11 @@ export default function StackRoutes() {
         <Stack.Screen
           name="PavilionMalasia"
           component={PavilionMalasia}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DescriptionPage"
+          component={DescricaoPage}
           options={{ headerShown: false }}
         />
 

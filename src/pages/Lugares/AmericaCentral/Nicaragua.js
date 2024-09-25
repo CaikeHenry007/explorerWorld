@@ -25,24 +25,24 @@ const SPACING = 20;
 
   const places= [
     {
-      source: require("../../../images/imagesAmericaCentro/vulcãomasayaNicaragua.jpg"),
+      source: require("../../../images/imagesAmericaCentro/nicaragua1.jpg"),
       title: "Vulcão Masaya",
       rota: "PavilionMalasia"
     },
     {
-      source: require("../../../images/imagesAmericaCentro/littlecornislandNicaragua.jpg"),
+      source: require("../../../images/imagesAmericaCentro/nicaragua2.jpg"),
       title: "Little Corn Island",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/isletasdegranadaNicaragua.jpg"),
+      source: require("../../../images/imagesAmericaCentro/nicaragua3.jpg"),
       title: "Isletas de Granada",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/cerronegroNicaragua.jpg"),
+      source: require("../../../images/imagesAmericaCentro/nicaragua4.jpg"),
       title: "Cerro negro",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/catedraldeLeonNicaragua.jpg"),
+      source: require("../../../images/imagesAmericaCentro/nicaragua5.jpg"),
       title: "Catedral De León",
     },
   ];

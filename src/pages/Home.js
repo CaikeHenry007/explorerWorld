@@ -23,7 +23,7 @@ const imagens = [
     logo: require("../images/Logo.png"),
   },
   {
-    source: require("../images/imagesAmericaSul/AmericadoSul2.jpg"),
+    source: require("../images/imagesAmericaSul/AmericaSul.jpg"),
     title: "América do Sul",
     rota: "AmericaSul",
     logo: require("../images/Logo.png"),

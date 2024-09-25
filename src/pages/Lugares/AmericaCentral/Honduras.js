@@ -25,24 +25,24 @@ const SPACING = 20;
 
   const places= [
     {
-      source: require("../../../images/imagesAmericaCentro/cayoscochinosHonduras.jpg"),
+      source: require("../../../images/imagesAmericaCentro/honduras1.jpg"),
       title: "Cayos Cochinos",
       rota: "PavilionMalasia"
     },
     {
-      source: require("../../../images/imagesAmericaCentro/guinopeHonduras.jpg"),
+      source: require("../../../images/imagesAmericaCentro/honduras2.jpg"),
       title: "Guinope",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/lagodeyojoaHonduras.jpg"),
+      source: require("../../../images/imagesAmericaCentro/honduras3.jpg"),
       title: "Lago de Yojoa",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/gumbalimbaparkHonduras.jpg"),
+      source: require("../../../images/imagesAmericaCentro/honduras4.jpg"),
       title: "Gumbalimba Park",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/littlefrenchkeyHonduras.jpg"),
+      source: require("../../../images/imagesAmericaCentro/honduras5.jpg"),
       title: "Little French Key",
     },
   ];

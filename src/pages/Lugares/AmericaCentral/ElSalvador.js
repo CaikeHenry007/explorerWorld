@@ -25,24 +25,24 @@ const SPACING = 20;
 
   const places= [
     {
-      source: require("../../../images/imagesAmericaCentro/SantaanavolcanoElSalvador.jpg"),
+      source: require("../../../images/imagesAmericaCentro/elsalvador1.jpg"),
       title: "Santa Ana Volcano",
       rota: "PavilionMalasia"
     },
     {
-      source: require("../../../images/imagesAmericaCentro/lagodecoatepequeElSalvador.jpg"),
+      source: require("../../../images/imagesAmericaCentro/elsalvador2.jpg"),
       title: "Lago De Coate Peque",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/joyadeceren.jpg"),
+      source: require("../../../images/imagesAmericaCentro/elsalvador3.jpg"),
       title: "Joya De Ceren",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/cuevasdemoncaguaElSalvador.jpg"),
+      source: require("../../../images/imagesAmericaCentro/elsalvador4.jpg"),
       title: "Cuevas De Moncagua",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/TazumalElSalvador.jpg"),
+      source: require("../../../images/imagesAmericaCentro/elsalvador5.jpg"),
       title: "Tazumal",
     },
   ];

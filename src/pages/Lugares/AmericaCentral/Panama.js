@@ -25,24 +25,24 @@ const SPACING = 20;
 
   const places= [
     {
-      source: require("../../../images/imagesAmericaCentro/ruinsviejoPanama.jpg"),
+      source: require("../../../images/imagesAmericaCentro/panama1.jpg"),
       title:"Ruins Viejo",
       rota: "PavilionMalasia"
     },
     {
-      source: require("../../../images/imagesAmericaCentro/bocasdeltoroPanama.jpg"),
+      source: require("../../../images/imagesAmericaCentro/panama2.jpg"),
       title: "Bocas Del Toro",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/biomuseuPanama.jpg"),
+      source: require("../../../images/imagesAmericaCentro/panama3.jpg"),
       title: "Biomuseu Panamá",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/archipelagodesanblasPanama.jpg"),
+      source: require("../../../images/imagesAmericaCentro/panama4.jpg"),
       title: "Archipelago De San Blas",
     },
     {
-      source: require("../../../images/imagesAmericaCentro/coibaPanama.jpg"),
+      source: require("../../../images/imagesAmericaCentro/panama5.jpg"),
       title: "Coiba",
     },
   ];

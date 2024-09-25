@@ -34,15 +34,15 @@ const SPACING = 20;
       title: "Torres Del Paine",
     },
     {
-      source: require("../../../images/imagesAmericaSul/terradofogo2.jpg"),
+      source: require("../../../images/imagesAmericaSul/chile3.jpg"),
       title: "Terra do Fogo",
     },
     {
-      source: require("../../../images/imagesAmericaSul/MoaiStatesChile.jpg"),
+      source: require("../../../images/imagesAmericaSul/chile4.jpg"),
       title: "Moai States",
     },
     {
-      source: require("../../../images/imagesAmericaSul/IlhadePascoaChile.jpg"),
+      source: require("../../../images/imagesAmericaSul/chile5.jpg"),
       title: "Ilha De Pascoa",
     },
   ];
