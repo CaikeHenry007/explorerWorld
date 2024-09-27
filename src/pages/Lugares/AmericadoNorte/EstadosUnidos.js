@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Central Park",
       source: require("../../../images/imagesAmericaNorte/estadosunidos1.jpg"),
       title: "Central Park",
-      rota: "DescriptionPage"
     },
     {
+      id: "Estátua da Liberdade",
       source: require("../../../images/imagesAmericaNorte/estadosunidos2.jpg"),
       title: "Estátua da Liberdade",
     },
     {
+      id: "Ponte Golden Gate",
       source: require("../../../images/imagesAmericaNorte/estadosunidos3.jpg"),
       title: "Ponte Golden Gate",
     },
     {
+      id: "Times Square",
       source: require("../../../images/imagesAmericaNorte/estadosunidos4.jpg"),
       title: "Times Square",
     },
     {
+      id: "Walt Disney World Resort",
       source: require("../../../images/imagesAmericaNorte/estadosunidos5.jpg"),
       title: "Walt Disney World Resort",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

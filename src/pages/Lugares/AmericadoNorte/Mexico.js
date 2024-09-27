@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Chichén Itzá",
       source: require("../../../images/imagesAmericaNorte/mexico1.jpg"),
       title: "Chichén Itzá",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Parque Eco-arqueológico Xcaret",
       source: require("../../../images/imagesAmericaNorte/mexico2.jpg"),
       title: "Parque Eco-arqueológico Xcaret",
     },
     {
+      id: "Museu Soumaya",
       source: require("../../../images/imagesAmericaNorte/mexico3.jpg"),
       title: "Museu Soumaya",
     },
     {
+      id: "Castelo de Chapultepec",
       source: require("../../../images/imagesAmericaNorte/mexico4.jpg"),
       title: "Castelo de Chapultepec",
     },
     {
+      id: "Zona Arqueológica de Tulum",
       source: require("../../../images/imagesAmericaNorte/mexico5.jpg"),
       title: "Zona Arqueológica de Tulum",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

@@ -25,19 +25,23 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "Mount Nimba Strict Nature Reserve",
     source: require("../../../images/Africa/nigeria1.jpg"),
     title: "Mount Nimba Strict Nature Reserve",
   },
   {
+    id: "Lagos",
     source: require("../../../images/Africa/nigeria2.jpg"),
     title: "Lagos",
   },
 
   {
+    id: "Ile Kassa",
     source: require("../../../images/Africa/nigeria3.jpg"),
     title: "Ile Kassa", 
   },
   {
+    id: "Cataratas",
     source: require("../../../images/Africa/nigeria4.jpg"),
     title: "Cataratas",
   },
@@ -172,7 +176,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

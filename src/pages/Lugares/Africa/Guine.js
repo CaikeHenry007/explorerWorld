@@ -25,18 +25,22 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "Bissao Île de Kéréen",
     source: require("../../../images/Africa/guine1.jpg"),
-    title: "Bissao Île de Kéréen(1).jpg",
+    title: "Bissao Île de Kéréen",
   },
   {
+    id: "Guime le voile de la mariee ",
     source: require("../../../images/Africa/guine2.jpg"),
     title: "Guime le voile de la mariee ",
   },
   {
+    id: "Mount Nimba Strict Nature Reserve",
     source: require("../../../images/Africa/guine3.jpg"),
     title: "Mount Nimba Strict Nature Reserve",
   },
   {
+    id: "Ile Kassa",
     source: require("../../../images/Africa/guine4.jpg"),
     title: "Ile Kassa", 
   },
@@ -171,7 +175,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

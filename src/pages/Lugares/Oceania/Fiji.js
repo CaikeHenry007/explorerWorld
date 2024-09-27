@@ -25,19 +25,23 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "Garden of the Sleeping Giant",
     source: require("../../../images/Oceania/fiji1.jpg"),
     title: "Garden of the Sleeping Giant",
   },
  
   {
+    id: "Kula WILD Adventure Park",
     source: require("../../../images/Oceania/fiji2.jpg"),
     title: "Kula WILD Adventure Park",
   },
   {
+    id: "Port Denarau Marina",
     source: require("../../../images/Oceania/fiji3.jpg"),
     title: "Port Denarau Marina",
   },
   {
+    id: "Colo-I-Suva Forest Park",
     source: require("../../../images/Oceania/fiji3.jpg"),
     title: "Colo-I-Suva Forest Park",
   },
@@ -173,7 +177,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

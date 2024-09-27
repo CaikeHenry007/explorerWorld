@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "santorini",
       source: require("../../../images/Europa/grecia1.jpg"),
       title: "Santorini",
-      rota: "PavilionMalasia"
     },
     {
+      id: "museu do acropole",
       source: require("../../../images/Europa/grecia2.jpg"),
       title: "Museu da Acrópole",
     },
     {
+      id: "metéora",
       source: require("../../../images/Europa/grecia3.jpg"),
       title: "Metéora",
     },
     {
+      id: "navagio",
       source: require("../../../images/Europa/grecia4.jpg"),
       title: "Navagio",
     },
     {
+      id: "knossos palace",
       source: require("../../../images/Europa/grecia5.jpg"),
       title: "Knossos Palace",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

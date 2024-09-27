@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "museu do prado",
       source: require("../../../images/Europa/espanha1.jpg"),
       title: "Museu do Prado",
-      rota: "PavilionMalasia"
     },
     {
+      id: "cidade das artes e das ciencias",
       source: require("../../../images/Europa/espanha2.jpg"),
       title: "Cidade das Artes e das Ciências",
     },
     {
+      id: "catedral de santiago de compostela",
       source: require("../../../images/Europa/espanha3.jpg"),
       title: "Catedral de Santiago de Compostela",
     },
     {
+      id: "plaza da espana",
       source: require("../../../images/Europa/espanha4.jpg"),
       title: "Plaza de España",
     },
     {
+      id: "museu guggenheim bilbao",
       source: require("../../../images/Europa/espanha5.jpg"),
       title: "Museu Guggenheim Bilbao",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

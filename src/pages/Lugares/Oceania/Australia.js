@@ -25,18 +25,22 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "Ópera de Sydney",
     source: require("../../../images/Oceania/australia1.jpg"),
     title: "Ópera de Sydney",
   },
   {
+    id: "Ponte da Baía de Sydney",
     source: require("../../../images/Oceania/australia2.jpg"),
     title: "Ponte da Baía de Sydney",
   },
   {
+    id: "Parque Nacional Kakadu",
     source: require("../../../images/Oceania/australia3.jpg"),
     title: "Parque Nacional Kakadu",
   },
   {
+    id: "Jardim Botânico Real de Sydney",
     source: require("../../../images/Oceania/australia4.jpg"),
     title: "Jardim Botânico Real de Sydney",
   },
@@ -172,7 +176,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Torre CN",
       source: require("../../../images/imagesAmericaNorte/canada1.jpg"),
       title: "Torre CN",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Museu Real de Ontário",
       source: require("../../../images/imagesAmericaNorte/canada2.jpg"),
       title: "Museu Real de Ontário",
     },
     {
+      id: "Ripley’s Aquarium of Canada",
       source: require("../../../images/imagesAmericaNorte/canada3.jpg"),
       title: "Ripley’s Aquarium of Canada",
     },
     {
+      id: "Parque de Stanley",
       source: require("../../../images/imagesAmericaNorte/canada4.jpg"),
       title: "Parque de Stanley",
     },
     {
+      id: "Parque Nacional Banff",
       source: require("../../../images/imagesAmericaNorte/canada5.jpg"),
       title: "Parque Nacional Banff",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

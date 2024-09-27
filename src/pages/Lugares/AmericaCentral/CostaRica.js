@@ -25,9 +25,9 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Museu de Costa Rica",
       source: require("../../../images/imagesAmericaCentro/costa1.jpg"),
       title: "Museu de Costa Rica",
-      rota: "PavilionMalasia"
     },
     {
       source: require("../../../images/imagesAmericaCentro/costa2.jpg"),
@@ -176,7 +176,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

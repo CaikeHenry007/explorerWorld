@@ -25,18 +25,22 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "Tavurvur",
     source: require("../../../images/Oceania/papua1.jpg"),
     title: "Tavurvur",
   },
   {
+    id: "Bomana War Cemetery",
     source: require("../../../images/Oceania/papua2.jpg"),
     title: "Bomana War Cemetery",
   },
   {
+    id: "Port Moresby",
     source: require("../../../images/Oceania/papua3.jpg"),
     title: "Port Moresby",
   },
   {
+    id: "Monte Wilhelm",
     source: require("../../../images/Oceania/papua4.jpg"),
     title: "Monte Wilhelm",
   },
@@ -172,7 +176,7 @@ const PapuaGuine = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

@@ -26,19 +26,23 @@ const SPACING = 20;
 const places = [
 
   {
+    id: "Johnnesburg",
     source: require("../../../images/Africa/africaSul1.jpg"),
     title: "Johnnesburg",
   },
   
   {
+    id: "Kimberley",
     source: require("../../../images/Africa/africaSul2.jpg"),
     title: "Kimberley",
   },
   {
+    id: "Porto Elisabeth",
     source: require("../../../images/Africa/africaSul3.jpg"),
     title: "Porto Elisabeth", 
   },
   {
+    id: "Cidade Do Cabo",
     source: require("../../../images/Africa/africaSul4.jpg"),
     title: "Cidade Do Cabo",
   },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

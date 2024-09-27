@@ -25,18 +25,22 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "Marovo Lagoon",
     source: require("../../../images/Oceania/salomao1.jpg"),
     title: "Marovo Lagoon",
   },
   {
-    source: require("../../../images/Oceania/salomao2.jpg"),
-    title: "Kokoda Track",
+    id: "Kasolo Island",
+    source: require("../../../images/Oceania/salomao1.jpg"),
+    title: "Kasolo Island",
   },
   {
+    id: "Vilu War Museum",
     source: require("../../../images/Oceania/salomao3.jpg"),
     title: "Vilu War Museum",
   },
   {
+    id: "Kennedy Island", 
     source: require("../../../images/Oceania/salomao4.jpg"),
     title: "Kennedy Island",
   },
@@ -172,7 +176,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

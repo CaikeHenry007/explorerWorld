@@ -25,9 +25,9 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Cayos Cochinos",
       source: require("../../../images/imagesAmericaCentro/honduras1.jpg"),
       title: "Cayos Cochinos",
-      rota: "PavilionMalasia"
     },
     {
       source: require("../../../images/imagesAmericaCentro/honduras2.jpg"),
@@ -176,7 +176,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

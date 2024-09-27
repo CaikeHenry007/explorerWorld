@@ -25,18 +25,22 @@ const SPACING = 20;
 
 const places = [
   {
+    id: "MuseuTe Papa Tongarewa",
     source: require("../../../images/Oceania/zelandia1.jpg"),
     title: "MuseuTe Papa Tongarewa",
   },
   {
+    id: "Hobbiton Movie Set",
     source: require("../../../images/Oceania/zelandia2.jpg"),
     title: "Hobbiton Movie Set",
   },
   {
+    id: "Sky Tower",
     source: require("../../../images/Oceania/zelandia3.jpg"),
     title: "Sky Tower",
   },
   {
+    id: "Waiotapu Thermal Wonderland",
     source: require("../../../images/Oceania/zelandia4.jpg"),
     title: "Waiotapu Thermal Wonderland", 
   },
@@ -172,7 +176,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text
