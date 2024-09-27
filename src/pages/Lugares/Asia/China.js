@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Muralha da china",
       source: require("../../../images/Asia/china1.jpg"),
       title: "Muralha da China",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Cidade proibida",
       source: require("../../../images/Asia/china2.jpg"),
       title: "Cidade Proibida",
     },
     {
+      id: "Jardim yu",
       source: require("../../../images/Asia/china3.jpg"),
       title: "Jardim Yu",
     },
     {
+      id: "Hong Kong disneyland",
       source: require("../../../images/Asia/china4.jpg"),
       title: "Hong Kong Disneyland",
     },
     {
+      id: "Grande buda de leshan",
       source: require("../../../images/Asia/china5.jpg"),
       title: "Grande Buda de Leshan",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

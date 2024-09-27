@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Universal studios japan",
       source: require("../../../images/Asia/japao1.jpg"),
       title: "Universal Studios Japan",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Parque de nara",
       source: require("../../../images/Asia/japao2.jpg"),
       title: "Parque de Nara",
     },
     {
+      id: "Hinjuku gyoen",
       source: require("../../../images/Asia/japao3.jpg"),
       title: "hinjuku Gyoen",
     },
     {
+      id: "Arashiyama",
       source: require("../../../images/Asia/japao4.jpg"),
       title: "Arashiyama",
     },
     {
+      id: "Museu Ghibli",
       source: require("../../../images/Asia/japao5.jpg"),
       title: "Museu Ghibli",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

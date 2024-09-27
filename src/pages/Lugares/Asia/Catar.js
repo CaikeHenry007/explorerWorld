@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "National museum of qatar",
       source: require("../../../images/Asia/catar1.jpg"),
       title: "National Museum of Qatar",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Villagio mall",
       source: require("../../../images/Asia/catar2.jpg"),
       title: "Villaggio Mall",
     },
     {
+      id: "Qatar national library",
       source: require("../../../images/Asia/catar3.jpg"),
       title: "Qatar National Library",
     },
     {
+      id: "Sealine beach mesaieed",
       source: require("../../../images/Asia/catar4.jpg"),
       title: "Sealine Beach, Mesaieed",
     },
     {
+      id: "Lusail winter wonderland",
       source: require("../../../images/Asia/catar5.jpg"),
       title: "Lusail Winter Wonderland",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

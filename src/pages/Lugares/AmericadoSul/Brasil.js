@@ -25,9 +25,9 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Cristo Redentor",
       source: require("../../../images/imagesAmericaSul/brasil1.jpg"),
       title: "Cristo Redentor",
-      rota: "PavilionMalasia"
     },
     {
       source: require("../../../images/imagesAmericaSul/brasil2.jpg"),
@@ -177,7 +177,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

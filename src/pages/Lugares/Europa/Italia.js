@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "torre de pisa",
       source: require("../../../images/Europa/italia1.jpg"),
       title: "Torre de Pisa",
-      rota: "PavilionMalasia"
     },
     {
+      id: "coliseu",
       source: require("../../../images/Europa/italia2.jpg"),
       title: "Coliseu",
     },
     {
+      id: "catedral de milao",
       source: require("../../../images/Europa/italia3.jpg"),
       title: "Catedral de Milão",
     },
     {
+      id: "ponte dos suspiros",
       source: require("../../../images/Europa/italia4.jpg"),
       title: "Ponte Dos Suspiros",
     },
     {
+      id: "panteao",
       source: require("../../../images/Europa/italia5.jpg"),
       title: "Panteão",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

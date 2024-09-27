@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Pavilion",
       source: require("../../../images/Asia/malasia1.jpg"),
       title: "Pavilion Shopping center",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Batu Chaves",
       source: require("../../../images/Asia/malasia2.jpg"),
       title: "Batu Caves",
     },
     {
+      id: "Legoland",
       source: require("../../../images/Asia/malasia3.jpg"),
       title: "LEGOLAND Malaysia",
     },
     {
+      id: "Torre de Kuala Lumpur",
       source: require("../../../images/Asia/malasia4.jpg"),
       title: "Torre de Kuala Lumpur",
     },
     {
+      id: "Klcc Park",
       source: require("../../../images/Asia/malasia5.jpg"),
       title: "KLCC Park",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text

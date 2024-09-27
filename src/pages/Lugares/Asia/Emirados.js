@@ -25,23 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
+      id: "Burj Khalifa",
       source: require("../../../images/Asia/emirados1.jpg"),
       title: "Burj Khalifa",
-      rota: "PavilionMalasia"
     },
     {
+      id: "Aquaventure Waterpark",
       source: require("../../../images/Asia/emirados2.jpg"),
       title: "Aquaventure Waterpark",
     },
     {
+      id: "Ferrari World",
       source: require("../../../images/Asia/emirados3.jpg"),
       title: "Ferrari World",
     },
     {
+      id: "Museu of the future",
       source: require("../../../images/Asia/emirados4.jpg"),
       title: "Museum of The Future",
     },
     {
+      id: "Dubai aquarium",
       source: require("../../../images/Asia/emirados5.jpg"),
       title: "Dubai Aquarium & Underwater Zoo",
     },
@@ -176,7 +180,7 @@ const Carousel = () => {
                   >
 
                         <TouchableOpacity>
-                        <Pressable onPress={() => navigation.navigate(item.rota)}>
+                        <Pressable onPress={() => navigation.navigate('DescriptionPage', { id: item.id })}>
                         <View style={{ width: 330, height: 400, alignItems: "center", justifyContent: "center", backgroundColor:'white'   }}>
                     <Image source={item.source} style={styles.image} />
                     <Text
