@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Cristo Redentor",
     },
     {
+      id: "Parque Ibirapuera",
       source: require("../../../images/imagesAmericaSul/brasil2.jpg"),
-      title: "Capitólio",
+      title: "Parque Ibirapuera",
     },
     {
+      id: "Jardim Botânico - Curitiba",
       source: require("../../../images/imagesAmericaSul/brasil3.jpg"),
       title: "Jardim Botânico - Curitiba",
     },
     {
+      id: "Cataratas do Iguaçu",
       source: require("../../../images/imagesAmericaSul/brasil4.jpg"),
       title: "Cataratas do Iguaçu",
     },
     {
+      id: "Beto Carrero World",
       source: require("../../../images/imagesAmericaSul/brasil5.jpg"),
       title: "Beto Carrero World",
     },

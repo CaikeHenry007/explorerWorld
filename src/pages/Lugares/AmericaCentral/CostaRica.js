@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Museu de Costa Rica",
     },
     {
+      id: "Playa Hermosa",
       source: require("../../../images/imagesAmericaCentro/costa2.jpg"),
       title: "Playa Hermosa",
     },
     {
+      id:"Rio Celeste",
       source: require("../../../images/imagesAmericaCentro/costa3.jpg"),
       title: "Rio Celeste",
     },
     {
+      id: "Mentatrail",
       source: require("../../../images/imagesAmericaCentro/costa4.jpg"),
       title: "Mentatrail",
     },
     {
+      id: "Parque Nacional Volcán Poás",
       source: require("../../../images/imagesAmericaCentro/costa5.jpg"),
       title: "Parque Nacional Volcán Poás",
     },

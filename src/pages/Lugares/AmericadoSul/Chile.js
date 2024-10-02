@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Valle Nevado",
     },
     {
+      id: "Torres Del Paine",
       source: require("../../../images/imagesAmericaSul/chile2.jpg"),
       title: "Torres Del Paine",
     },
     {
+      id: "Terra do Fogo",
       source: require("../../../images/imagesAmericaSul/chile3.jpg"),
       title: "Terra do Fogo",
     },
     {
+      id: "Moai States",
       source: require("../../../images/imagesAmericaSul/chile4.jpg"),
       title: "Moai States",
     },
     {
+      id: "Ilha De Pascoa",
       source: require("../../../images/imagesAmericaSul/chile5.jpg"),
       title: "Ilha De Pascoa",
     },

@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Vulcão Masaya",
     },
     {
+      id: "Little Corn Island",
       source: require("../../../images/imagesAmericaCentro/nicaragua2.jpg"),
       title: "Little Corn Island",
     },
     {
+      id: "Isletas de Granada",
       source: require("../../../images/imagesAmericaCentro/nicaragua3.jpg"),
       title: "Isletas de Granada",
     },
     {
+      id: "Cerro Negro",
       source: require("../../../images/imagesAmericaCentro/nicaragua4.jpg"),
       title: "Cerro negro",
     },
     {
+      id: "Catedral de León",
       source: require("../../../images/imagesAmericaCentro/nicaragua5.jpg"),
       title: "Catedral De León",
     },

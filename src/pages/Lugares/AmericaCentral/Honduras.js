@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Cayos Cochinos",
     },
     {
+      id: "Guinope",
       source: require("../../../images/imagesAmericaCentro/honduras2.jpg"),
       title: "Guinope",
     },
     {
+      id: "Lago de Yojoa",
       source: require("../../../images/imagesAmericaCentro/honduras3.jpg"),
       title: "Lago de Yojoa",
     },
     {
+      id: "Gumbalimba Park",
       source: require("../../../images/imagesAmericaCentro/honduras4.jpg"),
       title: "Gumbalimba Park",
     },
     {
+      id: "Little French Key",
       source: require("../../../images/imagesAmericaCentro/honduras5.jpg"),
       title: "Little French Key",
     },

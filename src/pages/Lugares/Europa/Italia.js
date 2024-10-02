@@ -25,27 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "torre de pisa",
+      id: "Torre de Pisa",
       source: require("../../../images/Europa/italia1.jpg"),
       title: "Torre de Pisa",
     },
     {
-      id: "coliseu",
+      id: "Coliseu",
       source: require("../../../images/Europa/italia2.jpg"),
       title: "Coliseu",
     },
     {
-      id: "catedral de milao",
+      id: "Catedral de Milão",
       source: require("../../../images/Europa/italia3.jpg"),
       title: "Catedral de Milão",
     },
     {
-      id: "ponte dos suspiros",
+      id: "Ponte dos Suspiros",
       source: require("../../../images/Europa/italia4.jpg"),
       title: "Ponte Dos Suspiros",
     },
     {
-      id: "panteao",
+      id: "Panteão",
       source: require("../../../images/Europa/italia5.jpg"),
       title: "Panteão",
     },

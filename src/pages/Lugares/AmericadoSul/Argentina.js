@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Teatro Colón",
     },
     {
+      id: "Mar Del Plata",
       source: require("../../../images/imagesAmericaSul/argentina2.jpg"),
       title: "Mar Del Plata",
     },
     {
+      id: "Glaciar Perito Moreno",
       source: require("../../../images/imagesAmericaSul/argentina3.jpg"),
       title: "Glaciar Perito Moreno",
     },
     {
+      id: "Cemitério da Recoleta",
       source: require("../../../images/imagesAmericaSul/argentina4.jpg"),
-      title: "Cemiterio da Recoleta",
+      title: "Cemitério da Recoleta",
     },
     {
+      id: "Parque Termal Cacheuta",
       source: require("../../../images/imagesAmericaSul/argentina5.jpg"),
       title: "Parque Termal Cacheuta",
     },

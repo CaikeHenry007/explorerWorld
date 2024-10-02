@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Parque Marrocoy",
     },
     {
+      id: "Tucacas",
       source: require("../../../images/imagesAmericaSul/venezuela2.jpg"),
       title: "Tucacas",
     },
     {
+      id: "Los Roches",
       source: require("../../../images/imagesAmericaSul/venezuela3.jpg"),
       title: "Los Roches",
     },
     {
+      id: "Isla Tortuga",
       source: require("../../../images/imagesAmericaSul/venezuela4.jpg"),
       title: "Isla Tortuga",
     },
     {
+      id: "Santo Angel",
       source: require("../../../images/imagesAmericaSul/venezuela5.jpg"),
       title: "Santo Angel",
     },

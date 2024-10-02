@@ -31,18 +31,22 @@ const SPACING = 20;
       
     },
     {
+      id: "Bocas Del Toro",
       source: require("../../../images/imagesAmericaCentro/panama2.jpg"),
       title: "Bocas Del Toro",
     },
     {
+      id: "Biomuseu Panamá",
       source: require("../../../images/imagesAmericaCentro/panama3.jpg"),
       title: "Biomuseu Panamá",
     },
     {
+      id: "Archipelago De San Blas",
       source: require("../../../images/imagesAmericaCentro/panama4.jpg"),
       title: "Archipelago De San Blas",
     },
     {
+      id: "Coiba",
       source: require("../../../images/imagesAmericaCentro/panama5.jpg"),
       title: "Coiba",
     },

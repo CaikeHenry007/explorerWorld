@@ -25,12 +25,12 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "National museum of qatar",
+      id: "National Museum of Qatar",
       source: require("../../../images/Asia/catar1.jpg"),
       title: "National Museum of Qatar",
     },
     {
-      id: "Villagio mall",
+      id: "Villagio Mall",
       source: require("../../../images/Asia/catar2.jpg"),
       title: "Villaggio Mall",
     },
@@ -40,12 +40,12 @@ const SPACING = 20;
       title: "Qatar National Library",
     },
     {
-      id: "Sealine beach mesaieed",
+      id: "Sealine Beach Mesaieed",
       source: require("../../../images/Asia/catar4.jpg"),
       title: "Sealine Beach, Mesaieed",
     },
     {
-      id: "Lusail winter wonderland",
+      id: "Lusail Winter Wonderland",
       source: require("../../../images/Asia/catar5.jpg"),
       title: "Lusail Winter Wonderland",
     },

@@ -25,27 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "santorini",
+      id: "Santorini",
       source: require("../../../images/Europa/grecia1.jpg"),
       title: "Santorini",
     },
     {
-      id: "museu do acropole",
+      id: "Museu do Acropole",
       source: require("../../../images/Europa/grecia2.jpg"),
       title: "Museu da Acrópole",
     },
     {
-      id: "metéora",
+      id: "Metéora",
       source: require("../../../images/Europa/grecia3.jpg"),
       title: "Metéora",
     },
     {
-      id: "navagio",
+      id: "Navagio",
       source: require("../../../images/Europa/grecia4.jpg"),
       title: "Navagio",
     },
     {
-      id: "knossos palace",
+      id: "Knossos Palace",
       source: require("../../../images/Europa/grecia5.jpg"),
       title: "Knossos Palace",
     },

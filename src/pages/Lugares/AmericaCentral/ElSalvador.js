@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Santa Ana Volcano",
     },
     {
+      id: "Lago de Coate Peque",
       source: require("../../../images/imagesAmericaCentro/elsalvador2.jpg"),
       title: "Lago De Coate Peque",
     },
     {
+      id: "Joya de Ceren",
       source: require("../../../images/imagesAmericaCentro/elsalvador3.jpg"),
       title: "Joya De Ceren",
     },
     {
+      id: "Cuevas de Moncagua",
       source: require("../../../images/imagesAmericaCentro/elsalvador4.jpg"),
       title: "Cuevas De Moncagua",
     },
     {
+      id: "Tazumal",
       source: require("../../../images/imagesAmericaCentro/elsalvador5.jpg"),
       title: "Tazumal",
     },

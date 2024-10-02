@@ -25,17 +25,17 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "Universal studios japan",
+      id: "Universal Studios Japan",
       source: require("../../../images/Asia/japao1.jpg"),
       title: "Universal Studios Japan",
     },
     {
-      id: "Parque de nara",
+      id: "Parque de Nara",
       source: require("../../../images/Asia/japao2.jpg"),
       title: "Parque de Nara",
     },
     {
-      id: "Hinjuku gyoen",
+      id: "Hinjuku Gyoen",
       source: require("../../../images/Asia/japao3.jpg"),
       title: "hinjuku Gyoen",
     },

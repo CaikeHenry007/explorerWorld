@@ -25,27 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "albert dock",
+      id: "Albert Dock",
       source: require("../../../images/Europa/inglaterra1.jpg"),
       title: "Albert Dock",
     },
     {
-      id: "tower bridge",
+      id: "Tower Bridge",
       source: require("../../../images/Europa/inglaterra2.jpg"),
       title: "Tower Bridge",
     },
     {
-      id: "palacio de buckingham",
+      id: "Palácio de Buckingham",
       source: require("../../../images/Europa/inglaterra3.jpg"),
       title: "Palácio de Buckingham",
     },
     {
-      id: "big ben",
+      id: "Big Ben",
       source: require("../../../images/Europa/inglaterra4.jpg"),
       title: "Big Ben",
     },
     {
-      id: "catedral de sao paulo",
+      id: "Catedral de São Paulo",
       source: require("../../../images/Europa/inglaterra5.jpg"),
       title: "Catedral de São Paulo",
     },

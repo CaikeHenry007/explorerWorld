@@ -25,27 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "Muralha da china",
+      id: "Muralha da China",
       source: require("../../../images/Asia/china1.jpg"),
       title: "Muralha da China",
     },
     {
-      id: "Cidade proibida",
+      id: "Cidade Proibida",
       source: require("../../../images/Asia/china2.jpg"),
       title: "Cidade Proibida",
     },
     {
-      id: "Jardim yu",
+      id: "Jardim Yu",
       source: require("../../../images/Asia/china3.jpg"),
       title: "Jardim Yu",
     },
     {
-      id: "Hong Kong disneyland",
+      id: "Hong Kong Disneyland",
       source: require("../../../images/Asia/china4.jpg"),
       title: "Hong Kong Disneyland",
     },
     {
-      id: "Grande buda de leshan",
+      id: "Grande Buda de Leshan",
       source: require("../../../images/Asia/china5.jpg"),
       title: "Grande Buda de Leshan",
     },

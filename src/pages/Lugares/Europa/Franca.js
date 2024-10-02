@@ -30,22 +30,22 @@ const SPACING = 20;
       title: "Jardim de Luxemburgo",
     },
     {
-      id: "torre eiffel",
+      id: "Torre Eiffel",
       source: require("../../../images/Europa/frança3.jpg"),
       title: "Torre Eiffel",
     },
     {
-      id: "arco do triunfo",
+      id: "Arco do Triunfo",
       source: require("../../../images/Europa/frança4.jpg"),
       title: "Arco do Triunfo",
     },
     {
-      id: "museu do louvre",
+      id: "Museu do Louvre",
       source: require("../../../images/Europa/frança5.jpg"),
       title: "Museu do Louvre",
     },
     {
-      id: "disneyland paris",
+      id: "Disneyland Paris",
       source: require("../../../images/Europa/frança6.jpg"),
       title: "Disneyland Paris",
     },

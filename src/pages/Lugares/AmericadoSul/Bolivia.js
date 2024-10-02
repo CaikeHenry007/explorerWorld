@@ -30,18 +30,22 @@ const SPACING = 20;
       title: "Lapoza Verde",
     },
     {
+      id: "Laguna Colorada",
       source: require("../../../images/imagesAmericaSul/bolivia2.jpg"),
       title: "Laguna Colorada",
     },
     {
+      id: "Isla Incahuasi",
       source: require("../../../images/imagesAmericaSul/bolivia3.jpg"),
       title: "Isla Incahuasi",
     },
     {
+      id: "Valle de La Luna",
       source: require("../../../images/imagesAmericaSul/bolivia4.jpg"),
       title: "Valle de La Luna",
     },
     {
+      id: "Isla Del Sol",
       source: require("../../../images/imagesAmericaSul/bolivia5.jpg"),
       title: "Isla Del Sol",
     },

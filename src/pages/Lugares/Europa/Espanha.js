@@ -25,27 +25,27 @@ const SPACING = 20;
 
   const places= [
     {
-      id: "museu do prado",
+      id: "Museu do Prado",
       source: require("../../../images/Europa/espanha1.jpg"),
       title: "Museu do Prado",
     },
     {
-      id: "cidade das artes e das ciencias",
+      id: "Cidade das Artes e das Ciências",
       source: require("../../../images/Europa/espanha2.jpg"),
       title: "Cidade das Artes e das Ciências",
     },
     {
-      id: "catedral de santiago de compostela",
+      id: "Catedral de Santiago de Compostela",
       source: require("../../../images/Europa/espanha3.jpg"),
       title: "Catedral de Santiago de Compostela",
     },
     {
-      id: "plaza da espana",
+      id: "Plaza da España",
       source: require("../../../images/Europa/espanha4.jpg"),
       title: "Plaza de España",
     },
     {
-      id: "museu guggenheim bilbao",
+      id: "Museu Guggenheim Bilbao",
       source: require("../../../images/Europa/espanha5.jpg"),
       title: "Museu Guggenheim Bilbao",
     },
